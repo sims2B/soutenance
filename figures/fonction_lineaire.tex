@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+[xscale= 1.5]
+
+\node[label={[shift={(-0.4,-0.4)}]$O$}] (O) at (0,0) {};
+\node[label={[shift={(0,-0.8)}]\textcolor{red!80!black!80}{$b_i^{min}$}}] (bmin) at (1,0) {};
+\node[label={[shift={(0,-0.8)}]\textcolor{red!80!black!80}{$b_i^{max}$}}] (bmax) at (4,0) {};
+
+\onslide<2->{
+\node[circle,draw=green!80!black!80] (j) at (1,1.5) {};}
+
+\draw[->] (O.center) -- (0,5) node[left] {$f_i(b)$};
+\draw[->] (O.center) -- (5,0) node[below] {$b$};
+
+\draw[domain=0:5] plot (\x,\x/2+1);
+
+\draw[dashed,red!80!black!80] (bmin.center) -- (1,5);
+\draw[dashed,red!80!black!80] (bmax.center) -- (4,5);
+
+\end{tikzpicture}

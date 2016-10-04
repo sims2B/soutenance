@@ -1,0 +1,199 @@
+\subsection{Branching scheme}
+
+\begin{frame}
+  \frametitle{Branching scheme {\small \it \color{gray!50!black!50} [Carlier \& Latapie, 1991]}}
+  \begin{itemize}
+    \vfill
+  \item Step 1: ER checker and ER adjustments on current node 
+    \vfill    
+  \item Step 2: Choose $st_i$ or $ft_i$ s.t. $[r_i,\smax]$ or
+    $[\emin,d_i]$ min
+    \vfill
+  \item Step 3: Create 2 nodes by separating the corresponding interval in 2 parts
+  \end{itemize}
+  \begin{overlayarea}{\textwidth}{4cm}
+    \only<1>{
+      \vfill
+      {\it Ex with $st_i$:}
+      \begin{center}
+        \input{/home/mnattaf/Documents/input_latex/branching.tex}
+      \end{center}
+    }
+    \only<2>{
+      \begin{itemize}
+      \item Repeat Step 1--4 until each interval $\inter[r_i][\smax]$ and $\inter[\emin][d_i]$ has a size smaller than a given $\epsilon$ (DFS)\\
+        \vspace{0.4cm}
+      \item MILP of the restricted problem
+        \begin{itemize}
+        \item If MILP solved the problem: STOP
+        \item else : backtrack
+        \end{itemize}
+      \end{itemize}
+    }
+  \end{overlayarea}
+  \vfill
+\end{frame}
+
+\subsection{Filtering algorithms}
+\subsubsection{Energetic reasoning checker}
+
+\begin{frame}
+  \frametitle{Energetic reasoning checker}
+  {\small adaptation of the energetic reasoning for CuSP {\color{gray!50!black!50} \it [Baptiste et al., 2001]}}
+  \vfill
+  We define the mandatory consumption of $i$ in interval $\inter$ as 
+  \[\bb=\min \int_{t_1}^{t_2} b_i(t) dt\]
+  \vfill
+  \input{/home/mnattaf/Documents/input_latex/ER_tab.tex}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Energetic reasoning checker}
+  We define the  slack function of interval $\inter$ as:
+  \begin{gather}
+    SL(t_1,t_2)={\color<2>{red}\text{ available space in
+      }\inter}-{\color<2>{blue!50!}\text{ total mandatory }} \nonumber\\ 
+        {\color<2>{blue!50!}\text{consumption in } \inter}\nonumber
+  \end{gather}
+  \begin{theorem}
+    If there exists an interval on which the slack function is negative then there is no solution
+  \end{theorem}
+  \vfill
+  \onslide<2>{
+    \begin{center}
+      \begin{tikzpicture}
+        [transform shape,xscale=0.7,yscale=0.5]
+        [inner sep=0pt]
+        \node (O) at (0,0) {};
+        \node[right of=O, node distance=6cm] (T) {};
+        \node[right of=O, node distance=2cm] (t1) {};
+        \node[right of=O, node distance=4cm] (t2) {};
+        
+        \draw[dashed] (0,4) node[left] {\Large$B$} -- (6,4);
+
+        \draw[->] (O) -- (T);
+
+        \draw[thick,red] (t1) -- (2,4.5);
+        \draw[thick,red] (t2) -- (4,4.5);
+
+        \draw[fill=blue!10!] (t1) node[above=2cm,left=0.6cm] {\color{blue!50!} \Large mandatory consumption} rectangle (4.5,4);
+        \draw[pattern=north west lines, pattern color=red] (t1) rectangle (4,4) node[below=2cm,right=0.8cm] {\color{red} \Large available resource};
+      \end{tikzpicture}
+    \end{center}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Relevant intervals}
+  {\bf Question: } On which intervals $\inter$?\\
+  \vfill
+  $\rightarrow$ Analysis of the variation of the slack function\\
+  \vfill
+  \begin{block}{Slack function}
+    \centering $SL(t_1,t_2)=B(t_2-t_1) - \sum_{i \in A} \bb$
+  \end{block}
+  \vspace{0.8cm}
+  $\rightarrow$ Variation of $SL(t_1,t_2)$ depends on variation of 
+  $\sum_{i \in A} \bb$
+  \vfill 
+\end{frame}
+
+
+\subsubsection{Energetic reasoning filter}
+
+\begin{frame}
+  \frametitle{Time window adjustments}
+  \vspace{0.4cm}
+  \begin{center}
+    \input{/home/mnattaf/Documents/input_latex/adjustments.tex}
+  \end{center}
+  \vfill
+  \begin{block}{Adjustments}
+    if {\color<1-3>{red!80!black!80} available space for $i$}$<${\color<2-3>{blue!80!black} consumption of $i$ starting at $r_i$}  then
+    \[\color<4>{blue!80!black}r_i \text{ can be adjusted}\]
+  \end{block}
+  \vfill
+\end{frame}
+
+\subsubsection{Other filtering algorithms}
+\begin{frame}{Other filtering algorithms}
+
+\end{frame}
+\subsection{Mixed Integer Linear Program}
+
+\begin{frame}{Justification of event-based model}
+
+\end{frame}
+\begin{frame}{Start/End model?}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{An event-based formulation}
+  {\small \it Adaptation of a model for the RCPSP {\color{gray!50!black!50} \it [Koné et al., 2011]}}
+  \vfill
+  \begin{block}{Variables}
+    \begin{itemize}
+    \item  $t_e$ represents the event (start or end time)
+      \vspace{0.3cm}
+    \item $z_{ie}=\left\{
+        \begin{array}{ll}
+          1 & \text{if $i$ is in process during $[t_{e},t_{e+1}]$}\\
+          0 & \text{sinon}
+        \end{array}
+      \right.
+      $
+      \vspace{0.3cm}
+    \item $B_{ie}$: resource quantity consumed by $i$ in $\inter[t_e][t_{e+1}]$
+      \vspace{0.3cm}
+    \item $W_{ie}$: energy brought to $i$ in $\inter[t_e][t_{e+1}]$   
+    \end{itemize}
+  \end{block}
+\end{frame}
+\subsection{Computational results}
+\begin{frame}
+  \frametitle{Computational results}
+  \begin{block}{Instance generation}
+    \begin{itemize}
+    \item 5 instances 10, 60 tasks, 10 instances of 20, 25, 30 tasks. 
+    \item random  $a_i$ and $c_i,\ \forall i \in A$, in ${[}1,10{]}$ and $W_i$ in ${[}0,f_i(W_i){]}$
+    \end{itemize}
+  \end{block}
+  \begin{block}{Configuration}
+    \begin{itemize}
+    \item Intel Core i7-4770 processor with 4 cores and 8Go of RAM
+    \item OS: 64-bit Ubuntu 12.04
+    \item MILP resolution: CPLEX 12.6  
+    \item BB : C++ and CPLEX at each leaf
+    \item time limit: 7200 seconds
+    \end{itemize}
+  \end{block}
+  
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Computational results}
+  \begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/BB_time.png}
+    \caption{Results of experiments for MILP model and hybrid branch-and-bound 
+      for various parameters $\epsilon$ (CPU time in sec.)}
+  \end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Computational results}
+  \begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/BB_solved.png}
+    \caption{Percentage of solved instances for MILP model and hybrid 
+      branch-and-bound (\% of solved instances)}
+  \end{figure}
+\vfill
+\end{frame}

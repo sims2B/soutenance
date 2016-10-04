@@ -1,0 +1,27 @@
+  \begin{tikzpicture}
+  [yscale=0.5,xscale=0.7]
+    \node[] (O) at (0,0) {};
+    \node[label={[shift={(-0.4,-0.4)}]$b_i^{min}$}] (bmin) at (0,1) {};
+    \node[label={[shift={(-0.4,-0.4)}]$b_i^{max}$}] (bmax) at (0,4) {};
+    \node[label={[shift={(0,-0.8)}]$t_1$}] (t1) at (4,0) {};
+    \node[label={[shift={(0,-0.8)}]$t_2$}] (t2) at (7,0) {};
+    \node[label={[shift={(0,-0.8)}]$d_i$}] (di) at (6,0) {};
+    \node[label={[shift={(0,-0.8)}]$r_i$}] (ri) at (1,0) {};
+    
+    \draw[->] (O.center) -- (8,0);
+    \draw (O.south) -- (bmax.north);
+    \draw (bmin.center) -- (8,1);
+    \draw (bmax.center) -- (8,4);
+    \draw[fill=white] (ri.center) rectangle (4,4);
+    \draw[pattern=north west lines] (ri.center) rectangle (4,4);
+    \draw[fill=white] (t1.center) rectangle (5,1.5);
+    \draw[pattern=north west lines] (t1.center) rectangle (5,1.5);
+    \draw(di.south) -- (di.center);
+    \draw(ri.south) -- (ri.center);
+    \draw[thick,color=green!80!black!80] (t1.south) -- (4,4.1);
+    \draw[thick,color=green!80!black!80] (di.south) -- (6,4.1);
+    \draw[] (t2.south) -- (7,4.1);
+
+    \draw[color=green!80!black!80,thick,decorate,decoration={brace,raise=0.1cm}] (4,4) -- (6,4) node[above=0.2cm,pos=0.5] {J};
+
+  \end{tikzpicture}

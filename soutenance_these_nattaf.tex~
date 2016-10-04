@@ -1,0 +1,126 @@
+\documentclass{beamer}
+\usepackage{etex}
+\input{/home/mnattaf/Documents/input_latex/usepackage.tex}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{pgfpages}
+\usepackage{blindtext}
+\usepackage[lang=en]{templateLAAS}
+
+\addtobeamertemplate{footline}{\insertframenumber/\inserttotalframenumber}
+
+ \setbeamersize{text margin left=25pt}
+  \setbeamersize{text margin right=25pt}
+\input{/home/mnattaf/Documents/input_latex/newcommand.tex}
+
+
+\title{Scheduling under Energy Constraints}
+\author{Margaux NATTAF}
+\institute{LAAS-CNRS Toulouse
+
+  Université Paul Sabatier Toulouse}
+
+
+\setbeamertemplate{itemize item}[ball]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{itemize subsubitem}[circle]
+
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
+\begin{document}
+
+{\canvasspecial
+  \begin{frame}
+    \vspace{1.5cm}
+    \begin{flushleft}
+      {\Large \bf \color{bleuLAAS}SCHEDULING UNDER ENERGY CONSTRAINTS}
+      
+      \vspace{0.3cm}
+      \small \color{bleuLAAS!90} defended by Margaux NATTAF
+
+      October 18, 2016
+    \end{flushleft}
+    \vspace{0.5cm}
+
+    {\footnotesize  \color{bleuLAAS!80}
+      Supervised by Christian ARTIGUES \& Pierre LOPEZ}
+
+    \vspace{1.5cm}
+    \begin{flushright} \color{bleuLAAS!70}
+      \scriptsize LAAS-CNRS, Toulouse
+
+      Université Paul Sabatier, Toulouse
+    \end{flushright}
+  \end{frame}}
+
+
+% \tableofcontents
+\setcounter{framenumber}{0}
+
+
+\begin{frame}{What is {\it Scheduling}?}
+  \vfill
+  \begin{block}{Larousse}
+    {\it Scheduling: }organization, methodic arrangement of the different
+    element of a set, of the  different phases of a fabrication.
+  \end{block}
+  \vfill
+  \begin{block}{Cambridge}
+    {\it Scheduling: }the job or activity of planning the times at which particular tasks will be done or events will happen.
+  \end{block}
+  \vfill  
+  \begin{block}{Wikipedia}
+    A {\it scheduling} problem consists in organizing the realization of
+    tasks throught time, given time constraints (setup time, precedence)
+    and constraints on the availability of required resources.
+  \end{block}
+  \vfill
+\end{frame}
+
+\begin{frame}{What is {\it Scheduling}?}
+\vspace{0.3cm}
+  \begin{block}{My thesis}
+    The {\bf scheduling} theory aims at computing {\bf activities execution
+      start/end times} subject to a certain number of {\bf
+      constraints} in order to optimize an {\bf objective}.    
+  \end{block}
+  \vspace{0.6cm}
+  \begin{description}
+  \item[activities :]  courses, landing/taking off, step in a
+    construction project... 
+    \vspace{0.2cm}
+  \item[constraints :]
+    \begin{itemize}
+    \item temporal $\rightarrow$ deadline, precedence, setup...
+    \item resource $\rightarrow$ availability, nature... 
+    \end{itemize}
+    \vspace{0.2cm}
+  \item[objective :] resource consumption, total cost, makespan,
+    tardiness... 
+    \vspace{0.2cm}
+  \end{description}
+\end{frame}
+
+\begin{frame}{Application : Time Table}
+  
+  {\usebeamercolor[fg]{item} activities: } is a set of courses\\[0.2cm]
+          {\usebeamercolor[fg]{item} temporal constraints: } Precedence relationship: lecture before
+            exercice, Analysis 1 before Analysis 2...\\[0.2cm]
+
+         {\usebeamercolor[fg]{item} resource constraints: }rooms, teachers, additionnal material...\\[0.2cm]
+
+         \vfill
+      \begin{center}
+      \includegraphics[scale=0.25]{figures/timetable.png}
+    \end{center}
+\vspace{-0.5cm}    
+\end{frame}
+
+\end{document}
+
+
+
+
+
+

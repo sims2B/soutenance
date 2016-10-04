@@ -1,0 +1,79 @@
+\begin{tikzpicture}
+ [yscale=0.5,xscale=0.7]
+ \node[] (O) at (0,0) {};
+ \node[label={[shift={(-0.4,-0.4)}]\small $b_i^{min}$}] (bmin) at (0,1) {};
+ \node[label={[shift={(-0.4,-0.4)}]\small $b_i^{max}$}] (bmax) at (0,4) {};
+
+
+  \draw[->] (O.center) -- (8,0);
+  \draw (O.south) -- (bmax.north);
+  \draw[dashed] (bmin.center) -- (8,1);
+  \draw[dashed] (bmax.center) -- (8,4);
+
+
+
+\onslide<1>{
+
+ \node[label={[shift={(0,-0.8)}]\small $t_1$}] (t1) at (2.5,0) {}; 
+ \node[label={[shift={(0,-0.8)}]\small $r_i$}] (ri) at (1.5,0) {};
+ 
+ \draw(ri.south) -- (ri.center);
+ \draw[thick] (t1.south) -- (2.5,4.1);
+ 
+ \draw[pattern=north west lines] (1.5,0) rectangle (2.5,4);
+ \draw[pattern=north west lines, pattern color=red!80!black!80] (2.5,0) rectangle (4.5,2);
+}
+
+\onslide<2>{
+ \node[label={[shift={(0,-0.8)}]\small $t_2$}] (t2) at (6,0) {};
+ \node[label={[shift={(0,-0.8)}]\small $d_i$}] (di) at (7,0) {};
+ 
+ \draw(di.south) -- (di.center);
+ \draw[thick] (t2.south) -- (6,4.1);
+ 
+ \draw[pattern=north west lines] (6,0) rectangle (7,4);
+ \draw[pattern=north west lines, pattern color=red!80!black!80] (6,0) rectangle (4,2);
+}
+
+\onslide<3>{
+ \node[label={[shift={(0,-0.8)}]\small $t_2$}] (t2) at (6,0) {};
+ \node[label={[shift={(0,-0.8)}]\small $d_i$}] (di) at (7,0) {};
+ \node[label={[shift={(0,-0.8)}]\small $t_1$}] (t1) at (2.5,0) {}; 
+ \node[label={[shift={(0,-0.8)}]\small $r_i$}] (ri) at (1.5,0) {};
+ 
+
+ \draw(ri.south) -- (ri.center);
+ \draw[thick] (t1.south) -- (2.5,4.1);
+ \draw(di.south) -- (di.center);
+ \draw[thick] (t2.south) -- (6,4.1);
+ 
+ 
+ \draw[pattern=north west lines] (6,0) rectangle (7,4);
+ \draw[pattern=north west lines, pattern color=red!80!black!80] (6,0) rectangle (2.5,2);
+ \draw[pattern=north west lines] (1.5,0) rectangle (2.5,4);
+ 
+}
+
+\onslide<4>{
+ \node[label={[shift={(0,-0.8)}]\small $t_2$}] (t2) at (6,0) {};
+ \node[label={[shift={(0,-0.8)}]\small $d_i$}] (di) at (7,0) {};
+ \node[label={[shift={(0,-0.8)}]\small $t_1$}] (t1) at (2.5,0) {}; 
+ \node[label={[shift={(0,-0.8)}]\small $r_i$}] (ri) at (1,0) {};
+ 
+
+ \draw(ri.south) -- (ri.center);
+ \draw[thick] (t1.south) -- (2.5,4.1);
+ \draw(di.south) -- (di.center);
+ \draw[thick] (t2.south) -- (6,4.1);
+ 
+ 
+ \draw[pattern=north west lines] (6,0) rectangle (7,4);
+ \draw[pattern=north west lines, pattern color=red!80!black!80] (6,0) rectangle (2.5,1);
+ \draw[pattern=north west lines] (1.5,0) rectangle (2.5,4);
+ 
+}
+
+ 
+
+
+\end{tikzpicture}

@@ -1,0 +1,43 @@
+\begin{tikzpicture}
+ [yscale=0.5,xscale=0.9]
+ \node[] (O) at (0,0) {};
+ \node[label={[shift={(-0.4,-0.4)}]\small $b_i^{min}$}] (bmin) at (0,1) {};
+ \node[label={[shift={(-0.4,-0.4)}]\small $b_i^{max}$}] (bmax) at (0,4) {};
+ \node[label={[shift={(-0.4,-0.4)}]\small $B$}] (B) at (0,6) {};
+ \node[label={[shift={(0,-0.8)}]\small $t_1$}] (t1) at (2.5,0) {}; 
+ \node[label={[shift={(0,-0.8)}]\small $r_i$}] (ri) at (1.5,0) {};
+ \node[label={[shift={(0,-0.8)}]\small $t_2$}] (t2) at (6,0) {};
+ %\node[label={[shift={(0,-0.8)}]\small $d_i$}] (di) at (7,0) {};
+ 
+
+\onslide<5->{
+\draw[pattern=north west lines, pattern color=red!80!black!80] (4.25,1) --(6,1) -- (6,6) -- (2.5,6) -- (2.5,0) -- (4.25,0) -- cycle;;
+%\draw[color=white,pattern=north west lines, pattern color=red!80!black!80] (4.25,0) rectangle (2.5,6);
+\draw[pattern=north east lines, pattern color=blue!80!black!80] (4.25,0) rectangle (6,1);
+\draw[pattern=north east lines, pattern color=black!80] (6,0) rectangle (7.5,4);
+\draw[white,dashed] (6,0) rectangle (7.5,4);
+} 
+  \draw[->] (O.center) -- (8,0);
+  \draw (O.south) -- (B.north);
+  \draw (B.center) -- (8,6);
+  \draw[dashed] (bmin.center) -- (8,1);
+  \draw[dashed] (bmax.center) -- (8,4);
+  \draw(ri.south) -- (ri.center);
+%  \draw(di.south) -- (di.center);
+  \draw[thick] (t1.south) -- (2.5,6.1);
+  \draw[thick] (t2.south) -- (6,6.1);
+  \onslide<1>{
+    \draw[pattern=north west lines, pattern color=red!80!black!80] (t1.center) rectangle (6,6);}
+  \onslide<2-4>{
+    \draw[pattern=north west lines, pattern color=red!80!black!80] (2.5,0.5) rectangle (6,6);}
+  \onslide<3-4>{
+\draw[pattern=north east lines, pattern color=blue!80!black!80] (1.5,0) rectangle (2.5,4);}
+  \onslide<3>{
+\draw[pattern=north east lines, pattern color=blue!80!black!80] (2.5,0) rectangle (6,2);
+}
+\onslide<4>{
+\draw[pattern=north east lines, pattern color=blue!80!black!80] (6,0) rectangle (7,4);
+\draw[pattern=north east lines, pattern color=blue!80!black!80] (2.5,0) rectangle (6,1);
+} 
+
+\end{tikzpicture}

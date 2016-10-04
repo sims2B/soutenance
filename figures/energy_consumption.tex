@@ -1,0 +1,25 @@
+  \begin{tikzpicture}
+  [yscale=0.4,xscale=0.5]
+    \node[] (O) at (0,0) {};
+    \node[label={[shift={(-0.4,-0.4)}]\small $b_i^{min}$}] (bmin) at (0,1) {};
+    \node[label={[shift={(-0.4,-0.4)}]\small $b_i^{max}$}] (bmax) at (0,4) {};
+    \node[label={[shift={(0,-0.8)}]\small $t_1$}] (t1) at (4,0) {};
+    \node[label={[shift={(0,-0.8)}]\small $t_2$}] (t2) at (7,0) {};
+    \node[label={[shift={(0,-0.8)}]\small $d_i$}] (di) at (6,0) {};
+    \node[label={[shift={(0,-0.8)}]\small $r_i$}] (ri) at (1,0) {};
+    
+    \draw[->] (O.center) -- (8,0);
+    \draw (O.south) -- (bmax.north);
+    \draw (bmin.center) -- (8,1);
+    \draw (bmax.center) -- (8,4);
+    \draw[fill=white] (ri.center) rectangle (4,4);
+    \draw[pattern=north west lines] (ri.center) rectangle (4,4);
+    \draw[fill=white] (t1.center) rectangle (5,1.5);
+    \draw[pattern=north west lines] (t1.center) rectangle (5,1.5);
+    \draw(di.south) -- (di.center);
+    \draw(ri.south) -- (ri.center);
+    \draw[thick] (t1.south) -- (4,4.1);
+    \draw[thick] (t2.south) -- (7,4.1);
+
+    \draw[color=red!80!black!80,thick,<->] (1,4.5) -- (4,4.5) node[above,pos=0.5] {\bf $I$};
+  \end{tikzpicture}

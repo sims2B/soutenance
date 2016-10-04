@@ -1,0 +1,83 @@
+\documentclass{beamer}
+\usepackage{etex}
+\input{/home/mnattaf/Documents/input_latex/usepackage.tex}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{pgfpages}
+\usepackage{blindtext}
+\usepackage[lang=en]{templateLAAS}
+
+%\addtobeamertemplate{footline}{\insertframenumber/\inserttotalframenumber}
+
+ \setbeamersize{text margin left=25pt}
+  \setbeamersize{text margin right=25pt}
+\input{/home/mnattaf/Documents/input_latex/newcommand.tex}
+
+
+\title{Scheduling under Energy Constraints}
+\author{Margaux NATTAF}
+\institute{LAAS-CNRS Toulouse
+
+  Université Paul Sabatier Toulouse}
+
+
+\setbeamertemplate{itemize item}[ball]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{itemize subsubitem}[circle]
+
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
+\begin{document}
+
+{\canvasspecial
+  \begin{frame}
+    \vspace{1.5cm}
+    \begin{flushleft}
+      {\Large \bf \color{bleuLAAS}SCHEDULING UNDER ENERGY CONSTRAINTS}
+      
+      \vspace{0.3cm}
+      \small \color{bleuLAAS!90} defended by Margaux NATTAF
+
+      October 18, 2016
+    \end{flushleft}
+    \vspace{0.5cm}
+
+    {\footnotesize  \color{bleuLAAS!80}
+      Supervised by Christian ARTIGUES \& Pierre LOPEZ}
+
+    \vspace{1.5cm}
+    \begin{flushright} \color{bleuLAAS!70}
+      \scriptsize LAAS-CNRS, Toulouse
+
+      Université Paul Sabatier, Toulouse
+    \end{flushright}
+  \end{frame}}
+
+
+% \tableofcontents
+\setcounter{framenumber}{0}
+
+\section{Introduction}
+
+\input{introduction.tex}
+\section{Problem Properties}
+\input{properties.tex}
+\section{Hybrid Branch-and-Bound}
+\input{hybridBB.tex}
+
+\section{Improvement of the On/Off MILP}
+\input{improvement.tex}
+
+\section{The Discrete Case}
+\begin{frame}{Approximation of efficiency functions with the CECSP$_{lin}$}
+  
+\end{frame}
+\section{General Conclusions and Perspectives}
+\end{document}
+
+
+
+
+
+
