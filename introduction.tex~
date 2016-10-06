@@ -96,33 +96,38 @@
 
 \begin{frame}
   \frametitle{The Cumulative Scheduling Problem} 
-\vspace{0.1cm}
+\vfill
  \textbf{Inputs : }
-\vspace{0.15cm}
+\vfill
   \begin{itemize}
   \item a set ${\cal A}=\{1,\dots ,n\}$ of non-preemptive tasks
-\vspace{0.15cm}
+      \vfill
     \item a cumulative and renewable resource available in quantity $B$
-\vspace{0.15cm}
+      \vfill
     \item<2-> for each task:
-      \vspace{-1cm}
       \begin{columns}
         \hfill
-        \begin{column}{0.36\linewidth}
+        \begin{column}{0.5\linewidth}
+          \vspace{-0.5cm}
           \begin{itemize}
           \item<2-> \footnotesize  a processing time $p_i$
+            \vfill
           \item<3-> \footnotesize a resource consumption $b_i$ 
+            \vfill
           \item<4-> \footnotesize a release date $r_i$ and a deadline $d_i$ 
+            \vfill
           \end{itemize}
         \end{column}
-        \begin{column}{0.7\linewidth}
+        \hfill
+        \begin{column}{0.4\linewidth}
           \centering
+          \vspace{0.8cm}
           \input{figures/form1_CuSP.tex}
       \end{column} 
     \end{columns}
   \end{itemize}
-\vspace{-0.5cm}
-\onslide<6->{
+\vfill
+\only<5->{
 \textbf{Application : }
 \vfill
   \begin{itemize}
@@ -131,17 +136,19 @@
 \end{frame}
 
 
-% \begin{frame}{Solution methods for the CuSP}
+\begin{frame}{Solution methods for the CuSP}
   
-% \end{frame}
+\end{frame}
 
 \begin{frame}
   \frametitle{Limitations}
  \vspace{0.5cm}
   \begin{itemize}
-  \item {Limitation} : tasks have fixed duration and resource consumption
+  \item Several scheduling problems deal with resource constraints
     \vfill
-  \item<2-> But, in practice, it is not always the case\\
+  \item {Limitation} : fixed duration and resource consumption
+    \vfill
+  \item<4-> But, in practice, it is not always the case\\
    \end{itemize}
   \vspace{1cm}
   \begin{columns}
@@ -151,20 +158,17 @@
       \begin{tikzpicture}
         [xscale=0.5,yscale=0.4]
         \node (O) at (0,0) {};
-          \draw[fill=red!80!black!80] (0,0) rectangle (6,2) node[midway] {$1$};
-          \draw[fill=blue!80!black!80] (0,2) rectangle (4,5) node[midway] {$2$};
-          \draw[fill=orange!80!black!80] (4,5) rectangle (6,2) node[midway] {$3$};
-          \draw[->](-0.2,-0.2) -- (-0.2,5.5) node[midway,below,rotate=-90] {\footnotesize resource};
-        
-        \draw[->] (-0.2,-0.2) -- (6.5,-0.2) node[midway,below]
-        {\footnotesize duration};
-        \foreach \i in {1,...,5}{
-          \draw (-0.3,\i) -- (-0.2,\i);
-          \draw (\i, -0.3) -- (\i,-0.2);
-}
-\onslide<3->{
-          \draw (-0.3,5) -- (-0.2,5) node[left] {\scriptsize  $5$};
-          \draw (6, -0.3) -- (6,-0.2) node[below] {\scriptsize  $6$};}
+        \onslide<2>{
+          \draw (0,0) rectangle (6,2);
+          \draw[->](-0.2,-0.2) -- (-0.2,2) node[midway,below,rotate=-90] {\footnotesize resource};}
+        \onslide<3->{
+          \draw (0,0) rectangle (6,2) node[midway] {$1$};
+          \draw (0,2) rectangle (4,5) node[midway] {$2$};
+          \draw (4,5) rectangle (6,2) node[midway] {$3$};
+          \draw[->](-0.2,-0.2) -- (-0.2,5) node[midway,below,rotate=-90] {\footnotesize resource};
+        }
+        \onslide<2->{
+        \draw[->] (-0.2,-0.2) -- (6,-0.2) node[midway,below] {\footnotesize duration};}
       \end{tikzpicture}
     \end{column}
     \hfill
@@ -173,65 +177,23 @@
       \begin{tikzpicture}
         [xscale=0.5,yscale=0.4]
         \node (O) at (0,0) {};
-        \onslide<3->{
-         \onslide<4->{ 
-           \path[draw,fill=blue!80!black!80] (3,2) -- (2,2) -- (2,5) -- (4,5) -- (4,2) -- (6,2) --
-           (6,0) --(3,0); 
-           \path[draw] (0,0) -- (0,5) -- (2,5) -- (2,2) -- (3,2)
-           node[above=0.2cm] {$2$} -- (3,0)-- cycle; 
-            \draw[fill=orange!80!black!80] (4,2) rectangle (6,5) node[midway] {$3$};}
-          \draw[->] (-0.2,-0.2) -- (6.5,-0.2) node[midway,below] {\footnotesize duration};
-
-          \path[draw,fill=red!80!black!80] (0,0) node[above=1cm,right=0.3cm] {$1$}-- (0,5) -- (2,5) -- (2,2) -- (3,2) -- (3,0)-- cycle;
-          \draw[->](-0.2,-0.2) -- (-0.2,5.5)
-          node[midway,below,rotate=-90] {\footnotesize resource};
-        \foreach \i in {1,...,5}{
-          \draw (-0.3,\i) -- (-0.2,\i);
-          \draw (\i, -0.3) -- (\i,-0.2);}
-
-          \draw (-0.3,5) -- (-0.2,5) node[left] {\scriptsize $5$};
-          \draw (6, -0.3) -- (6,-0.2) node[below] {\scriptsize  $6$};}
+        \onslide<5> {
+          \draw[->] (-0.2,-0.2) -- (3,-0.2) node[midway,below] {\footnotesize duration};}
+        \onslide<6->{
+          \path[draw] (0,0) -- (0,5) -- (2,5) -- (2,2) -- (3,2)  node[above=0.2cm] {$2$} -- (3,0)-- cycle;
+          \path[draw] (2,5) -- (4,5) -- (4,2) -- (6,2) -- (6,0) --(3,0);
+          \draw (4,2) rectangle (6,5) node[midway] {$3$};
+          \draw[->] (-0.2,-0.2) -- (6,-0.2) node[midway,below] {\footnotesize duration};
+        }
+        \onslide<5-> {
+          \path[draw] (0,0) node[above=1cm,right=0.3cm] {$1$}-- (0,5) -- (2,5) -- (2,2) -- (3,2) -- (3,0)-- cycle;
+          \draw[->](-0.2,-0.2) -- (-0.2,5) node[midway,below,rotate=-90] {\footnotesize resource};}
       \end{tikzpicture}
     \end{column}
 \hfill
   \end{columns}
 \end{frame}
 
-
-\begin{frame}{Motivating Problem}
-\vfill
-\begin{block}{}
-  \begin{center}
-    {\bf \large   pipe-manufacturing plant}
-    
-    \vspace{0.2cm}
-    \includegraphics[scale=0.1]{pipe.jpg}
-
-  \begin{tikzpicture}[yscale=.6]
-    \node (O) at (0,0) {};
-    \draw[-latex,ultra thick, bleuLAAS!100!black!50] (O.center) -- (-3,-1.5);
-    \draw[-latex,ultra thick, bleuLAAS!100!black!50] (O.center) -- (0,-1.5);
-    \draw[-latex,ultra thick, bleuLAAS!100!black!50] (O.center) -- (3,-1.5);
-  
-   \onslide<1-3>{ \node[draw] at (-3.4,-2.1) {drawing mill}; 
-    \node[draw] at (3.5,-2.1) {pipe-tubing};}
-    \node[draw] at (0,-2.1) {foundry};
-  \end{tikzpicture}
-  \end{center}
-\end{block}
-\vfill
-\pause
-  \begin{itemize}
-  \item melting and heating use a {\bf HUGE} quantity of energy
-\vfill
-\pause
-  \item $\Rightarrow$ high electricity cost:
-    \begin{itemize}
-    \item total energy consumed
-    \item penalty for power overrun
-    \end{itemize}
-  \end{itemize}
-\end{frame}
 
 \begin{frame}
   \frametitle{Motivating Problem: Melting metal in a foundry}
