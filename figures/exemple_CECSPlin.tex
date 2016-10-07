@@ -1,0 +1,58 @@
+
+
+\begin{columns}
+  \begin{column}{0.5\linewidth}
+    \begin{center}
+      \begin{tabular}{|M{0.4cm}|M{0.4cm}M{0.4cm}M{0.4cm}M{0.4cm}M{0.4cm}M{1.2cm}|}
+        \hline
+        $i$ & $r_i$ & $d_i$ & $W_i$ & $\bmin$ & $\bmax$ & $f_i(b)$\\[2mm]
+        \hline
+        1 & 0 & 2 & 6 & 3 & 3 & $b$\\[2mm]
+        2 & 1 & 5 & 22 & 3 & 4 & $\rightarrow$ \\[2mm]
+        3 & 0 & 6 & 39 & 1 & 5 & $3b+1$\\[2mm]
+        \hline
+        \multicolumn{7}{c}{}
+      \end{tabular}
+    \end{center}
+  \end{column}
+\hfill
+    \begin{column}{0.4\linewidth}
+\begin{tikzpicture}
+[xscale=1,yscale=0.56]
+\node (O) at (2,5) {};
+\draw[->] (2,4) -- (5.5,4) node[below] {$b$}; 
+\draw[dashed] (2,4) -- (2,5.5);
+\draw[->] (2,5.5) -- (2,10) node[left] {$f_2(b)$};
+
+
+\path[draw] (3,6) -- (4,8) -- (5,9) ;
+
+\draw[dotted] (3,4) node[below] {\footnotesize $3$} -- (3,10);
+\draw[dotted,color=gray!70] (4,4) node[below,color=black] {\footnotesize $4$}
+-- (4,10);
+\draw[dotted] (5,4) node[below] {\footnotesize $5$} -- (5,10);
+
+\draw (2,6) node[left] {\footnotesize $6$};
+\draw (2,8) node[left] {\footnotesize $8$};
+\draw (2,9) node[left] {\footnotesize $9$};
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\pause
+  \begin{columns}
+    \begin{column}{0.45\linewidth}
+      \onslide<2->{
+        \input{figures/fig_exemple_CECSPlin.tex}
+      }
+    \end{column}
+    \hfill
+    \begin{column}{0.45\linewidth}
+      \newbox\hautbox \setbox\hautbox=\hbox{\vphantom{\rule[-0.4cm]{0cm}{0.9cm}}}
+      \begin{tabular}{@{\usebox{\hautbox}}l}
+        \onslide<4->{$\int_0^{4} b_1(t)dt=?$} \\
+        \onslide<5->{$\int_0^{2}${\color<5>{red!80!black!80}{$5$}}$dt$}\onslide<6->{$+\int_2^{4}${\color<6>{red!80!black!80}{$1$}}$dt$}\\
+        \onslide<7->$=10+2=12$\\
+      \end{tabular}
+    \end{column}
+    \hfill
+  \end{columns}
