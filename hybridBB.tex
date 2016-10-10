@@ -43,9 +43,9 @@
   \frametitle{Energetic reasoning checker}
   We define the  slack function of interval $\inter$ as:
   \begin{gather}
-    SL(t_1,t_2)={\color<2>{red}\text{ available space in
-      }\inter}-{\color<2>{blue!50!}\text{ total mandatory }} \nonumber\\ 
-    {\color<2>{blue!50!}\text{consumption in } \inter}\nonumber
+    SL(t_1,t_2)={\color<2>{red!80!black!80}\text{ available space in
+      }\inter}-{\color<2>{blue!80!black!80}\text{ total mandatory }} \nonumber\\ 
+    {\color<2>{blue!80!black!80}\text{consumption in } \inter}\nonumber
   \end{gather}
   \begin{theorem}
     If there exists an interval on which the slack function is negative then there is no solution
@@ -68,7 +68,7 @@
         \draw[thick,red] (t1) -- (2,4.5);
         \draw[thick,red] (t2) -- (4,4.5);
 
-        \draw[fill=blue!10!] (t1) node[above=2cm,left=0.6cm] {\color{blue!50!} \Large mandatory consumption} rectangle (4.5,4);
+        \draw[fill=blue!50!black!50] (t1) node[above=2cm,left=0.6cm] {\color{blue!80!black!80} \Large mandatory consumption} rectangle (4.5,4);
         \draw[pattern=north west lines, pattern color=red] (t1) rectangle (4,4) node[below=2cm,right=0.8cm] {\color{red} \Large available resource};
       \end{tikzpicture}
     \end{center}}
@@ -84,7 +84,6 @@
   In order to compute this quantity we also define the minimum energy
   consumption of $i$ in interval $\inter$ as:
   \[\wb=\min \int_{t_1}^{t_2} f_i(b_i(t)) dt\]
-  \vfill
 \end{frame}
 
 

@@ -54,14 +54,24 @@
     \end{flushright}
   \end{frame}}
 
-
+\setcounter{tocdepth}{1}
+\begin{frame}{Contents}
  \tableofcontents
+\end{frame}
+
 \setcounter{framenumber}{0}
 
 \section{Introduction}
 
 \input{introduction.tex}
-
+\setcounter{tocdepth}{2}
+\AtBeginSection[]
+{
+   \begin{frame}
+        \frametitle{Contents}
+        \tableofcontents[currentsection]
+   \end{frame}
+}
 \section{Problem Properties}
 \input{properties.tex}
 \section{Hybrid Branch-and-Bound}

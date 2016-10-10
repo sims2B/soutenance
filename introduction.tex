@@ -198,8 +198,9 @@
 \end{frame}
 
 
-\begin{frame}{Motivating Problem}
-\vfill
+\begin{frame}{Motivating Problem
+ {\small \it \color{gray!50!black!50} [Artigues et al., 2013]}} 
+  \vfill
 \begin{block}{}
   \begin{center}
     {\bf \large   pipe-manufacturing plant}
@@ -237,8 +238,8 @@
 
 
 \begin{frame}
-  \frametitle{Motivating Problem: Melting metal in a foundry}
-  {\small \it \color{gray!50!black!50} [Artigues et al., 2013]}
+  \frametitle{Motivating Problem 
+ {\small \it \color{gray!50!black!50} [Artigues et al., 2013]}}
   \vfill
   \begin{columns}
     \begin{column}{0.5\linewidth}
@@ -271,27 +272,21 @@
     \vfill
   \item {\bf Cumulative Scheduling Problem (CuSP)}, {\color{gray!50!black!50} \it [Erschler \& Lopez, 1990] },{\color{blue!80!black!80} fixed resource consumption}
     \vfill
-  \item {\bf Fully elastic scheduling}, {\color{gray!50!black!50} \it [Baptiste et al, 1999]}, {\color{blue!80!black!80} no upper and lower bound on the consumption}
+  \item {\bf Fully elastic scheduling}, {\color{gray!50!black!50} \it [Baptiste et al., 1999]}, {\color{blue!80!black!80} no upper and lower bound on the consumption}
     \vfill
-  \item {\bf Maximal energy filtering}, {\color{gray!50!black!50} \it [Vil\'im, 2009]}, {\color{blue!80!black!80} no fixed energy requirement}
+  \item {\bf Variable Intensity}, {\color{gray!50!black!50} \it [Kis, 2005]}, {\color{blue!80!black!80} no lower bound on the consumption}
     \vfill  
   \item {\bf Scheduling with continuous resource}, {\color{gray!50!black!50}\it [Blazewicz et al., 2006]}, {\color{blue!80!black!80}  no upper and lower bound}
     \vfill
-  \item {\bf Trapezoidal case}, {\color{gray!50!black!50}\it [Beldiceanu \& Poder, 2007]},
-    {\color{blue!80!black!80} fixed task shape and no fixed required energy}
+  \item {\bf Multimode RCPSP}, {\color{gray!50!black!50}\it [De Reyck
+      et al., 1998]},
+    {\color{blue!80!black!80} tasks have rectangular shape}
   \end{itemize}
   \vfill
 \end{frame}
 
-% \begin{frame}{The Energy Scheduling Problem (EnSP)}
-  
-% \end{frame}
 
-% \begin{frame}{Solution Method for the EnSP and limitations}
-  
-% \end{frame}
-
-\begin{frame}{The Continuous Energy Constrained Scheduling Problem (CECSP)}
+\begin{frame}{The Continuous Energy Constrained Scheduling Problem }
    Generalization of the CuSP
    \begin{itemize}
      \vfill
@@ -400,7 +395,10 @@
      \end{enumerate}
      \vfill
    \item   \[W_i=\int_{st_i}^{ft_i}b_i(t)dt \rightarrow W_i=\int_{st_i}^{ft_i}f_i(b_i(t))dt\]
-   \end{itemize}
+     \vfill
+   \item   linear and concave piecewise linear approximation of more
+     general efficiency functions.
+ \end{itemize}
    \vfill
  \end{frame}
  
