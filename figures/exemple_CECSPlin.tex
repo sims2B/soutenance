@@ -3,22 +3,22 @@
 \begin{columns}
   \begin{column}{0.5\linewidth}
     \begin{center}
-      \begin{tabular}{|M{0.4cm}|M{0.4cm}M{0.4cm}M{0.4cm}M{0.4cm}M{0.4cm}M{1.2cm}|}
+      {\small \begin{tabular}{|M{0.4cm}|M{0.4cm}M{0.4cm}M{0.4cm}M{0.4cm}M{0.4cm}M{1.2cm}|}
         \hline
-        $i$ & $r_i$ & $d_i$ & $W_i$ & $\bmin$ & $\bmax$ & $f_i(b)$\\[2mm]
+        $i$ & $r_i$ & $d_i$ & $W_i$ & $\bmin$ & $\bmax$ & $f_i(b)$\\[1mm]
         \hline
-        1 & 0 & 2 & 6 & 3 & 3 & $b$\\[2mm]
-        2 & 1 & 5 & 22 & 3 & 4 & $\rightarrow$ \\[2mm]
-        3 & 0 & 6 & 39 & 1 & 5 & $3b+1$\\[2mm]
+        1 & 0 & 2 & 6 & 3 & 3 & $b$\\[1mm]
+        \color<3->{red!80!black!80}2 & \color<3->{red!80!black!80}1 & \color<3->{red!80!black!80}5 & \color<3->{red!80!black!80}22 & \color<3->{red!80!black!80}3 & \color<3->{red!80!black!80}4 & \color<3->{red!80!black!80}$\rightarrow$ \\[1mm]
+         3 & 0 &6 & 45 & 1 & 5 & $3b+1$\\[1mm]
         \hline
         \multicolumn{7}{c}{}
-      \end{tabular}
+      \end{tabular}}
     \end{center}
   \end{column}
 \hfill
     \begin{column}{0.4\linewidth}
 \begin{tikzpicture}
-[xscale=1,yscale=0.56]
+[xscale=0.8,yscale=0.45]
 \node (O) at (2,5) {};
 \draw[->] (2,4) -- (5.5,4) node[below] {$b$}; 
 \draw[dashed] (2,4) -- (2,5.5);
@@ -46,13 +46,16 @@
       }
     \end{column}
     \hfill
-    \begin{column}{0.45\linewidth}
-      \newbox\hautbox \setbox\hautbox=\hbox{\vphantom{\rule[-0.4cm]{0cm}{0.9cm}}}
+       \begin{column}{0.45\linewidth}{
+\vspace{-0.1cm}       
+       \small
+      \newbox\hautbox \setbox\hautbox\hbox{\vphantom{\rule[-0.4cm]{0cm}{0.8cm}}}
       \begin{tabular}{@{\usebox{\hautbox}}l}
-        \onslide<4->{$\int_0^{4} b_1(t)dt=?$} \\
-        \onslide<5->{$\int_0^{2}${\color<5>{red!80!black!80}{$5$}}$dt$}\onslide<6->{$+\int_2^{4}${\color<6>{red!80!black!80}{$1$}}$dt$}\\
-        \onslide<7->$=10+2=12$\\
-      \end{tabular}
+        \onslide<4->{$\int_2^{5} f_2(b_2(t))dt=?$} \\
+        \onslide<5->{$\int_2^{3} f_2(3) dt$}\onslide<6->{$+\int_3^{5} f_2(4) dt$=}\\
+	    \onslide<7->{$\int_2^{3} 6 dt$}\onslide<8->{$+\int_3^{5} 8 dt$=}\\
+       \onslide<9->{$6$}\onslide<10->{$+16=$}\onslide<11->{$22$}\\
+              \end{tabular}}
     \end{column}
     \hfill
   \end{columns}

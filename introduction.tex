@@ -112,7 +112,7 @@
           \begin{itemize}
           \item<2-> \footnotesize  a processing time $p_i$
           \item<3-> \footnotesize a resource consumption $b_i$ 
-          \item<4-> \footnotesize a release date $r_i$ and a deadline $d_i$ 
+          \item<4-> \footnotesize a release date $est_i$ and a deadline $lst_i$ 
           \end{itemize}
         \end{column}
         \begin{column}{0.7\linewidth}
@@ -343,7 +343,7 @@
      Output: A scheduling, i.e. a start time $st_i$, an end time $ft_i$ and a resource allocation function $b_i(t)$, such that:
    }
    \begin{overlayarea}{\linewidth}{1cm}
-     \only<3>{\[r_i\le st_i\le ft_i \le d_i\]}
+     \only<3>{\[est_i\le st_i\le ft_i \le lst_i\]}
      \only<4>{\[\bmin \le b_i(t) \le \bmax \quad \forall t \in \inter[st_i][ft_i]\]}
      \only<5>{\[b_i(t)=0\quad \forall t \not\in \inter[st_i][ft_i]\]}
      \only<6>{\[\int_{st_i}^{ft_i}b_i(t)dt=W_i\]}
@@ -426,13 +426,13 @@
            \node (O) at (0,0) {};
 
            \draw[->] (0,0) -- (1.28,0) node[below] {\footnotesize $b$};
-           \draw[->] (0,0) -- (0,1.3) node[left] {\footnotesize$f_i(b)$};
+           \draw[->] (0,0) -- (0,1.3) node[left] {\footnotesize $f_i(b)$};
 
-           \draw (0,1) -- (-0.02,1) node[left] {\footnotesize$1$};
-           \draw (0,0.5) -- (-0.02,0.5) node[left] {\footnotesize$\sqrt{0.25}$};
+           \draw (0,1) -- (-0.02,1) node[left] {\footnotesize $1$};
+           \draw (0,0.5) -- (-0.02,0.5) node[left] {\footnotesize $\sqrt{0.25}$};
 
-           \draw (1,0) -- (1,-0.02) node[below] {\footnotesize$1$};
-           \draw (0.25,0) -- (0.25,-0.02) node[below] {\footnotesize$0.25$};
+           \draw (1,0) -- (1,-0.02) node[below] {\footnotesize $1$};
+           \draw (0.25,0) -- (0.25,-0.02) node[below] {\footnotesize $0.25$};
 
            \draw[color=gray,domain=0:1.28,samples=50] plot ({\x},{sqrt(\x)});
            \draw[dashed,thick,domain=0.25:1,samples=50] plot
@@ -453,14 +453,14 @@
            [xscale=3,yscale=2.5]
            \node (O) at (0,0) {};
 
-           \draw[->] (0,0) -- (1.28,0) node[below] {\footnotesize$b$};
-           \draw[->] (0,0) -- (0,1.3) node[left] {\footnotesize$f_i(b)$};
+           \draw[->] (0,0) -- (1.28,0) node[below] {\footnotesize $b$};
+           \draw[->] (0,0) -- (0,1.3) node[left] {\footnotesize $f_i(b)$};
 
-           \draw (0,1) -- (-0.02,1) node[left] {\footnotesize$1$};
-           \draw (0,0.5) -- (-0.02,0.5) node[left] {\footnotesize$\sqrt{0.25}$};
+           \draw (0,1) -- (-0.02,1) node[left] {\footnotesize $1$};
+           \draw (0,0.5) -- (-0.02,0.5) node[left] {\footnotesize $\sqrt{0.25}$};
 
-           \draw (1,0) -- (1,-0.02) node[below] {\footnotesize$1$};
-           \draw (0.25,0) -- (0.25,-0.02) node[below] {\footnotesize$0.25$};
+           \draw (1,0) -- (1,-0.02) node[below] {\footnotesize $1$};
+           \draw (0.25,0) -- (0.25,-0.02) node[below] {\footnotesize $0.25$};
 
            \draw[color=gray,domain=0:1.28,samples=50] plot ({\x},{sqrt(\x)});
            

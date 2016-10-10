@@ -96,38 +96,33 @@
 
 \begin{frame}
   \frametitle{The Cumulative Scheduling Problem} 
-\vfill
+\vspace{0.1cm}
  \textbf{Inputs : }
-\vfill
+\vspace{0.15cm}
   \begin{itemize}
   \item a set ${\cal A}=\{1,\dots ,n\}$ of non-preemptive tasks
-      \vfill
+\vspace{0.15cm}
     \item a cumulative and renewable resource available in quantity $B$
-      \vfill
+\vspace{0.15cm}
     \item<2-> for each task:
+      \vspace{-1cm}
       \begin{columns}
         \hfill
-        \begin{column}{0.5\linewidth}
-          \vspace{-0.5cm}
+        \begin{column}{0.36\linewidth}
           \begin{itemize}
           \item<2-> \footnotesize  a processing time $p_i$
-            \vfill
           \item<3-> \footnotesize a resource consumption $b_i$ 
-            \vfill
-          \item<4-> \footnotesize a release date $r_i$ and a deadline $d_i$ 
-            \vfill
+          \item<4-> \footnotesize a release date $est_i$ and a deadline $lst_i$ 
           \end{itemize}
         \end{column}
-        \hfill
-        \begin{column}{0.4\linewidth}
+        \begin{column}{0.7\linewidth}
           \centering
-          \vspace{0.8cm}
           \input{figures/form1_CuSP.tex}
       \end{column} 
     \end{columns}
   \end{itemize}
-\vfill
-\only<5->{
+\vspace{-0.5cm}
+\onslide<6->{
 \textbf{Application : }
 \vfill
   \begin{itemize}
@@ -136,19 +131,17 @@
 \end{frame}
 
 
-\begin{frame}{Solution methods for the CuSP}
+% \begin{frame}{Solution methods for the CuSP}
   
-\end{frame}
+% \end{frame}
 
 \begin{frame}
   \frametitle{Limitations}
  \vspace{0.5cm}
   \begin{itemize}
-  \item Several scheduling problems deal with resource constraints
+  \item {Limitation} : tasks have fixed duration and resource consumption
     \vfill
-  \item {Limitation} : fixed duration and resource consumption
-    \vfill
-  \item<4-> But, in practice, it is not always the case\\
+  \item<2-> But, in practice, it is not always the case\\
    \end{itemize}
   \vspace{1cm}
   \begin{columns}
@@ -158,17 +151,20 @@
       \begin{tikzpicture}
         [xscale=0.5,yscale=0.4]
         \node (O) at (0,0) {};
-        \onslide<2>{
-          \draw (0,0) rectangle (6,2);
-          \draw[->](-0.2,-0.2) -- (-0.2,2) node[midway,below,rotate=-90] {\footnotesize resource};}
-        \onslide<3->{
-          \draw (0,0) rectangle (6,2) node[midway] {$1$};
-          \draw (0,2) rectangle (4,5) node[midway] {$2$};
-          \draw (4,5) rectangle (6,2) node[midway] {$3$};
-          \draw[->](-0.2,-0.2) -- (-0.2,5) node[midway,below,rotate=-90] {\footnotesize resource};
-        }
-        \onslide<2->{
-        \draw[->] (-0.2,-0.2) -- (6,-0.2) node[midway,below] {\footnotesize duration};}
+          \draw[fill=red!80!black!80] (0,0) rectangle (6,2) node[midway] {$1$};
+          \draw[fill=blue!80!black!80] (0,2) rectangle (4,5) node[midway] {$2$};
+          \draw[fill=orange!80!black!80] (4,5) rectangle (6,2) node[midway] {$3$};
+          \draw[->](-0.2,-0.2) -- (-0.2,5.5) node[midway,below,rotate=-90] {\footnotesize resource};
+        
+        \draw[->] (-0.2,-0.2) -- (6.5,-0.2) node[midway,below]
+        {\footnotesize duration};
+        \foreach \i in {1,...,5}{
+          \draw (-0.3,\i) -- (-0.2,\i);
+          \draw (\i, -0.3) -- (\i,-0.2);
+}
+\onslide<3->{
+          \draw (-0.3,5) -- (-0.2,5) node[left] {\scriptsize  $5$};
+          \draw (6, -0.3) -- (6,-0.2) node[below] {\scriptsize  $6$};}
       \end{tikzpicture}
     \end{column}
     \hfill
@@ -177,22 +173,67 @@
       \begin{tikzpicture}
         [xscale=0.5,yscale=0.4]
         \node (O) at (0,0) {};
-        \onslide<5> {
-          \draw[->] (-0.2,-0.2) -- (3,-0.2) node[midway,below] {\footnotesize duration};}
-        \onslide<6->{
-          \path[draw] (0,0) -- (0,5) -- (2,5) -- (2,2) -- (3,2)  node[above=0.2cm] {$2$} -- (3,0)-- cycle;
-          \path[draw] (2,5) -- (4,5) -- (4,2) -- (6,2) -- (6,0) --(3,0);
-          \draw (4,2) rectangle (6,5) node[midway] {$3$};
-          \draw[->] (-0.2,-0.2) -- (6,-0.2) node[midway,below] {\footnotesize duration};
-        }
-        \onslide<5-> {
-          \path[draw] (0,0) node[above=1cm,right=0.3cm] {$1$}-- (0,5) -- (2,5) -- (2,2) -- (3,2) -- (3,0)-- cycle;
-          \draw[->](-0.2,-0.2) -- (-0.2,5) node[midway,below,rotate=-90] {\footnotesize resource};}
+        \onslide<3->{
+         \onslide<4->{ 
+           \path[draw,fill=blue!80!black!80] (3,2) -- (2,2) -- (2,5) -- (4,5) -- (4,2) -- (6,2) --
+           (6,0) --(3,0); 
+           \path[draw] (0,0) -- (0,5) -- (2,5) -- (2,2) -- (3,2)
+           node[above=0.2cm] {$2$} -- (3,0)-- cycle; 
+            \draw[fill=orange!80!black!80] (4,2) rectangle (6,5) node[midway] {$3$};}
+          \draw[->] (-0.2,-0.2) -- (6.5,-0.2) node[midway,below] {\footnotesize duration};
+
+          \path[draw,fill=red!80!black!80] (0,0) node[above=1cm,right=0.3cm] {$1$}-- (0,5) -- (2,5) -- (2,2) -- (3,2) -- (3,0)-- cycle;
+          \draw[->](-0.2,-0.2) -- (-0.2,5.5)
+          node[midway,below,rotate=-90] {\footnotesize resource};
+        \foreach \i in {1,...,5}{
+          \draw (-0.3,\i) -- (-0.2,\i);
+          \draw (\i, -0.3) -- (\i,-0.2);}
+
+          \draw (-0.3,5) -- (-0.2,5) node[left] {\scriptsize $5$};
+          \draw (6, -0.3) -- (6,-0.2) node[below] {\scriptsize  $6$};}
       \end{tikzpicture}
     \end{column}
 \hfill
   \end{columns}
 \end{frame}
+
+
+\begin{frame}{Motivating Problem}
+\vfill
+\begin{block}{}
+  \begin{center}
+    {\bf \large   pipe-manufacturing plant}
+    
+    \vspace{0.2cm}
+    \includegraphics[scale=0.1]{pipe.jpg}
+
+  \begin{tikzpicture}[yscale=.6]
+    \node (O) at (0,0) {};
+    \draw[-latex,ultra thick, bleuLAAS!100!black!50] (O.center) -- (-3,-1.5);
+    \draw[-latex,ultra thick, bleuLAAS!100!black!50] (O.center) -- (0,-1.5);
+    \draw[-latex,ultra thick, bleuLAAS!100!black!50] (O.center) -- (3,-1.5);
+
+ \node[draw] at (-3.4,-2.1) {drawing mill}; 
+    \node[draw] at (3.5,-2.1) {pipe-tubing};
+
+    \node[draw] at (0,-2.1) {\textbf<4>{foundry}};
+  \end{tikzpicture}
+  \end{center}
+\end{block}
+\vfill
+\pause
+  \begin{itemize}
+  \item melting and heating use a {\bf HUGE} quantity of energy
+\vfill
+\pause
+  \item $\Rightarrow$ high electricity cost:
+    \begin{itemize}
+    \item total energy consumed
+    \item penalty for power overrun
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
 
 
 \begin{frame}
@@ -224,160 +265,260 @@
   \end{itemize}
 \end{frame}
 
-
-\begin{frame}{Literature review}
-  
+\begin{frame}
+  \frametitle{Literature review}
+  \begin{itemize}
+    \vfill
+  \item {\bf Cumulative Scheduling Problem (CuSP)}, {\color{gray!50!black!50} \it [Erschler \& Lopez, 1990] },{\color{blue!80!black!80} fixed resource consumption}
+    \vfill
+  \item {\bf Fully elastic scheduling}, {\color{gray!50!black!50} \it [Baptiste et al, 1999]}, {\color{blue!80!black!80} no upper and lower bound on the consumption}
+    \vfill
+  \item {\bf Maximal energy filtering}, {\color{gray!50!black!50} \it [Vil\'im, 2009]}, {\color{blue!80!black!80} no fixed energy requirement}
+    \vfill  
+  \item {\bf Scheduling with continuous resource}, {\color{gray!50!black!50}\it [Blazewicz et al., 2006]}, {\color{blue!80!black!80}  no upper and lower bound}
+    \vfill
+  \item {\bf Trapezoidal case}, {\color{gray!50!black!50}\it [Beldiceanu \& Poder, 2007]},
+    {\color{blue!80!black!80} fixed task shape and no fixed required energy}
+  \end{itemize}
+  \vfill
 \end{frame}
 
-\begin{frame}{The Energy Scheduling Problem (EnSP)}
+% \begin{frame}{The Energy Scheduling Problem (EnSP)}
   
-\end{frame}
+% \end{frame}
 
-\begin{frame}{Solution Method for the EnSP and limitations}
+% \begin{frame}{Solution Method for the EnSP and limitations}
   
-\end{frame}
+% \end{frame}
 
 \begin{frame}{The Continuous Energy Constrained Scheduling Problem (CECSP)}
    Generalization of the CuSP
-  \begin{itemize}
-    \vfill
-  \item Duration $p_i$ $\leftrightarrow$ required energy amount $W_i$
-    \vfill
-  \item Fixed resource consumption $b_i$ $\leftrightarrow$ variable resource consumption (within an interval)
-    \vfill  
-  \item Task can take any shape bounded by:
-    \begin{itemize}
-    \item<2-> its time-window
-    \item<3-> a maximal and minimal resource consumption
-    \item<4-> energy amount that has to be received by the task
-    \end{itemize}
-    \vfill
-  \end{itemize}
-  \begin{overlayarea}{\textwidth}{3cm}
-    \only<1-4> {
-      \vfill
-      \begin{columns}
-        \begin{column}{0.45\linewidth}
-          \input{/home/mnattaf/Documents/input_latex/form1}
-        \end{column}
-        \begin{column}{0.45\linewidth}
-          \input{/home/mnattaf/Documents/input_latex/form3}
-        \end{column}
-      \end{columns}
-      \vfill}
-    \only<5>{
-      \vfill
-      \begin{itemize}
-      \item Modeled with a continuous resource
-      \end{itemize}
-      \vfill 
-      $\Rightarrow$ \textbf{Continuous Energy-Constrained Scheduling Problem (CECSP) {\scriptsize \color{gray!50!black!50} \it [Artigues \& Lopez, JoS, 2015]}}
-      \vfill}
-  \end{overlayarea}
-\end{frame}
+   \begin{itemize}
+     \vfill
+   \item Duration $p_i$ $\leftrightarrow$ required energy amount $W_i$
+     \vfill
+   \item Fixed resource consumption $b_i$ $\leftrightarrow$ variable resource consumption (within an interval)
+     \vfill  
+   \item Task can take any shape bounded by:
+     \begin{itemize}
+     \item<2-> its time-window
+     \item<3-> a maximal and minimal resource consumption
+     \item<4-> energy amount that has to be received by the task
+     \end{itemize}
+     \vfill
+   \end{itemize}
+   \begin{overlayarea}{\textwidth}{3cm}
+     \only<1-4> {
+       \vfill
+       \begin{columns}
+         \begin{column}{0.45\linewidth}
+           \input{form1}
+         \end{column}
+         \begin{column}{0.45\linewidth}
+           \input{form3}
+         \end{column}
+       \end{columns}
+       \vfill}
+     \only<5>{
+       \vfill
+       \begin{itemize}
+       \item Modeled with a continuous resource
+       \end{itemize}
+       \vfill 
+       $\Rightarrow$ \textbf{Continuous Energy-Constrained Scheduling Problem (CECSP) {\scriptsize \color{gray!50!black!50} \it [Artigues \& Lopez, JoS, 2015]}}
+       \vfill}
+   \end{overlayarea}
+ \end{frame}
+ 
+ \begin{frame}
+   \frametitle{Problem statements}
+   \vfill
+   Input:\\
+   \begin{itemize}
+   \item $A=\{1,\hdots,n\}$ a set of non-preemptive tasks
+   \item a continuous, cumulative and renewable resource of capacity  $B$
+   \end{itemize}
+   \vfill
+   \onslide<2->{
+     Output: A scheduling, i.e. a start time $st_i$, an end time $ft_i$ and a resource allocation function $b_i(t)$, such that:
+   }
+   \begin{overlayarea}{\linewidth}{1cm}
+     \only<3>{\[est_i\le st_i\le ft_i \le lst_i\]}
+     \only<4>{\[\bmin \le b_i(t) \le \bmax \quad \forall t \in \inter[st_i][ft_i]\]}
+     \only<5>{\[b_i(t)=0\quad \forall t \not\in \inter[st_i][ft_i]\]}
+     \only<6>{\[\int_{st_i}^{ft_i}b_i(t)dt=W_i\]}
+     \only<7>{\[\sum_{i\in A}b_i(t) \le B\]} 
+   \end{overlayarea}
+   \onslide<2->{
+     \begin{center}
+       \input{form2_bi.tex}
+     \end{center}}
+ \end{frame}
+ 
+ \input{figures/exemple_CECSPid.tex}
+ 
+ \begin{frame}{The CECSP : limitations}
+   \vfill
+   \begin{itemize}
+   \item Consider that the resource consumed by the task is proportional to
+     the energy received by the task.
+     \vfill
+   \item Not always the case...
+   \end{itemize}
+   \vfill
+   \begin{block}{Example in parallel architecture}
+     \begin{itemize}
+     \item a set of tasks has to be scheduled on parallel processors;
+     \item resource : processors;
+     \item energy : elementary operation;
+     \item Typical power speed function:  $b^{\alpha} , \ 0 <
+       \alpha \le 1$ (may be different for each task)
+     \end{itemize}
+   \end{block}
+   \vfill
 
-\begin{frame}
-  \frametitle{Problem statements}
-  \vfill
-  Input:\\
-  \begin{itemize}
-  \item $A=\{1,\hdots,n\}$ a set of non-preemptive tasks
-  \item a continuous, cumulative and renewable resource of capacity  $B$
-  \end{itemize}
-  \vfill
-  \onslide<2->{
-    Output: A scheduling, i.e. a start time $st_i$, an end time $ft_i$ and a resource allocation function $b_i(t)$, such that:
-  }
-  \begin{overlayarea}{\linewidth}{1cm}
-    \only<3>{\[r_i\le st_i\le ft_i \le d_i\]}
-    \only<4>{\[\bmin \le b_i(t) \le \bmax \quad \forall t \in \inter[st_i][ft_i]\]}
-    \only<5>{\[b_i(t)=0\quad \forall t \not\in \inter[st_i][ft_i]\]}
-    \only<6>{\[\int_{st_i}^{ft_i}b_i(t)dt=W_i\]}
-    \only<7>{\[\sum_{i\in A}b_i(t) \le B\]} 
-  \end{overlayarea}
-  \onslide<2->{
-    \begin{center}
-      \input{/home/mnattaf/Documents/input_latex/form2_bi.tex}
-    \end{center}}
-\end{frame}
+ \end{frame}
+ 
+ \begin{frame}{The CECSP : limitations}
+   \begin{itemize}
+   \item   $\Rightarrow$ We need to model conversion functions $f_i$.
+     \vfill
+   \item  We have consider the case where $f_i(b)$ is non-decreasing,
+     continuous and  
+     \begin{enumerate}
+     \vspace{0.5cm}
+     \item linear: $f_i(b)=a_i*b+c_i$ 
 
-\begin{frame}{Example for the CECSP$_{id}$}
-  
-\end{frame}
+     \vspace{0.1cm}
+       $\rightarrow$ the {\bf CECSP$_{lin}$}
+     \vspace{0.5cm}
+     \item concave and piecewise linear: if $f$ has $P$ pieces,
+       $f_i(b)=a_{ip}*b+c_{ip}  , p \in \{1,\dots,P\}$
 
-\begin{frame}{Solution Method for the CECSP$_{id}$ and limitations}
-  
-\end{frame}
+     \vspace{0.1cm}
+       $\rightarrow$ {\bf the CECSP$_{cpwl}$} 
+     \end{enumerate}
+     \vfill
+   \item   \[W_i=\int_{st_i}^{ft_i}b_i(t)dt \rightarrow W_i=\int_{st_i}^{ft_i}f_i(b_i(t))dt\]
+   \end{itemize}
+   \vfill
+ \end{frame}
+ 
+ \begin{frame}{Example for the CECSP$_{lin}$}
+   \input{figures/exemple_CECSPlin.tex}
+ \end{frame}
 
-\begin{frame}{Approximation of efficiency functions with the CECSP$_{id}$}
-  
-\end{frame}
+ \begin{frame}{Approximation of efficiency functions with the CECSP$_{lin}$}
+   \begin{block}{}
+     \begin{tabularx}{\textwidth}{XXX}
+       $b_i^{min}=0.25$&
+       $b_i^{max}=1$&
+       $f_i(b)=\sqrt{b}$
+     \end{tabularx} 
+   \end{block}
+ \vfill
+  \begin{columns}
+     \begin{column}{0.5\linewidth}
+       \begin{figure}[!htb]
+         \centering
+         \begin{tikzpicture}
+           [xscale=3,yscale=2.5]
+           \node (O) at (0,0) {};
 
-\begin{frame}{The CECSP with linear efficiency functions (CECSP$_{lin}$)}
-    \vfill
-  In most cases, resource $\neq$ energy
-  \vfill
-  \begin{block}{Example of the foundry} 
-    Metal needs heat and the resource is electricity
-  \end{block}
-  \vfill
-  Important issue if you handle different energy types
-  \vfill
-  $\Rightarrow$ We need a conversion function $f_i$
-  \vfill
-  \[W_i=\int_{st_i}^{ft_i}b_i(t)dt \rightarrow W_i=\int_{st_i}^{ft_i}f_i(b_i(t))dt\]
-  \vfill
-  Here, $f_i(b)$ is non-decreasing, continuous and linear: $f_i(b)=a_i*b+c_i$ 
-  \vfill
-\end{frame}
+           \draw[->] (0,0) -- (1.28,0) node[below] {\footnotesize $b$};
+           \draw[->] (0,0) -- (0,1.3) node[left] {\footnotesize $f_i(b)$};
 
-\begin{frame}{Example for the CECSP$_{lin}$}
-  
-\end{frame}
+           \draw (0,1) -- (-0.02,1) node[left] {\footnotesize $1$};
+           \draw (0,0.5) -- (-0.02,0.5) node[left] {\footnotesize $\sqrt{0.25}$};
 
-\begin{frame}{Approximation of efficiency functions with the CECSP$_{lin}$}
-  
-\end{frame}
+           \draw (1,0) -- (1,-0.02) node[below] {\footnotesize $1$};
+           \draw (0.25,0) -- (0.25,-0.02) node[below] {\footnotesize $0.25$};
 
-\begin{frame}{The CECSP with concave piecewise linear efficiency functions (CECSP$_{cpwl}$)}
-  
-\end{frame}
+           \draw[color=gray,domain=0:1.28,samples=50] plot ({\x},{sqrt(\x)});
+           \draw[dashed,thick,domain=0.25:1,samples=50] plot
+           ({\x},{\x/(2*sqrt(0.625))+sqrt(0.625)/2});
 
-\begin{frame}
-  \frametitle{Solution methods}
-  \vfill
-  \begin{description}[Properties]
-  \item[Properties] {\small
-      \begin{itemize}
-    \item study of the structural properties of the problem:
-      {\footnotesize Dominance rules, complexity analysis, polynomial cases...}
-    \end{itemize}}
-\vfill
-  \item[CP] {\small
-    \begin{itemize}
-    \item satisfiability test (checker): {\footnotesize Energetic
-        reasoning, Flow based checker...}
-    \item filtering algorithm: {\footnotesize Energetic reasoning, time-table
-      disjunctive reasoning...}
-    \item discrete model
-    \end{itemize}}
-\vfill
-  \item[MILP] {\small
-      \begin{itemize}
-    \item MILP model: {\footnotesize time-indexed, event-based...}
-    \item valid inequalities
-    \item polyhedral results
-    \end{itemize}}
-\vfill
-  \item[Hybrid] {\small
-      \begin{itemize}
-    \item ``CP-like branching'' + MILP 
-    \item valid inequalities deduced from ER
-    \end{itemize}}
-  \end{description}
-\end{frame}
 
-\setcounter{tocdepth}{20}
-\begin{frame}{Overview}
-\tableofcontents[hideothersubsections,subsubsectionstyle={show/show/show/show}]
-\end{frame}
+           \draw[dotted] (0.25,0)-- (0.25,1.3);
+           \draw[dotted] (1,0) -- (1,1.3);
+         \end{tikzpicture}
+         \caption{Approximation by a linear function}
+       \end{figure}
+     \end{column}
+     \hfill
+     \begin{column}{0.5\linewidth}
+       \begin{figure}[!htb]
+         \centering
+         \begin{tikzpicture}
+           [xscale=3,yscale=2.5]
+           \node (O) at (0,0) {};
+
+           \draw[->] (0,0) -- (1.28,0) node[below] {\footnotesize $b$};
+           \draw[->] (0,0) -- (0,1.3) node[left] {\footnotesize $f_i(b)$};
+
+           \draw (0,1) -- (-0.02,1) node[left] {\footnotesize $1$};
+           \draw (0,0.5) -- (-0.02,0.5) node[left] {\footnotesize $\sqrt{0.25}$};
+
+           \draw (1,0) -- (1,-0.02) node[below] {\footnotesize $1$};
+           \draw (0.25,0) -- (0.25,-0.02) node[below] {\footnotesize $0.25$};
+
+           \draw[color=gray,domain=0:1.28,samples=50] plot ({\x},{sqrt(\x)});
+           
+           \draw[ dashed,thick,domain=0.25:0.5,samples=50] plot
+           ({\x},{\x/(2*sqrt(0.375))+sqrt(0.375)/2});
+           \draw[dashed, thick,domain=0.5:0.75,samples=50] plot
+           ({\x},{\x/(2*sqrt(0.625))+sqrt(0.625)/2});
+           \draw[dashed, thick,domain=0.75:1,samples=50] plot
+           ({\x},{\x/(2*sqrt(0.875))+sqrt(0.875)/2});
+
+           \draw[dotted] (0.5,0)-- (0.5,1.3);
+           \draw[dotted] (0.25,0) -- (0.25,1.3);
+           \draw[dotted] (0.75,0) -- (0.75,1.3);
+           \draw[dotted] (1,0) -- (1,1.3);
+         \end{tikzpicture}
+         \caption{Approximation by a concave piecewise linear function}
+       \end{figure}
+     \end{column}
+   \end{columns}
+
+ \end{frame}
+
+
+ \begin{frame}
+   \frametitle{Solution methods}
+   \vfill
+   \begin{description}[Properties]
+   \item[Properties] {\small
+       \begin{itemize}
+       \item study of the structural properties of the problem:
+         {\footnotesize Dominance rules, complexity analysis, polynomial cases...}
+       \end{itemize}}
+     \vfill
+   \item[CP] {\small
+       \begin{itemize}
+       \item satisfiability test (checker): {\footnotesize Energetic
+           reasoning, Flow based checker...}
+       \item filtering algorithm: {\footnotesize Energetic reasoning, time-table
+           disjunctive reasoning...}
+       \item discrete model
+       \end{itemize}}
+     \vfill
+   \item[MILP] {\small
+       \begin{itemize}
+       \item MILP model: {\footnotesize time-indexed, event-based...}
+       \item valid inequalities
+       \item polyhedral results
+       \end{itemize}}
+     \vfill
+   \item[Hybrid] {\small
+       \begin{itemize}
+       \item ``CP-like branching'' + MILP 
+       \item valid inequalities deduced from ER
+       \end{itemize}}
+   \end{description}
+ \end{frame}
+
+ \setcounter{tocdepth}{20}
+ \begin{frame}{Overview}
+   \tableofcontents[hideothersubsections,subsubsectionstyle={show/show/show/show}]
+ \end{frame}

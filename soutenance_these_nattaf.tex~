@@ -8,14 +8,14 @@
 \usepackage{blindtext}
 \usepackage[lang=en]{templateLAAS}
 
-\addtobeamertemplate{footline}{\insertframenumber/\inserttotalframenumber}
+%\addtobeamertemplate{footline}{\insertframenumber/\inserttotalframenumber}
 
  \setbeamersize{text margin left=25pt}
   \setbeamersize{text margin right=25pt}
 \input{/home/mnattaf/Documents/input_latex/newcommand.tex}
 
 
-\title{Scheduling under Energy Constraints}
+\title{Scheduling Under Energy Constraints}
 \author{Margaux NATTAF}
 \institute{LAAS-CNRS Toulouse
 
@@ -58,65 +58,22 @@
 % \tableofcontents
 \setcounter{framenumber}{0}
 
+\section{Introduction}
 
-\begin{frame}{What is {\it Scheduling}?}
-  \vfill
-  \begin{block}{Larousse}
-    {\it Scheduling: }organization, methodic arrangement of the different
-    element of a set, of the  different phases of a fabrication.
-  \end{block}
-  \vfill
-  \begin{block}{Cambridge}
-    {\it Scheduling: }the job or activity of planning the times at which particular tasks will be done or events will happen.
-  \end{block}
-  \vfill  
-  \begin{block}{Wikipedia}
-    A {\it scheduling} problem consists in organizing the realization of
-    tasks throught time, given time constraints (setup time, precedence)
-    and constraints on the availability of required resources.
-  \end{block}
-  \vfill
-\end{frame}
+%\input{introduction.tex}
+\section{Problem Properties}
+%\input{properties.tex}
+\section{Hybrid Branch-and-Bound}
+%\input{hybridBB.tex}
 
-\begin{frame}{What is {\it Scheduling}?}
-\vspace{0.3cm}
-  \begin{block}{My thesis}
-    The {\bf scheduling} theory aims at computing {\bf activities execution
-      start/end times} subject to a certain number of {\bf
-      constraints} in order to optimize an {\bf objective}.    
-  \end{block}
-  \vspace{0.6cm}
-  \begin{description}
-  \item[activities :]  courses, landing/taking off, step in a
-    construction project... 
-    \vspace{0.2cm}
-  \item[constraints :]
-    \begin{itemize}
-    \item temporal $\rightarrow$ deadline, precedence, setup...
-    \item resource $\rightarrow$ availability, nature... 
-    \end{itemize}
-    \vspace{0.2cm}
-  \item[objective :] resource consumption, total cost, makespan,
-    tardiness... 
-    \vspace{0.2cm}
-  \end{description}
-\end{frame}
+\section{Improvement of the On/Off MILP}
+\input{improvement.tex}
 
-\begin{frame}{Application : Time Table}
+\section{The Discrete Case}
+\begin{frame}{Discrete case}
   
-  {\usebeamercolor[fg]{item} activities: } is a set of courses\\[0.2cm]
-          {\usebeamercolor[fg]{item} temporal constraints: } Precedence relationship: lecture before
-            exercice, Analysis 1 before Analysis 2...\\[0.2cm]
-
-         {\usebeamercolor[fg]{item} resource constraints: }rooms, teachers, additionnal material...\\[0.2cm]
-
-         \vfill
-      \begin{center}
-      \includegraphics[scale=0.25]{figures/timetable.png}
-    \end{center}
-\vspace{-0.5cm}    
 \end{frame}
-
+\section{General Conclusions and Perspectives}
 \end{document}
 
 

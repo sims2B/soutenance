@@ -34,33 +34,14 @@
   \end{itemize} 
 \end{frame}
 
-
-\begin{frame}
-  \frametitle{Context}
-  \begin{itemize}
-  \item Time-indexed model more efficient {\small (relatively stronger relaxation)}
-    \vfill
-  \item But:
-    \begin{itemize}
-    \item  model size depends on planning horizon 
-      
-      $\longrightarrow $ for large planning horizon event-based model can be more
-      efficient (RCPSP:~{\color{gray!50!black!70}\it [Koné et al.,
-        2011]} )
-      \vfill
-    \item  if only non-integer solutions
-      
-      $\longrightarrow$ time-indexed model can lead to
-      infeasible/sub-optimal solution
-      (CECSP:~{\color{gray!50!black!70}\it [Nattaf et al., 2015]} )
-    \end{itemize}
-  \end{itemize}
-\vfill
-{\bf Goal: Tightened Event-based model (On/off)} 
-\end{frame}
-
 \begin{frame}{Event-based model }
 
+  \begin{block}{Motivations}
+    \begin{itemize}
+    \item Reduced number of variables when planing horizon is large
+    \item For the CECSP: non-integer solution
+    \end{itemize}
+  \end{block}
   \vfill
   \begin{itemize}
   \item Start/End and On/Off model have a commun subset of constraints
@@ -98,16 +79,17 @@
 \end{frame}
 
 \subsubsection{Valid inequalities}
+
 \begin{frame}
   \frametitle{Maximum separation between events}
   \begin{itemize}
   \item {\bf Goal: } upper bound on the value of $t_{e+1}-t_{e}$
     \vspace{0.3cm}
-  \item<2-> Time window of each task start and/or end time
+  \item<2-> time window of each task start and/or end time
     \vspace{0.3cm}
-  \item<6-> An event must occur in each of these time windows
+  \item<8-> an event must occur in each of these time windows
     \vspace{0.3cm}
-  \item<11-> two consecutive events in the union of two consecutive time windows
+  \item<13-> two consecutive events in the union of two consecutive time windows
   \end{itemize}
   \vfill
   \onslide<3->{
@@ -115,78 +97,54 @@
       \begin{tikzpicture}
         [decoration={brace},scale=0.4]
         \node (O) at (0,0) {}; 
+        
         \draw[->] (0,0) -- (19,0);
-
-        \onslide<4-5>{
-          \path (1,0) node[color=red!80!black!50] {\LARGE [} --
-          +(0:5cm)node[color=red!80!black!50] {\LARGE ]};
-          \path[green!80!black!50](4,0) node {\LARGE [} -- +(0:4cm)
-          node {\LARGE ]};
-          \path[green!80!black!50] (8.05,0) node {\LARGE [}  --
-          +(0:6cm) node {\LARGE ]}  ;
-          \path (12,0) node[color=red!80!black!50] {\LARGE [} --
-          +(0:6cm) node[color=red!80!black!50] {\LARGE ]} ; 
-        }
-        
-        \onslide<4>{
-          \draw [decorate,color=red!80!black!50] (1,1) -- +(0:5cm)
-          node[midway,above]{$start_i$}; 
-          \draw [decorate,color=red!80!black!50] (18,-1) -- +(0:-6cm)
-          node[midway,below] {$end_i$};
-        }
-        
-        \onslide<5>{
-          \draw [decorate,green!80!black!50] (8,-1) -- +(0:-4cm)
-          node[midway,below] {$start_j$};
-          \draw [decorate,green!80!black!50] (8,1) -- +(0:6cm)
-          node[midway,above] {$end_j$};
-        }
-        
-        \onslide<6-9>{
-          \path (1,0) node {\LARGE [} --
-          +(0:5cm)node {\LARGE ]};
-          \path(4,0) node {\LARGE [} -- +(0:4cm)
-          node {\LARGE ]};
-          \path (8.05,0) node {\LARGE [}  --
-          +(0:6cm) node {\LARGE ]}  ;
-          \path (12,0) node {\LARGE [} --
-          +(0:6cm) node {\LARGE ]} ; 
-        }
-
-        \onslide<6>{
-            \path[blue!80!black!50,draw] (1,0) node {\LARGE [} -- +(0:5cm)node
+        \onslide<4-12>{
+          \path (1,0) node {\LARGE [} -- +(0:5cm)node {\LARGE ]};
+          \onslide<9>{
+            \path[red!50,draw] (1,0) node {\LARGE [} -- +(0:5cm)node
             {\LARGE ]} node[midway,above=0.8cm] {$t_0$};
           }
-          \onslide<7>  {
-            \path[blue!80!black!50,draw](4,0) node {\LARGE [} --
-            +(0:4cm) node {\LARGE ]} node[midway,above=0.8cm] {$t_1$}; 
+          \onslide<4>{
+            \draw [decorate] (1,1) -- +(0:5cm) node[midway,above]
+            {$start_i$};
           }
-          
-          \onslide<8>{   
-            \path[blue!80!black!50,draw] (8.05,0) node {\LARGE [}  --
-            +(0:6cm) node {\LARGE ]}  node[midway,above=0.8cm] {$t_2$};
-          }
-          
-        \onslide<9>{
-          \path[blue!80!black!50,draw] (12,0) node {\LARGE [} --
-          +(0:6cm) node {\LARGE ]} node[midway,above=0.8cm] {$t_3$};
-        }
-        
+          \path(4,0) node {\LARGE [} -- +(0:4cm) node {\LARGE ]} ;
         \onslide<10>{
-          \path (12,0) node {\LARGE [}  --
-          +(0:6cm) node {\LARGE ]}  ;
-        \path (8.05,0) node {\LARGE [}  --
-        +(0:6cm) node {\LARGE ]}  ;
-    }
+          \path[red!50,draw](4,0) node {\LARGE [} -- +(0:4cm) node {\LARGE ]} node[midway,above=0.8cm] {$t_1$};
+        } 
+        \onslide<5>{\draw [decorate] (8,-1) -- +(0:-4cm) node[midway,below]
+          {$start_j$};
+        }
+      }
+      \onslide<4-13>{
+        \onslide<10>{\path (8.05,0) node {}  --
+          +(0:6cm) node {\LARGE ]}  ;}
+        \onslide<11-13>{\path (8.05,0) node {\LARGE [}  --
+          +(0:6cm) node {\LARGE ]}  ;}
+       \onslide<4-9>{\path (8.05,0) node {\LARGE [}  --
+          +(0:6cm) node {\LARGE ]}  ;}
         \onslide<11>{
-          \path (12,0) --
-          +(0:6cm) node {\LARGE ]}  ;
-          \path (8.05,0) node {\LARGE [}  --
-          +(0:6cm)  ;
-    }
-    
-    \onslide<12>{
-  \path (8,0) node {\LARGE [} --
+          \path[red!50,draw] (8.05,0) node {\LARGE [}  --
+          +(0:6cm) node {\LARGE ]}  node[midway,above=0.8cm] {$t_2$};
+        }
+        \onslide<6>{ 
+          \draw [decorate] (8,1) -- +(0:6cm) node[midway,above]
+          {$end_j$};
+        }
+
+        \path (12,0) node {\LARGE [} --
+        +(0:6cm) node {\LARGE ]} ;
+        \onslide<12>{
+          \path[red!50,draw] (12,0) node {\LARGE [} --
+          +(0:6cm) node {\LARGE ]} node[midway,above=0.8cm] {$t_3$};
+        }    
+        \onslide<7>{\draw [decorate] (18,-1) -- +(0:-6cm)
+          node[midway,below] {$end_i$};
+        }
+      }
+      \onslide<14>{
+        \path (8,0) node {\LARGE [} --
         +(0:10cm) node {\LARGE ]}  ;
         \draw [decorate] (18,-1) -- +(0:-10cm)
         node[midway,below] {$\ni \{t_3,t_{4}\}$};
@@ -200,22 +158,22 @@
   \frametitle{Maximum separation between events}
   \begin{itemize}
   \item Order the time-window intervals according to:
-    \[ [a,b] \le [c,d]
-      \Leftrightarrow a < c \lor \left( a=c \land b \le d\right)\]
-    \vfill
+    \[ [{\cal S}_x^1,{\cal S}_y^1] \le [{\cal S}_x^2,{\cal S}_y^2]
+      \Leftrightarrow 	{\cal S}_x^1 < {\cal S}_x^2 \lor \left( {\cal
+          S}_x^1={\cal S}_x^2 \land {\cal S}_y^1\le {\cal
+          S}_y^2\right)\]
+\vfill
   \item Then we have:
-    \[t_{e+1}-t_e  \le   |tw_e \cup tw_{e+1}|    \]
-\begin{flushright}
-    \textcolor{black!70}{\scriptsize in fact: $t_{e+1}-t_e  \le
-      \overline{tw_e \cup tw_{e+1}} - \underline{tw_e \cup tw_{e+1}}
-      $}
-\end{flushright}
+\[t_{e+1}-t_e \le  
+|{\cal S}_e \cup {\cal S}_{e+1}| 
+\]
 \vfill
   \item We can use it as:
 \begin{itemize}
 \vspace{0.2cm}
 \item additional constraints of the model
-\item an upper bound on $t_{e+1}-t_e$ in any constraints using a worst one
+\item in $ b_{ie} \ge \bmin(t_{e+1}-t_e) -  (\bmin(d_i-r_i)(1-z_{i,e})
+  )$ instead of $d_i-r_i$
 \end{itemize}
   \end{itemize}
 \end{frame}
@@ -258,7 +216,7 @@
                 \draw (12,0) node {} --
         +(0:6cm) node {\LARGE ]}  ;}
       \onslide<5>{
-          \draw[color=blue!80!black!50] (0,0) node {} -- +(0:6cm)node {\LARGE ]}
+          \draw[color=red!50] (0,0) node {} -- +(0:6cm)node {\LARGE ]}
           node[left,above=0.8cm] {$t_0$}; 
           \draw (8,0) node {\LARGE ]} ;
           \draw (8.05,0) node {}  -- +(0:6cm) node {\LARGE ]}  ;
@@ -266,21 +224,21 @@
       
         \onslide<6>{
           \draw (6,0) node  {\LARGE ]}; 
-          \draw[color=blue!80!black!50](0,0) -- (8,0) node {\LARGE ]} node[left,above=0.8cm] {$t_1$};
+          \draw[color=red!50](0,0) -- (8,0) node {\LARGE ]} node[left,above=0.8cm] {$t_1$};
           \draw (8.05,0) node {}  --  +(0:6cm) node {\LARGE ]}  ;
           \draw (12,0) node {} --  +(0:6cm) node {\LARGE ]}  ;}
       
         \onslide<7>{
           \draw (6,0) node {\LARGE ]}; 
           \draw (8,0) node {\LARGE ]} ;
-          \draw[color=blue!80!black!50] (0,0) node {}  -- (14,0) node {\LARGE ]} node[left,above=0.8cm] {$t_2$} ;
+          \draw[color=red!50] (0,0) node {}  -- (14,0) node {\LARGE ]} node[left,above=0.8cm] {$t_2$} ;
           \draw (18,0)node {\LARGE ]}  ;}
         
         \onslide<8>{
           \draw (6,0) node {\LARGE ]}; 
           \draw(8,0) node {\LARGE ]} ;
           \draw (14,0) node {\LARGE ]}  ;
-          \draw[color=blue!80!black!50] (0,0) node {} -- (18,0) node {\LARGE ]}
+          \draw[color=red!50] (0,0) node {} -- (18,0) node {\LARGE ]}
           node[left,above=0.8cm] {$t_3$};} 
       
       \end{tikzpicture}
@@ -302,112 +260,71 @@
 \begin{itemize}
   \vspace{0.2cm}
 \item additional constraints of the model
-\item an upper bound on $t_{e+1}-t_e$ in any constraints using a worst one
+\item in $ t_e \le
+  s_i^{max}(z_{i,e}-z_{i,e-1})+(1-(z_{i,e}-z_{i,e-1}))T $
+  and $ t_e \le d_i(z_{i,e-1}-z_{i,e})+(1-(z_{i,e-1}-z_{i,e}))T$ instead of $T$
 \end{itemize}
   \end{itemize}
 \end{frame}
 \subsubsection{Polyhedral results}
-
-
 \begin{frame}
-  \frametitle{$Z_i$-polyhedron}
-\vspace{0.5cm}
-  \onslide<1->{$\rightarrow$ Minimal set of inequalities defining the
-    {\it ``$Z_i$-polyhedron''}.}
-\vspace{0.6cm}
-    \onslide<2-> {  \begin{block}{$Z_i$-polyhedron}
- form of $z_i \in \{0,1\}^{|{\cal E}|}$ solution? \hspace{2.5cm}
-      {\scriptsize (${\cal E}=$event set)}}
-    \vspace{0.4cm}
-
-\onslide<4->{$\Rightarrow$ vector with consecutive-one property  and at least
-    one $1$
-    \begin{center}
-      {\small e.g. $(0,0,1,1,1,0),\ (1,1,1,0,0,0),\ \dots$}
-    \end{center}}
-\onslide<5->{     
-    \[Z_i= conv\{z_i \in \{0,1\}^{|{\cal E}|} | z_i \text{ of the
-        form } (0^*\, 1\, 1^*\, 0^*)\} \] }
-\vspace{-0.2cm}
-  \end{block}
-  \onslide<3->{\textcolor{black!70}{ \small\[z_{ie}=\left\{
-        \begin{array}{ll}
-          1 & \text{if task $i$ is in process between $t_e$ and $t_{e+1}$}\\
-          0 & \text{otherwise}
-        \end{array}
-      \right.
-    \]}}
-\end{frame}
-  
-\begin{frame}
-\frametitle{Non-preemptive inequalities}
+  \frametitle{$Z$-polyhedron}
+  \vfill
+  \begin{overlayarea}{\linewidth}{3.5cm}
+    \only<1-3>{
+      \begin{itemize}
+      \item<1-> defined by the $z_{i,e}$ on/off variable
+      \item<2-> for a single activity $i$:
+        \[ZQ_i= conv\{z_i \in \{0,1\}^{|{\cal E}|} | z_i \text{ has
+            the consecutive-one property}\} \] 
+        \onslide<3-3>{
+        e.g. $(0,0,1,1,1,0),\ (1,1,1,0,0,0),\ \dots$}
+      \end{itemize}
+    }
+    \only<4->{
+      \begin{itemize}
+      \item<4-> e.g. \[ z_{i,3} - z_{i,6} + z_{i,11}-z_{i,13} +z_{i,18} \le
+          1 \]
+        \vspace{0.3cm}
+      \item<5-> If $|S|=3$ then $ z_{i,e}-z_{i,f}+z_{i,g} \le 1$ enforce
+          $z_{i,f}$ to be $1$ for all $e<f<g$ s.t. $z_{i,e}=z_{i,g}=1$ 
+      \end{itemize}
+    }
+  \end{overlayarea}
+  \vfill
+  \onslide<4->{
   \begin{block}{Non-preemptive inequalities}
-    \[\sum_{e_k \in S} (-1)^kz _{ie_k} \leq 1\]
+    \[\sum_{e_k \in S} (-1)^kz _{i,e_k} \leq 1\]
     where $S = \{e_0,e_1,\ldots,e_{2\ell}\}$ is a subset of 
     ${\cal E}$ of odd cardinality.
   \end{block}
-
-    \vspace{0.6cm}
-  \begin{itemize}
-  \item<2-> e.g. with $S=\{3,6,11,13,18\}$
-    \[ z_{i3} - z_{i6} + z_{i11}-z_{i13} +z_{i18} \le
-      1 \]
+}
 \vfill
-  \item<3-> If $|S|=3$ then $ z_{ie}-z_{if}+z_{ig} \le 1$ enforces
-    $z_{if}$ to be $1$ for all $e<f<g$ s.t. $z_{ie}=z_{ig}=1$ 
-  \end{itemize}
-
 \end{frame}
 
 \begin{frame}
-  \frametitle{$Z_i$-polyhedron}
+  \frametitle{$Z$-polyhedron}
   \[ZP_i=\{ z_i \in [0,1]^{\cal E} | z_i\text{ satisfies
       non-preemptive inequalities and } \eqref{eq1}\}\] 
+  \pause
+  with 
   \begin{equation}
-    \text{ with }  \sum_{e \in \cal E} z_{ie} \ge 1 \quad \forall i \in \cal A  
+    \sum_{e \in \cal E} z_{i,e} \ge 1 \quad \forall i \in \cal A  
     \label{eq1}  
   \end{equation}
   \pause
   \begin{block}{Theorem}
-    \[ZP_i=Z_i\]
+    \[ZP_i=ZQ_i\]
   \end{block}
-  \vspace{0.5cm}
-  \onslide<3->{\begin{itemize}
-    \item[\bf Proof] {\small $\bullet$ use Farkas lemma to define inequalities
-        over which $z \in Z_i$}
-      \vspace{0.1cm}
-    \item[ ] {\small $\bullet$ show that this inequalites are in bijection with the one
-        \invisible{$\bullet$}~defining $ZP_i$}
-    \end{itemize}
+  \vspace{0.3cm}
+ \onslide<5->{ {\bf Proof} uses Farkas lemma
   }
-  \vspace{0.2cm}
-  \onslide<2->{\textcolor{black!70}{\small \[Z_i= conv\{z_i \in \{0,1\}^{|{\cal E}|} | z_i \text{ of the
-          form } (0^*\, 1\, 1^*\, 0^*)\}\]}
-  }
+  \onslide<4->{\[ZQ_i= conv\{z_i \in \{0,1\}^{|{\cal E}|} | z_i \text{ has the consecutive
+      one property}\} \]
+}
+
 \end{frame}
 
-
-\begin{frame}
-\frametitle{Separation procedure}
-\vfill
-\begin{itemize}
-\item  Exponential number of non-preemptive inequalities
-
-$\Rightarrow$ Separation procedure
-\vfill
-\item Equivalent to find a longest path in a properly defined acyclic
-  graph. 
-\vfill
-\item This graph can be contructed in polynomial time
-\vfill
-\item A vertex of the graph represent an event
- \vspace{0.3cm}
-
- $\longrightarrow$ Polynomial number of arcs 
- \vfill 
- $\longrightarrow$ Polynomial separation algorithm
-\end{itemize}
-\end{frame}
 
 \begin{frame}
 \frametitle{Computational experience}

@@ -1,5 +1,5 @@
   \begin{tikzpicture}
-  [yscale=0.4,xscale=0.5]
+  [yscale=0.5,xscale=0.7]
     \node[] (O) at (0,0) {};
     \node[label={[shift={(-0.4,-0.4)}]$b_i^{min}$}] (bmin) at (0,1) {};
     \node[label={[shift={(-0.4,-0.4)}]$b_i^{max}$}] (bmax) at (0,4) {};

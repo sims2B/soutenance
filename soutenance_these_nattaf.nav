@@ -1,61 +1,153 @@
-\beamer@endinputifotherversion {3.24pt}
+\beamer@endinputifotherversion {3.36pt}
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \headcommand {\beamer@framepages {1}{1}}
 \headcommand {\sectionentry {1}{Introduction}{2}{Introduction}{0}}
 \headcommand {\beamer@sectionpages {1}{1}}
 \headcommand {\beamer@subsectionpages {1}{1}}
-\headcommand {\slideentry {1}{0}{2}{2/2}{}{0}}
+\headcommand {\slideentry {1}{0}{1}{2/2}{}{0}}
 \headcommand {\beamer@framepages {2}{2}}
-\headcommand {\slideentry {1}{0}{3}{3/3}{}{0}}
-\headcommand {\beamer@framepages {3}{3}}
-\headcommand {\slideentry {1}{0}{4}{4/4}{}{0}}
+\headcommand {\slideentry {1}{0}{2}{4/4}{}{0}}
 \headcommand {\beamer@framepages {4}{4}}
-\headcommand {\slideentry {1}{0}{5}{5/5}{}{0}}
+\headcommand {\slideentry {1}{0}{3}{5/5}{}{0}}
 \headcommand {\beamer@framepages {5}{5}}
-\headcommand {\slideentry {1}{0}{6}{6/11}{}{0}}
-\headcommand {\beamer@framepages {6}{11}}
-\headcommand {\slideentry {1}{0}{7}{12/15}{}{0}}
-\headcommand {\beamer@framepages {12}{15}}
-\headcommand {\slideentry {1}{0}{8}{16/19}{}{0}}
-\headcommand {\beamer@framepages {16}{19}}
-\headcommand {\slideentry {1}{0}{9}{20/20}{}{0}}
-\headcommand {\beamer@framepages {20}{20}}
-\headcommand {\slideentry {1}{0}{10}{21/21}{}{0}}
+\headcommand {\slideentry {1}{0}{4}{6/6}{}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\slideentry {1}{0}{5}{7/12}{}{0}}
+\headcommand {\beamer@framepages {7}{12}}
+\headcommand {\slideentry {1}{0}{6}{13/16}{}{0}}
+\headcommand {\beamer@framepages {13}{16}}
+\headcommand {\slideentry {1}{0}{7}{17/20}{}{0}}
+\headcommand {\beamer@framepages {17}{20}}
+\headcommand {\slideentry {1}{0}{8}{21/21}{}{0}}
 \headcommand {\beamer@framepages {21}{21}}
-\headcommand {\slideentry {1}{0}{11}{22/26}{}{0}}
-\headcommand {\beamer@framepages {22}{26}}
-\headcommand {\slideentry {1}{0}{12}{27/33}{}{0}}
-\headcommand {\beamer@framepages {27}{33}}
-\headcommand {\slideentry {1}{0}{13}{34/40}{}{0}}
-\headcommand {\beamer@framepages {34}{40}}
-\headcommand {\slideentry {1}{0}{14}{41/41}{}{0}}
-\headcommand {\beamer@framepages {41}{41}}
-\headcommand {\slideentry {1}{0}{15}{42/42}{}{0}}
+\headcommand {\slideentry {1}{0}{9}{22/22}{}{0}}
+\headcommand {\beamer@framepages {22}{22}}
+\headcommand {\slideentry {1}{0}{10}{23/27}{}{0}}
+\headcommand {\beamer@framepages {23}{27}}
+\headcommand {\slideentry {1}{0}{11}{28/34}{}{0}}
+\headcommand {\beamer@framepages {28}{34}}
+\headcommand {\slideentry {1}{0}{12}{35/41}{}{0}}
+\headcommand {\beamer@framepages {35}{41}}
+\headcommand {\slideentry {1}{0}{13}{42/42}{}{0}}
 \headcommand {\beamer@framepages {42}{42}}
-\headcommand {\slideentry {1}{0}{16}{43/49}{}{0}}
-\headcommand {\beamer@framepages {43}{49}}
-\headcommand {\slideentry {1}{0}{17}{50/50}{}{0}}
-\headcommand {\beamer@framepages {50}{50}}
-\headcommand {\slideentry {1}{0}{18}{51/51}{}{0}}
-\headcommand {\beamer@framepages {51}{51}}
-\headcommand {\slideentry {1}{0}{19}{52/52}{}{0}}
-\headcommand {\beamer@framepages {52}{52}}
-\headcommand {\sectionentry {2}{Problem Properties}{53}{Problem Properties}{0}}
-\headcommand {\beamer@sectionpages {2}{52}}
-\headcommand {\beamer@subsectionpages {2}{52}}
-\headcommand {\sectionentry {3}{Hybrid Branch-and-Bound}{53}{Hybrid Branch-and-Bound}{0}}
-\headcommand {\beamer@sectionpages {53}{52}}
-\headcommand {\beamer@subsectionpages {53}{52}}
-\headcommand {\sectionentry {4}{Improvement of the On/Off MILP}{53}{Improvement of the On/Off MILP}{0}}
-\headcommand {\beamer@sectionpages {53}{52}}
-\headcommand {\beamer@subsectionpages {53}{52}}
-\headcommand {\sectionentry {5}{The Discrete Case}{53}{The Discrete Case}{0}}
-\headcommand {\beamer@sectionpages {53}{52}}
-\headcommand {\beamer@subsectionpages {53}{52}}
-\headcommand {\slideentry {5}{0}{20}{53/53}{}{0}}
-\headcommand {\beamer@framepages {53}{53}}
-\headcommand {\beamer@partpages {1}{53}}
-\headcommand {\beamer@subsectionpages {54}{53}}
-\headcommand {\beamer@sectionpages {54}{53}}
-\headcommand {\beamer@documentpages {53}}
-\headcommand {\def \inserttotalframenumber {19}}
+\headcommand {\slideentry {1}{0}{14}{43/43}{}{0}}
+\headcommand {\beamer@framepages {43}{43}}
+\headcommand {\slideentry {1}{0}{15}{44/54}{}{0}}
+\headcommand {\beamer@framepages {44}{54}}
+\headcommand {\slideentry {1}{0}{16}{55/55}{}{0}}
+\headcommand {\beamer@framepages {55}{55}}
+\headcommand {\slideentry {1}{0}{17}{56/56}{}{0}}
+\headcommand {\beamer@framepages {56}{56}}
+\headcommand {\slideentry {1}{0}{18}{57/57}{}{0}}
+\headcommand {\beamer@framepages {57}{57}}
+\headcommand {\sectionentry {2}{Problem Properties}{58}{Problem Properties}{0}}
+\headcommand {\beamer@sectionpages {2}{57}}
+\headcommand {\beamer@subsectionpages {2}{57}}
+\headcommand {\slideentry {2}{0}{1}{58/58}{}{0}}
+\headcommand {\beamer@framepages {58}{58}}
+\headcommand {\slideentry {2}{0}{2}{59/59}{}{0}}
+\headcommand {\beamer@framepages {59}{59}}
+\headcommand {\slideentry {2}{0}{3}{60/69}{}{0}}
+\headcommand {\beamer@framepages {60}{69}}
+\headcommand {\slideentry {2}{0}{4}{70/70}{}{0}}
+\headcommand {\beamer@framepages {70}{70}}
+\headcommand {\sectionentry {3}{Hybrid Branch-and-Bound}{71}{Hybrid Branch-and-Bound}{0}}
+\headcommand {\beamer@sectionpages {58}{70}}
+\headcommand {\beamer@subsectionpages {58}{70}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{71}{Branching scheme}}\headcommand {\beamer@subsectionpages {71}{70}}
+\headcommand {\slideentry {3}{1}{1}{71/72}{Branching scheme}{0}}
+\headcommand {\beamer@framepages {71}{72}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{73}{Filtering algorithms}}\headcommand {\beamer@subsectionpages {71}{72}}
+\headcommand {\beamer@subsubsectionentry {0}{3}{2}{1}{73}{Energetic reasoning checker}}
+\headcommand {\slideentry {3}{2}{1}{73/74}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {73}{74}}
+\headcommand {\slideentry {3}{2}{2}{75/75}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {75}{75}}
+\headcommand {\slideentry {3}{2}{3}{76/80}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {76}{80}}
+\headcommand {\slideentry {3}{2}{4}{81/81}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {81}{81}}
+\headcommand {\slideentry {3}{2}{5}{82/82}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {82}{82}}
+\headcommand {\slideentry {3}{2}{6}{83/83}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {83}{83}}
+\headcommand {\slideentry {3}{2}{7}{84/84}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {84}{84}}
+\headcommand {\beamer@subsubsectionentry {0}{3}{2}{2}{85}{Energetic reasoning filter}}
+\headcommand {\slideentry {3}{2}{8}{85/88}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {85}{88}}
+\headcommand {\beamer@subsubsectionentry {0}{3}{2}{3}{89}{Other filtering algorithms}}
+\headcommand {\slideentry {3}{2}{9}{89/89}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {89}{89}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{90}{Mixed Integer Linear Program}}\headcommand {\beamer@subsectionpages {73}{89}}
+\headcommand {\slideentry {3}{3}{1}{90/90}{Mixed Integer Linear Program}{0}}
+\headcommand {\beamer@framepages {90}{90}}
+\headcommand {\slideentry {3}{3}{2}{91/91}{Mixed Integer Linear Program}{0}}
+\headcommand {\beamer@framepages {91}{91}}
+\headcommand {\slideentry {3}{3}{3}{92/92}{Mixed Integer Linear Program}{0}}
+\headcommand {\beamer@framepages {92}{92}}
+\headcommand {\slideentry {3}{3}{4}{93/93}{Mixed Integer Linear Program}{0}}
+\headcommand {\beamer@framepages {93}{93}}
+\headcommand {\slideentry {3}{3}{5}{94/94}{Mixed Integer Linear Program}{0}}
+\headcommand {\beamer@framepages {94}{94}}
+\headcommand {\beamer@subsectionentry {0}{3}{4}{95}{Computational results}}\headcommand {\beamer@subsectionpages {90}{94}}
+\headcommand {\slideentry {3}{4}{1}{95/95}{Computational results}{0}}
+\headcommand {\beamer@framepages {95}{95}}
+\headcommand {\slideentry {3}{4}{2}{96/96}{Computational results}{0}}
+\headcommand {\beamer@framepages {96}{96}}
+\headcommand {\slideentry {3}{4}{3}{97/97}{Computational results}{0}}
+\headcommand {\beamer@framepages {97}{97}}
+\headcommand {\slideentry {3}{4}{4}{98/98}{Computational results}{0}}
+\headcommand {\beamer@framepages {98}{98}}
+\headcommand {\sectionentry {4}{Improvement of the On/Off MILP}{99}{Improvement of the On/Off MILP}{0}}
+\headcommand {\beamer@sectionpages {71}{98}}
+\headcommand {\beamer@subsectionpages {95}{98}}
+\headcommand {\slideentry {4}{0}{1}{99/102}{}{0}}
+\headcommand {\beamer@framepages {99}{102}}
+\headcommand {\slideentry {4}{0}{2}{103/103}{}{0}}
+\headcommand {\beamer@framepages {103}{103}}
+\headcommand {\slideentry {4}{0}{3}{104/104}{}{0}}
+\headcommand {\beamer@framepages {104}{104}}
+\headcommand {\slideentry {4}{0}{4}{105/105}{}{0}}
+\headcommand {\beamer@framepages {105}{105}}
+\headcommand {\beamer@subsubsectionentry {0}{4}{0}{1}{106}{Valid inequalities}}
+\headcommand {\slideentry {4}{0}{5}{106/117}{}{0}}
+\headcommand {\beamer@framepages {106}{117}}
+\headcommand {\slideentry {4}{0}{6}{118/118}{}{0}}
+\headcommand {\beamer@framepages {118}{118}}
+\headcommand {\slideentry {4}{0}{7}{119/126}{}{0}}
+\headcommand {\beamer@framepages {119}{126}}
+\headcommand {\slideentry {4}{0}{8}{127/127}{}{0}}
+\headcommand {\beamer@framepages {127}{127}}
+\headcommand {\beamer@subsubsectionentry {0}{4}{0}{2}{128}{Polyhedral results}}
+\headcommand {\slideentry {4}{0}{9}{128/132}{}{0}}
+\headcommand {\beamer@framepages {128}{132}}
+\headcommand {\slideentry {4}{0}{10}{133/135}{}{0}}
+\headcommand {\beamer@framepages {133}{135}}
+\headcommand {\slideentry {4}{0}{11}{136/138}{}{0}}
+\headcommand {\beamer@framepages {136}{138}}
+\headcommand {\slideentry {4}{0}{12}{139/139}{}{0}}
+\headcommand {\beamer@framepages {139}{139}}
+\headcommand {\slideentry {4}{0}{13}{140/140}{}{0}}
+\headcommand {\beamer@framepages {140}{140}}
+\headcommand {\slideentry {4}{0}{14}{141/141}{}{0}}
+\headcommand {\beamer@framepages {141}{141}}
+\headcommand {\slideentry {4}{0}{15}{142/142}{}{0}}
+\headcommand {\beamer@framepages {142}{142}}
+\headcommand {\slideentry {4}{0}{16}{143/143}{}{0}}
+\headcommand {\beamer@framepages {143}{143}}
+\headcommand {\sectionentry {5}{The Discrete Case}{144}{The Discrete Case}{0}}
+\headcommand {\beamer@sectionpages {99}{143}}
+\headcommand {\beamer@subsectionpages {99}{143}}
+\headcommand {\slideentry {5}{0}{1}{144/144}{}{0}}
+\headcommand {\beamer@framepages {144}{144}}
+\headcommand {\sectionentry {6}{General Conclusions and Perspectives}{145}{General Conclusions and Perspectives}{0}}
+\headcommand {\beamer@sectionpages {144}{144}}
+\headcommand {\beamer@subsectionpages {144}{144}}
+\headcommand {\slideentry {6}{0}{1}{145/145}{}{0}}
+\headcommand {\beamer@framepages {145}{145}}
+\headcommand {\beamer@partpages {1}{145}}
+\headcommand {\beamer@subsectionpages {145}{145}}
+\headcommand {\beamer@sectionpages {145}{145}}
+\headcommand {\beamer@documentpages {145}}
+\headcommand {\def \inserttotalframenumber {59}}

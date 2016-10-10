@@ -1,0 +1,122 @@
+\begin{center}
+  \begin{tabular}{cc}
+    \begin{tikzpicture} [xscale=0.5,yscale=0.45]
+      \node (O) at (0,0) {};
+      \draw [->] (0,0) -- (6,0);
+      \fill[red!80!black!80] (0.5,0) rectangle (1.5,3.5);
+      \fill[red!80!black!80] (1.5,0) rectangle (4.5,2);
+      \draw (0.5,0) node[below] {$r_i$};
+      \draw (6,0) node[below] {$d_i$};
+      \draw (1.5,0) node[below] {$t_1$} -- (1.5,4);
+      \draw (5,0) node[below] {$t_2$} -- (5,4);
+      \draw[dashed] (0,1.5) node[left] {$\bmin$} -- (6,1.5);
+      \draw[dashed] (0,3.5) node[left] {$\bmax$} -- (6,3.5);
+      \draw (0.5,0) -- (0.5,3.5) -- (1.5,3.5) -- (1.5,2) -- 
+      (4.5,2) -- (4.5,0);
+    \end{tikzpicture}
+    &
+      \onslide<2->{
+      \begin{tikzpicture} [xscale=0.5,yscale=0.45]
+        \node (O) at (0,0) {};
+        \draw [->] (0,0) -- (6,0);
+        \fill[red!80!black!80] (5,0) rectangle (6,3.5);
+        \fill[red!80!black!80] (5,0) rectangle (2.5,2.5);
+        \draw (0.5,0) node[below] {$r_i$};
+        \draw (6,0) node[below] {$d_i$};
+        \draw (1.5,0) node[below] {$t_1$} -- (1.5,4);
+        \draw (5,0) node[below] {$t_2$} -- (5,4);
+        \draw[dashed] (0,1.5) node[left] {$\bmin$} -- (6,1.5);
+        \draw[dashed] (0,3.5) node[left] {$\bmax$} -- (6,3.5);
+        \draw (6,0) -- (6,3.5) -- (5,3.5) -- (5,2.5) --
+        (2.5,2.5) -- (2.5,0);
+      \end{tikzpicture}
+
+      ~~~~~~~~~~~~}
+    \\
+    \multicolumn{1}{c}{\small left-shifted} &
+                                       \multicolumn{1}{c}{\only<2->{\small 
+                                       right-shifted} }
+  \end{tabular}
+  
+  \begin{overlayarea}{\textwidth}{3cm}
+    \only<3-4>{
+      \begin{tabular}{cc}
+        \begin{tikzpicture} [xscale=0.5,yscale=0.45]
+          \node (O) at (0,0) {};
+          \draw [->] (0,0) -- (6,0);
+          \fill[red!80!black!80] (0.5,0) rectangle (1.5,3.5);
+          \fill[red!80!black!80] (6,0) rectangle (5,3.5);
+          \fill[red!80!black!80] (5,0) rectangle (1.5,2);
+          \draw (0.5,0) node[below] {$r_i$};
+          \draw (6,0) node[below] {$d_i$};
+          \draw (1.5,0) node[below] {$t_1$} -- (1.5,4);
+          \draw (5,0) node[below] {$t_2$} -- (5,4);
+          \draw[dashed] (0,1.5) node[left] {$\bmin$} -- (6,1.5);
+          \draw[dashed] (0,3.5) node[left] {$\bmax$} -- (6,3.5);
+          \draw (0.5,0) -- (0.5,3.5) -- (1.5,3.5) -- (1.5,2) --
+          (5,2) -- (5,3.5) -- (6,3.5) -- (6,0) ;
+        \end{tikzpicture} 
+        &
+          \only<4>{
+          \begin{tikzpicture} [xscale=0.5,yscale=0.45]
+                      \node (O) at (0,0) {};
+          \draw [->] (0,0) -- (6,0);
+          \fill[red!80!black!80] (0.5,0) rectangle (1.5,3.5);
+          \fill[red!80!black!80] (6,0) rectangle (5,3.5);
+          \fill[red!80!black!80] (5,0) rectangle (1.5,1);
+          \draw (0.5,0) node[below] {$r_i$};
+          \draw (6,0) node[below] {$d_i$};
+          \draw (1.5,0) node[below] {$t_1$} -- (1.5,4);
+          \draw (5,0) node[below] {$t_2$} -- (5,4);
+          \draw[dashed] (0,1.5) node[left] {$\bmin$} -- (6,1.5);
+          \draw[dashed] (0,3.5) node[left] {$\bmax$} -- (6,3.5);
+          \draw (0.5,0) -- (0.5,3.5) -- (1.5,3.5) -- (1.5,1) --
+          (5,1) -- (5,3.5) -- (6,3.5) -- (6,0) ;
+          \end{tikzpicture}
+          }
+        \\
+        \multicolumn{1}{c}{\small both-shifted 1} &
+                                             \multicolumn{1}{c}{\only<4>{
+                                             \small both-shifted 2}}
+      \end{tabular}
+    }
+    \only<5-> {
+      \begin{tabular}{cc}
+        \begin{tikzpicture} [xscale=0.5,yscale=0.45]
+          \node (O) at (0,0) {};
+          \draw [->] (0,0) -- (6,0);
+          \fill[red!80!black!80] (0.5,0) rectangle (1.5,3.5);
+          \fill[red!80!black!80] (6,0) rectangle (5,3.5);
+          \fill[red!80!black!80] (5,0) rectangle (1.5,2);
+          \draw (0.5,0) node[below] {$r_i$};
+          \draw (6,0) node[below] {$d_i$};
+          \draw (1.5,0) node[below] {$t_1$} -- (1.5,4);
+          \draw (5,0) node[below] {$t_2$} -- (5,4);
+          \draw[dashed] (0,1.5) node[left] {$\bmin$} -- (6,1.5);
+          \draw[dashed] (0,3.5) node[left] {$\bmax$} -- (6,3.5);
+          \draw (0.5,0) -- (0.5,3.5) -- (1.5,3.5) -- (1.5,2) --
+          (5,2) -- (5,3.5) -- (6,3.5) -- (6,0) ;
+        \end{tikzpicture} 
+        &
+          \begin{tikzpicture} [xscale=0.5,yscale=0.45]
+            \node (O) at (0,0) {};
+            \draw [->] (0,0) -- (6,0);
+            \fill[red!80!black!80] (0.5,0) rectangle (1.5,3.5);
+            \fill[red!80!black!80] (6,0) rectangle (1.5,1.5);
+            \draw (0.5,0) node[below] {$r_i$};
+            \draw (6,0) node[below] {$d_i$};
+            \draw (1.5,0) node[below] {$t_1$} -- (1.5,4);
+            \draw (5,0) node[below] {$t_2$} -- (5,4);
+            \draw[dashed] (0,1.5) node[left] {$\bmin$} -- (6,1.5);
+            \draw[dashed] (0,3.5) node[left] {$\bmax$} -- (6,3.5);
+            \draw (0.5,0) -- (0.5,3.5) -- (1.5,3.5) -- (1.5,1.5) --
+            (6,1.5)  -- (6,0) ;
+          \end{tikzpicture}
+        \\
+        \multicolumn{1}{c}{\small both-shifted 1} &
+                                             \multicolumn{1}{c}{
+                                             \small both-shifted 2}
+      \end{tabular}
+    }
+  \end{overlayarea}
+\end{center}  

@@ -1,15 +1,273 @@
-\subsection{Mixed Integer Linear Program}
+\subsection{Branching scheme}
 
-\begin{frame}{Justification of event-based model}
-
+\begin{frame}
+  \frametitle{Branching scheme {\small \it \color{gray!50!black!50} [Carlier \& Latapie, 1991]}}
+  \begin{itemize}
+    \vfill
+  \item Step 1: ER checker and ER adjustments on current node 
+    \vfill    
+  \item Step 2: Choose $st_i$ or $ft_i$ s.t. $[est_i,lst_i]$ or
+    $[eet_i,let_i]$ min
+    \vfill
+  \item Step 3: Create 2 nodes by separating the corresponding interval in 2 parts
+  \end{itemize}
+  \begin{overlayarea}{\textwidth}{4cm}
+    \only<1>{
+      \vfill
+      {\it Ex with $st_i$:}
+      \begin{center}
+        \input{/home/mnattaf/Documents/input_latex/branching.tex}
+      \end{center}
+    }
+    \only<2>{
+      \begin{itemize}
+      \item Repeat Step 1--4 until each interval $\inter[est_i][lst_i]$ and $\inter[eet_i][let_i]$ has a size smaller than a given $\epsilon$ (DFS)\\
+        \vspace{0.4cm}
+      \item MILP of the restricted problem
+        \begin{itemize}
+        \item If MILP solved the problem: STOP
+        \item else : backtrack
+        \end{itemize}
+      \end{itemize}
+    }
+  \end{overlayarea}
+  \vfill
 \end{frame}
-\begin{frame}{Start/End model?}
 
+\subsection{Filtering algorithms}
+\subsubsection{Energetic reasoning checker}
+
+
+
+\begin{frame}
+  \frametitle{Energetic reasoning checker}
+  We define the  slack function of interval $\inter$ as:
+  \begin{gather}
+    SL(t_1,t_2)={\color<2>{red}\text{ available space in
+      }\inter}-{\color<2>{blue!50!}\text{ total mandatory }} \nonumber\\ 
+    {\color<2>{blue!50!}\text{consumption in } \inter}\nonumber
+  \end{gather}
+  \begin{theorem}
+    If there exists an interval on which the slack function is negative then there is no solution
+  \end{theorem}
+  \vfill
+  \onslide<2>{
+    \begin{center}
+      \begin{tikzpicture}
+        [transform shape,xscale=0.7,yscale=0.5]
+        [inner sep=0pt]
+        \node (O) at (0,0) {};
+        \node[right of=O, node distance=6cm] (T) {};
+        \node[right of=O, node distance=2cm] (t1) {};
+        \node[right of=O, node distance=4cm] (t2) {};
+        
+        \draw[dashed] (0,4) node[left] {\Large$B$} -- (6,4);
+
+        \draw[->] (O) -- (T);
+
+        \draw[thick,red] (t1) -- (2,4.5);
+        \draw[thick,red] (t2) -- (4,4.5);
+
+        \draw[fill=blue!10!] (t1) node[above=2cm,left=0.6cm] {\color{blue!50!} \Large mandatory consumption} rectangle (4.5,4);
+        \draw[pattern=north west lines, pattern color=red] (t1) rectangle (4,4) node[below=2cm,right=0.8cm] {\color{red} \Large available resource};
+      \end{tikzpicture}
+    \end{center}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Energetic reasoning checker}
+  {\small adaptation of the energetic reasoning for CuSP {\color{gray!50!black!50} \it [Baptiste et al., 2001]}}
+  \vfill
+  We define the mandatory consumption of $i$ in interval $\inter$ as 
+  \[\bb=\min \int_{t_1}^{t_2} b_i(t) dt\]
+  \vfill
+  In order to compute this quantity we also define the minimum energy
+  consumption of $i$ in interval $\inter$ as:
+  \[\wb=\min \int_{t_1}^{t_2} f_i(b_i(t)) dt\]
+  \vfill
+\end{frame}
+
+
+\begin{frame}{Mandatory consumption possible configurations}
+  \input{figures/ER_tab.tex}
+  \[\wb = \min ( LS, RS, \max (BS_1,BS_2))\]
+\end{frame}
+
+\begin{frame}
+  \frametitle{Minimal resource consumption}
+  \begin{center}
+    \input{figures/resource_consumption.tex}
+  \end{center}
+  \vfill
+  \textbf{Question : }
+  How can we bring this energy to $i$ in interval $J$ by consumming as few resource as possible?
+  \vfill
+  \begin{align*}
+    \text{ min }& \int_{J} b_i(t)dt  \\
+    \text{ s.t. } & \int_{J}f_i(b_i(t))dt \ge  \underline{w}(i,t_1,t_2) \\
+                &  \bmax \ge b_i(t) \ge \bmin
+  \end{align*}
+  \vfill
+\end{frame}
+
+\begin{frame}
+  \frametitle{Analytic expression of $\bb$}
+  \vfill
+  \begin{itemize}
+  \item  \textbf{Question : }
+    How can we bring this energy to $i$ in interval $J$ by consumming as few resource as possible?
+    \vfill
+    \begin{align*}
+      \text{ min }& \int_{J} b_i(t)dt  \\
+      \text{ s.t. } & \int_{J}f_i(b_i(t))dt \ge  \underline{w}(i,t_1,t_2) \\
+                  &  \bmax \ge b_i(t) \ge \bmin
+    \end{align*}
+    \vfill
+  \item Theorem PWC $\Rightarrow$ there is a constant $b_{i} > 0 $
+    s.t. 
+    \begin{align*}
+      \text{min }  & \int_{J} b_i\,dt  \\
+      \text{s.t } & \int_{J}f_i(b_i)\,dt \ge
+                    \underline{w}(i,t_1,t_2)\\
+                   & \bmax \ge b_i \ge \bmin
+    \end{align*}
+  \end{itemize}
+  \vfill
+\end{frame}
+
+\begin{frame}
+  \frametitle{Analytic expression of $\bb$}
+  \vfill
+  $\bullet$ if $f_i$ is linear, i.e. of the form $f_i(b)= a_i*b+c_i$ :
+  {\footnotesize
+    \begin{align*}
+      \text{min }  & \int_{J} b_i\,dt  \\
+      \text{s.t } & \int_{J}(a_i*b_i+c_i)\,dt \ge
+                    \underline{w}(i,t_1,t_2)\\
+                   & \bmax \ge b_i \ge \bmin
+    \end{align*}}
+  { \color{blue!80!black!80}
+    $\boldmath{\Rightarrow  \underline{b}(i,t_1,t_2)= \max ( |J|\bmin, \frac{1}{a_i}( \underline{w}(i,t_1,t_2)-|J|c_i))}$}.
+  \vfill
+  $\bullet$ if $f_i$ is concave and piecewise linear, i.e. of the form
+  $f_i(b)=a_{ip}*b+c_{ip}, \forall p \in {\cal P}$:
+  {\footnotesize 
+    \begin{align*}
+      \text{min }  & \int_{J} b_i\,dt  \\
+      \text{s.t } & \int_{J}(a_{ip}*b_i+c_{ip})\,dt \ge
+                    \underline{w}(i,t_1,t_2) \qquad \forall p \in
+                    {\cal P}\\
+                   & \bmax \ge b_i \ge \bmin
+    \end{align*}}
+  { \color{blue!80!black!80}
+    $\boldmath{\Rightarrow  \underline{b}(i,t_1,t_2)= \max ( |J|\bmin, \max_{p
+        \in {\cal P}} \frac{1}{a_{ip}}( \underline{w}(i,t_1,t_2)-|J|c_{ip}))}$}
+  \vfill
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{An event-based formulation}
+  \frametitle{Relevant intervals}
+  {\bf Question: } On which intervals $\inter$?\\
+  \vfill
+  $\rightarrow$ Analysis of the variation of the slack function\\
+  \vfill
+  \begin{block}{Slack function}
+    \centering $SL(t_1,t_2)=B(t_2-t_1) - \sum_{i \in A} \bb$
+  \end{block}
+  \vspace{0.8cm}
+  $\rightarrow$ Variation of $SL(t_1,t_2)$ depends on variation of 
+  $\sum_{i \in A} \bb$
+  \vfill 
+\end{frame}
+
+\subsubsection{Energetic reasoning filter}
+
+\begin{frame}
+  \frametitle{Time window adjustments}
+  \vspace{0.4cm}
+  \begin{center}
+    \input{/home/mnattaf/Documents/input_latex/adjustments.tex}
+  \end{center}
+  \vfill
+  \begin{block}{Adjustments}
+    if {\color<1-3>{red!80!black!80} available space for $i$}$<${\color<2-3>{blue!80!black!80} consumption of $i$ starting at $est_i$}  then
+    \[\color<4>{blue!80!black!80}est_i \text{ can be adjusted}\]
+  \end{block}
+  \vfill
+\end{frame}
+
+\subsubsection{Other filtering algorithms}
+
+\begin{frame}{Other filtering algorithms}
+\vfill
+\begin{itemize}
+\item {\bf \color{blue!80!black!80} Simple reasoning: } adaptation of
+  {\bf time-table} reasoning and {\bf disjunctive} reasoning
+\vfill
+{\color{gray!80!black!80}{\it Idea: } Consider rectangular task with two modes
+
+  $\rightarrow (\bmax, W_i/f_i(\bmax))$ maximal consumption/minimal time
+
+  $\rightarrow (\bmin, W_i/f_i(\bmin))$ minimal consumption/maximal
+  time}
+  \vfill
+\item {\bf \color{blue!80!black!80} Combined/Extended reasoning: }
+  adaptation of the {\bf time-table disjunctive} reasoning (TTDR) and
+  new {\bf time-table flow-based} satisfiability test (TTFB)
+  \vfill
+  {\color{gray!80!black!80}{\it Idea: } TTDR $\rightarrow$ same as TT and DR
+
+  TTBF $\rightarrow$ Flow-based LP with minimal consumption $\bmin$ in
+  ${[}eet_i,lst_i {]}$ and $0$ outside}
+\end{itemize}
+\vfill
+\end{frame}
+
+
+\subsection{Mixed Integer Linear Program}
+
+\begin{frame}{Justification of event-based model}
+  CECSP can have only non-integer solution
+
+  Event based model allows continuous task start and end times
+
+  
+\end{frame}
+
+\begin{frame}{Start/End formulation}
+  {\small \it Adaptation of a model for the RCPSP {\color{gray!50!black!50} \it [Koné et al., 2011]}}
+  \vfill
+  \begin{block}{Variables}
+    \begin{itemize}
+    \item  $t_e$ represents the event (start or end time)
+      \vspace{0.3cm}
+    \item $x_{ie}=\left\{
+        \begin{array}{ll}
+          1 & \text{if $i$ starts at event $e$ (time $t_e$)}\\
+          0 & \text{otherwise}
+        \end{array}
+      \right.
+      $
+      \vspace{0.3cm}
+    \item $y_{ie}=\left\{
+        \begin{array}{ll}
+          1 & \text{if $i$ ends at event $e$ (time $t_e$)}\\
+          0 & \text{otherwise}
+        \end{array}
+      \right.
+      $
+      \vspace{0.3cm}
+    \item $B_{ie}$: resource quantity consumed by $i$ in $\inter[t_e][t_{e+1}]$
+      \vspace{0.3cm}
+    \item $W_{ie}$: energy brought to $i$ in $\inter[t_e][t_{e+1}]$   
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{On/Off formulation}
   {\small \it Adaptation of a model for the RCPSP {\color{gray!50!black!50} \it [Koné et al., 2011]}}
   \vfill
   \begin{block}{Variables}
@@ -30,7 +288,75 @@
     \end{itemize}
   \end{block}
 \end{frame}
+
+\begin{frame}{Energy/Resource constraints}
+  \begin{block}{Start/end model}
+    {\footnotesize
+      \begin{align*}
+        &\sum_{i \in A} B_{ie} \le B(t_{e+1}- t_e) & & 
+                                                       \forall e \in {\cal E}\setminus\{2n\}\\
+        &B_{ie} \ge b_i^{min}(t_{e+1}-t_e) - M{\color{blue!80!black!80}(1 - \sum_{f=0}^e x_{if} +\sum_{f=0}^e y_{if})} & &
+                                                                                                 \forall i \in A \ ;\forall e \in {\cal E}\setminus\{2n\} \\
+        &B_{ie} \le b_i^{max} (t_{e+1} - t_e) & &
+                                                  \forall i \in A \ ;\forall e \in {\cal E}\setminus\{2n\} \\
+        &{\color{red!80!black!80}(\sum_{f=0}^{e} x_{if} - \sum_{f=0}^e y_{if})}M \ge B_{ie} & &
+                                                                       \forall i \in A \ ;\forall e \in {\cal E}\setminus\{2n\}\\
+ & & & \\
+        &W_{ie} \le a_iB_{ie}+c_i(t_{e+1}-t_e) & &
+                                                   \forall i \in A \ ;\forall e \in {\cal E} \setminus\{2n\}\\
+        &W_{ie} \le W_i {\color{red!80!black!80}(\sum_{f=0}^{e} x_{if} -\sum_{f=0}^{e} y_{if})} & &
+                                                                           \forall i \in A \ ;\forall e \in {\cal E}\setminus\{2n\} \\
+        &\sum_{e\in {\cal E}\setminus\{2n\}} W_{ie} = W_i  & &
+                                                               \forall i \in A 
+\end{align*} }  
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}{Energy/Resource model}
+  \vfill
+  \begin{block}{On/Off model}
+    {\footnotesize
+      \begin{align*}
+        &\sum_{i\in A} B_{ie} \le B(t_{e+1}-t_e) & &\forall e \in {\cal E}\setminus \{2n\}\\
+        &B_{ie} \ge \bmin(t_{e+1}-t_e) - M{\color{blue!80!black!80}(1-z_{ie})} & & \forall e \in {\cal E}\setminus \{2n\}\ ;\forall i \in A\\
+        &B_{ie} \le \bmax(t_{e+1}-t_e) & &\forall e \in {\cal E}\setminus \{2n\}\ ;\forall i \in A\\
+        &{\color{red!80!black!80}z_{ie}}M\ge B_{ie} & & \forall e\in {\cal E}\setminus \{2n\}\
+                           ;\forall i \in A\\
+        & & & \\  &W_{ie} \le a_iB_{ie}+c_i(t_{e+1}-t_{e}) & & \forall e \in {\cal E}\setminus \{2n\};\ \forall i \in A\\
+    &W_{ie} \le W_i{\color{red!80!black!80}z_{ie}} & & \forall e \in {\cal E}\setminus \{2n\}\ ;\forall i \in A\\
+    &\sum_{e \in {\cal E}\setminus \{2n\}} W_{ie} = W_i & & \forall i \in A    
+      \end{align*}
+      }
+  \end{block}
+  \vfill
+\end{frame}
+
 \subsection{Computational results}
+
+\begin{frame}
+  \frametitle{Branching scheme {\small \it \color{gray!50!black!50} [Carlier \& Latapie, 1991]}}
+  \begin{itemize}
+    \vfill
+  \item Step 1: ER checker and ER adjustments on current node 
+    \vfill    
+  \item Step 2: Choose $st_i$ or $ft_i$ s.t. $[est_i,lst_i]$ or
+    $[eet_i,let_i]$ min
+    \vfill
+  \item Step 3: Create 2 nodes by separating the corresponding interval in 2 parts
+    \vfill
+  \item Repeat Step 1--4 until each interval $\inter[est_i][lst_i]$ and $\inter[eet_i][let_i]$ has a size smaller than a given $\epsilon$ (DFS)
+    \vfill
+  \item MILP of the restricted problem
+    \begin{itemize}
+    \item If MILP solved the problem: STOP
+    \item else : backtrack
+    \end{itemize}
+  \end{itemize}
+  \vfill
+\end{frame}
+
+
 \begin{frame}
   \frametitle{Computational results}
   \begin{block}{Instance generation}
@@ -73,5 +399,5 @@
     \caption{Percentage of solved instances for MILP model and hybrid 
       branch-and-bound (\% of solved instances)}
   \end{figure}
-\vfill
+  \vfill
 \end{frame}

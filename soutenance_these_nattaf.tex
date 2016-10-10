@@ -15,7 +15,7 @@
 \input{/home/mnattaf/Documents/input_latex/newcommand.tex}
 
 
-\title{Scheduling under Energy Constraints}
+\title{Scheduling Under Energy Constraints}
 \author{Margaux NATTAF}
 \institute{LAAS-CNRS Toulouse
 
@@ -55,25 +55,74 @@
   \end{frame}}
 
 
-% \tableofcontents
+ \tableofcontents
 \setcounter{framenumber}{0}
 
 \section{Introduction}
 
 \input{introduction.tex}
+
 \section{Problem Properties}
-%\input{properties.tex}
+\input{properties.tex}
 \section{Hybrid Branch-and-Bound}
-%\input{hybridBB.tex}
+\input{hybridBB.tex}
 
 \section{Improvement of the On/Off MILP}
-%\input{improvement.tex}
+\input{improvement.tex}
 
 \section{The Discrete Case}
-\begin{frame}{Approximation of efficiency functions with the CECSP$_{lin}$}
-  
+\begin{frame}{Discrete case}
+  \vfill
+  \begin{block}{DECSP}
+    Integer data and solution: Start/End time, Resource reallocation
+    time, Resource Consumption.
+  \end{block}
+  \vfill
+  \begin{itemize}
+  \item Constraints Programming Model
+    \begin{itemize}
+    \item Several reasoning (TT, DR, ER...)
+    \end{itemize}
+    \vfill
+  \item Time-indexed Mixed Integer Linear Program
+    \begin{itemize}
+    \item valid inequalities deduced from Energetic Reasoning
+    \end{itemize}
+  \end{itemize}
+\vfill
 \end{frame}
 \section{General Conclusions and Perspectives}
+
+\begin{frame}
+\frametitle{Conclusion}
+\vfill
+  \begin{block}{What we did}
+    \begin{itemize}
+    \item MILP model and Hybrid branch-and-bound
+      \vspace{0.2cm}
+      \begin{itemize}
+      \item energetic reasoning checker
+      \item energetic reasoning filter
+      \end{itemize}
+    \item MILP model $\simeq<$ Hybrid branch-and-bound
+    \item 3 sets of valid inequalities
+    \item Characterization of $Z$-polyhedron
+    \item Improve MILP results for two problems of the literature 
+    \end{itemize}
+  \end{block}
+  \vfill
+  \begin{block}{To Do}
+    \begin{itemize}
+    \item Symmetry breaking inequalities 
+      \vspace{0.3cm}
+    \item Other heuristics for the Hybrid BB 
+      \vspace{0.3cm}
+    \item Consider more realistic power processing rate functions $f_i$
+    \end{itemize}
+  \end{block}
+  \vfill
+\end{frame}
+
 \end{document}
 
 
