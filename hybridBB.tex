@@ -138,26 +138,30 @@
   \frametitle{Analytic expression of $\bb$}
   \vfill
   $\bullet$ if $f_i$ is linear, i.e. of the form $f_i(b)= a_i*b+c_i$ :
-  {\footnotesize
     \begin{align*}
       \text{min }  & \int_{J} b_i\,dt  \\
       \text{s.t } & \int_{J}(a_i*b_i+c_i)\,dt \ge
                     \underline{w}(i,t_1,t_2)\\
                    & \bmax \ge b_i \ge \bmin
-    \end{align*}}
+    \end{align*}
   { \color{blue!80!black!80}
     $\boldmath{\Rightarrow  \underline{b}(i,t_1,t_2)= \max ( |J|\bmin, \frac{1}{a_i}( \underline{w}(i,t_1,t_2)-|J|c_i))}$}.
+ 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Analytic expression of $\bb$}
   \vfill
-  $\bullet$ if $f_i$ is concave and piecewise linear, i.e. of the form
+  $\bullet$  if $f_i$ is concave and piecewise linear, i.e. of the form
   $f_i(b)=a_{ip}*b+c_{ip}, \forall p \in {\cal P}$:
-  {\footnotesize 
+
     \begin{align*}
       \text{min }  & \int_{J} b_i\,dt  \\
       \text{s.t } & \int_{J}(a_{ip}*b_i+c_{ip})\,dt \ge
                     \underline{w}(i,t_1,t_2) \qquad \forall p \in
                     {\cal P}\\
                    & \bmax \ge b_i \ge \bmin
-    \end{align*}}
+    \end{align*}
   { \color{blue!80!black!80}
     $\boldmath{\Rightarrow  \underline{b}(i,t_1,t_2)= \max ( |J|\bmin, \max_{p
         \in {\cal P}} \frac{1}{a_{ip}}( \underline{w}(i,t_1,t_2)-|J|c_{ip}))}$}
@@ -169,7 +173,8 @@
   \frametitle{Relevant intervals}
   {\bf Question: } On which intervals $\inter$?\\
   \vfill
-  $\rightarrow$ Analysis of the variation of the slack function\\
+  $\rightarrow$ Analysis of the variation of the slack function
+   {\small CuSP : \it \color{gray!50!black!50} [Derrien \& Petit, 2015]}\\
   \vfill
   \begin{block}{Slack function}
     \centering $SL(t_1,t_2)=B(t_2-t_1) - \sum_{i \in A} \bb$
@@ -177,6 +182,8 @@
   \vspace{0.8cm}
   $\rightarrow$ Variation of $SL(t_1,t_2)$ depends on variation of 
   $\sum_{i \in A} \bb$
+  \vfill 
+  $\rightarrow$ Polynomial number of interval (checker and filter)
   \vfill 
 \end{frame}
 
