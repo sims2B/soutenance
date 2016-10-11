@@ -1,8 +1,10 @@
 \begin{tikzpicture}
   [scale=0.5]
   \node (O) at (0,0) {};
-  \onslide<4->{  
-    \path[draw, fill=red!50] (1,0) -- (1,4) parabola [bend at end] (6,1) -- (6,0); 
+  \onslide<4->{
+  \fill[red!50] (1,0) -- (1,1) parabola bend (1.8,3)(2.51,2) -- (2.51,0);
+  \fill[red!50] (2.49,0) -- (2.5,2) parabola bend (3.2,1) (4.511,3) -- (4.511,0) ;
+  \fill[red!50] (4.489,0) -- (4.5,3) parabola bend (5.2,4) (6,2) -- (6,0);
   }
   \onslide<2->{
     \node[label={[shift={(0,-0.7)}]$est_i$}]  at (0.5,0) {};
@@ -14,16 +16,18 @@
     \node[label={[shift={(-0.4,-0.4)}]$b_i^{min}$}]  at (0,1) {};
     \node[label={[shift={(-0.4,-0.4)}]$b_i^{max}$}]  at (0,4) {};
     \draw[dashed] (0,1) -- (6.5,1);
-    \draw[dashed] (0,4) -- (6.5,4);}
-  
+    \draw[dashed] (0,4) -- (6.5,4);
+  }
   
   \draw (O.center) -- (0,4);
   \draw[->] (O.center) -- (6.5,0);
   
-  \draw (1,4) -- (1,0);
+  \draw (1,1) -- (1,0);
   
   
-  \path[draw] (1,4) parabola [bend at end] (6,1); 
+  \draw (1,1) parabola bend (1.8,3)(2.5,2); 
+  \draw (2.5,2) parabola bend (3.2,1) (4.5,3);
+  \draw (4.5,3) parabola bend (5.2,4) (6,2);
   
-  \draw (6,1) -- (6,0);
+  \draw (6,2) -- (6,0);
 \end{tikzpicture}

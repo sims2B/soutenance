@@ -1,7 +1,14 @@
+\subsection{Simple Properties}
 \begin{frame}
   \frametitle{Simple Properties}
-  scheduling a task at $\bmax$ during $\inter$ gives the higher energy amount ($f_i$ is non decreasing)
-  \begin{center}
+  \begin{itemize}
+\vfill
+  \item NP-complete (CuSP is a particular case of CECSP)
+\vfill
+\pause
+  \item scheduling a task at $\bmax$ during $\inter$ gives the higher energy amount ($f_i$ is non decreasing)
+\vfill\end{itemize}
+\begin{center}
     \begin{tikzpicture}
       [yscale=0.6]
       [inner sep=0]
@@ -10,7 +17,7 @@
       \node (t1) [right of =O, node distance=1cm] {};
       \node (t2) [right of =t1, node distance=2cm] {};
       \draw[pattern=north west lines] (t1) rectangle (3,2.5);
-      \draw[dashed,gray!40!] (0,2.5) -- (4,2.5) node[right] {$\bmax$};
+      \draw[dashed,gray!40!black!40] (0,2.5) -- (4,2.5) node[right] {$\bmax$};
       
       \draw[red,dashed] (t1) node[below] {$t_1$}-- (1,3);
       \draw[red,dashed] (t2) node[below] {$t_2$} -- (3,3);
@@ -18,15 +25,22 @@
     \end{tikzpicture}
   \end{center}
 
+\pause
+
+\vfill
   \begin{block}{Notations}
     \begin{itemize}
     \item the latest start time of $i$ as $lst_i=let_i-\frac{W_i}{f_i(\bmax)}$
     \item and the earliest end time of $i$ as $eet_i=est_i+\frac{W_i}{f_i(\bmax)}$
     \end{itemize}
   \end{block}
-  $\Rightarrow$ a task can start in $\inter[est_i][lst_i]$ and end in $\inter[eet_i][let_i]$
-\end{frame}
+\vfill
+\pause
 
+  $\Rightarrow$ a task can start in $\inter[est_i][lst_i]$ and end in $\inter[eet_i][let_i]$
+\vfill
+\end{frame}
+\subsection{Non-integer solution}
 \begin{frame}
   \frametitle{Non-integer solution}
   \vfill
@@ -34,6 +48,8 @@
   \item   Instances with integer data can have only non-integer solution.
   \end{itemize}
   \vfill
+\pause
+
   \begin{center}
     \begin{tabularx}{10cm}{|>{\centering\arraybackslash}p{0.6cm}|
         *5{>{\centering\arraybackslash}X}>{\centering\arraybackslash}p{2cm}|}
@@ -46,6 +62,8 @@
     \end{tabularx}
   \end{center}
   \vfill
+\pause
+
   \centering
   \begin{tikzpicture}
     [xscale=2]
@@ -66,9 +84,12 @@
   \vfill  
 \end{frame}
 
+\subsection{Piecewise Constant Resource Allocation}
 \begin{frame}{Piecewise Constant Resource Allocation}
   \begin{theorem}
-    Any solution of \only<1-8>{CECSP$_{lin}$} \only<9->{CECSP$_{cpwl}$} and can be transformed in a solution where $\forall i \in A,\ b_i(t)$ is piecewise constant. 
+    Any solution of \only<1-8>{\textcolor{blue!80!black!80}{CECSP$_{lin}$}}
+    \only<9->{\textcolor{red!80!black!80}{CECSP$_{cpwl}$}} and can be transformed in a solution
+    where $\forall i \in A,\ b_i(t)$ is piecewise constant.  
   \end{theorem}
   \onslide<2->{
     \begin{proof}[Proof (Sketch)]
@@ -82,11 +103,11 @@
           \begin{overlayarea}{\textwidth}{0.5cm}
             \only<8>{	
               \begin{itemize}
-              \item same resource and same energy
+              \item same resource and {\color{blue!80!black!80}same} energy
               \end{itemize}
             }
             \only<9>{ \begin{itemize}
-              \item same resource and more energy\footnote{Jensen,
+              \item same resource and {\color{red!80!black!80}more} energy\footnote{Jensen,
                   Sur les fonctions convexes et les in{\'e}galit{\'e}s entre les
                   valeurs moyennes, 1906.}
               \end{itemize}}
@@ -140,23 +161,28 @@
       \vspace{0.5cm}	
     \end{proof}}
 \end{frame}
-
-\begin{frame}{Polynomial case}
+\subsection{Polynomial cases}
+\begin{frame}{Polynomial cases}
   \vfill
   \begin{theorem}
     The CECSP, the CECSP$_{lin}$ and the CECSP$_{cpwl}$ with fixed
     task start and end times are polynomial.  
   \end{theorem}
   \vfill
+\pause
  {\bf Proof (Sketch). } Only need to decide the quantity of resource
  given to tasks in each interval $[t_{q},t_{q+1}]$.
 
+
+\pause
  Can be solved by a Flow-based Linear Program.
  \vfill
+\pause
   \begin{theorem}
 The preemptive CECSP, the preemptive CECSP$_{lin}$ and the preemptive CECSP$_{cpwl}$ are polynomial.  
   \end{theorem}
   \vfill
+\pause
   
  {\bf Proof (Sketch). } Apply the Flow-based LP with $st_i=est_i$ and $ft_i=let_i$.
  \vfill

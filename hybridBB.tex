@@ -6,9 +6,11 @@
     \vfill
   \item Step 1: ER checker and ER adjustments on current node 
     \vfill    
+\pause
   \item Step 2: Choose $st_i$ or $ft_i$ s.t. $[est_i,lst_i]$ or
     $[eet_i,let_i]$ min
     \vfill
+\pause
   \item Step 3: Create 2 nodes by separating the corresponding interval in 2 parts
   \end{itemize}
   \begin{overlayarea}{\textwidth}{4cm}
@@ -19,13 +21,16 @@
         \input{/home/mnattaf/Documents/input_latex/branching.tex}
       \end{center}
     }
-    \only<2>{
+    \only<2->{
       \begin{itemize}
-      \item Repeat Step 1--4 until each interval $\inter[est_i][lst_i]$ and $\inter[eet_i][let_i]$ has a size smaller than a given $\epsilon$ (DFS)\\
+      \item Repeat Steps 1--4 until each interval $\inter[est_i][lst_i]$ and $\inter[eet_i][let_i]$ has a size smaller than a given $\epsilon$ (DFS)\\
         \vspace{0.4cm}
+\pause
       \item MILP of the restricted problem
+\pause
         \begin{itemize}
         \item If MILP solved the problem: STOP
+\pause
         \item else : backtrack
         \end{itemize}
       \end{itemize}
@@ -43,15 +48,17 @@
   \frametitle{Energetic reasoning checker}
   We define the  slack function of interval $\inter$ as:
   \begin{gather}
-    SL(t_1,t_2)={\color<2>{red!80!black!80}\text{ available space in
-      }\inter}-{\color<2>{blue!80!black!80}\text{ total mandatory }} \nonumber\\ 
-    {\color<2>{blue!80!black!80}\text{consumption in } \inter}\nonumber
+    SL(t_1,t_2)={\color<3>{red!80!black!80}\text{ available space in
+      }\inter}-{\color<3>{blue!80!black!80}\text{ total mandatory }} \nonumber\\ 
+    {\color<3>{blue!80!black!80}\text{consumption in } \inter}\nonumber
   \end{gather}
+\pause
   \begin{theorem}
     If there exists an interval on which the slack function is negative then there is no solution
   \end{theorem}
+\pause
   \vfill
-  \onslide<2>{
+  \onslide<3>{
     \begin{center}
       \begin{tikzpicture}
         [transform shape,xscale=0.7,yscale=0.5]
@@ -78,9 +85,11 @@
   \frametitle{Energetic reasoning checker}
   {\small adaptation of the energetic reasoning for CuSP {\color{gray!50!black!50} \it [Baptiste et al., 2001]}}
   \vfill
+\pause
   We define the mandatory consumption of $i$ in interval $\inter$ as 
   \[\bb=\min \int_{t_1}^{t_2} b_i(t) dt\]
   \vfill
+\pause
   In order to compute this quantity we also define the minimum energy
   consumption of $i$ in interval $\inter$ as:
   \[\wb=\min \int_{t_1}^{t_2} f_i(b_i(t)) dt\]
@@ -89,6 +98,7 @@
 
 \begin{frame}{Mandatory consumption possible configurations}
   \input{figures/ER_tab.tex}
+\pause
   \[\wb = \min ( LS, RS, \max (BS_1,BS_2))\]
 \end{frame}
 
@@ -98,9 +108,11 @@
     \input{figures/resource_consumption.tex}
   \end{center}
   \vfill
+\pause
   \textbf{Question : }
-  How can we bring this energy to $i$ in interval $J$ by consumming as few resource as possible?
+  How can we bring this energy to $i$ in interval $J$ by consuming as few resource as possible?
   \vfill
+\pause
   \begin{align*}
     \text{ min }& \int_{J} b_i(t)dt  \\
     \text{ s.t. } & \int_{J}f_i(b_i(t))dt \ge  \underline{w}(i,t_1,t_2) \\
@@ -114,7 +126,7 @@
   \vfill
   \begin{itemize}
   \item  \textbf{Question : }
-    How can we bring this energy to $i$ in interval $J$ by consumming as few resource as possible?
+    How can we bring this energy to $i$ in interval $J$ by consuming as few resource as possible?
     \vfill
     \begin{align*}
       \text{ min }& \int_{J} b_i(t)dt  \\
@@ -122,8 +134,10 @@
                   &  \bmax \ge b_i(t) \ge \bmin
     \end{align*}
     \vfill
+\pause
   \item Theorem PWC $\Rightarrow$ there is a constant $b_{i} > 0 $
     s.t. 
+\pause
     \begin{align*}
       \text{min }  & \int_{J} b_i\,dt  \\
       \text{s.t } & \int_{J}f_i(b_i)\,dt \ge
@@ -138,12 +152,14 @@
   \frametitle{Analytic expression of $\bb$}
   \vfill
   $\bullet$ if $f_i$ is linear, i.e. of the form $f_i(b)= a_i*b+c_i$ :
+\pause
     \begin{align*}
       \text{min }  & \int_{J} b_i\,dt  \\
       \text{s.t } & \int_{J}(a_i*b_i+c_i)\,dt \ge
                     \underline{w}(i,t_1,t_2)\\
                    & \bmax \ge b_i \ge \bmin
     \end{align*}
+\pause
   { \color{blue!80!black!80}
     $\boldmath{\Rightarrow  \underline{b}(i,t_1,t_2)= \max ( |J|\bmin, \frac{1}{a_i}( \underline{w}(i,t_1,t_2)-|J|c_i))}$}.
  
@@ -154,6 +170,7 @@
   \vfill
   $\bullet$  if $f_i$ is concave and piecewise linear, i.e. of the form
   $f_i(b)=a_{ip}*b+c_{ip}, \forall p \in {\cal P}$:
+\pause
 
     \begin{align*}
       \text{min }  & \int_{J} b_i\,dt  \\
@@ -162,6 +179,7 @@
                     {\cal P}\\
                    & \bmax \ge b_i \ge \bmin
     \end{align*}
+\pause
   { \color{blue!80!black!80}
     $\boldmath{\Rightarrow  \underline{b}(i,t_1,t_2)= \max ( |J|\bmin, \max_{p
         \in {\cal P}} \frac{1}{a_{ip}}( \underline{w}(i,t_1,t_2)-|J|c_{ip}))}$}
@@ -173,16 +191,20 @@
   \frametitle{Relevant intervals}
   {\bf Question: } On which intervals $\inter$?\\
   \vfill
-  $\rightarrow$ Analysis of the variation of the slack function
-   {\small CuSP : \it \color{gray!50!black!50} [Derrien \& Petit, 2015]}\\
+\pause
+  $\rightarrow$ Analysis of the variation of the slack function (
+   {\small CuSP : \it \color{gray!50!black!50} [Derrien \& Petit, 2015]})\\
   \vfill
+\pause
   \begin{block}{Slack function}
     \centering $SL(t_1,t_2)=B(t_2-t_1) - \sum_{i \in A} \bb$
   \end{block}
+\pause
   \vspace{0.8cm}
   $\rightarrow$ Variation of $SL(t_1,t_2)$ depends on variation of 
   $\sum_{i \in A} \bb$
   \vfill 
+\pause
   $\rightarrow$ Polynomial number of interval (checker and filter)
   \vfill 
 \end{frame}
@@ -211,6 +233,7 @@
 \item {\bf \color{blue!80!black!80} Simple reasoning: } adaptation of
   {\bf time-table} reasoning and {\bf disjunctive} reasoning
 \vfill
+\pause
 {\color{gray!80!black!80}{\it Idea: } Consider rectangular task with two modes
 
   $\rightarrow (\bmax, W_i/f_i(\bmax))$ maximal consumption/minimal time
@@ -218,10 +241,12 @@
   $\rightarrow (\bmin, W_i/f_i(\bmin))$ minimal consumption/maximal
   time}
   \vfill
+\pause
 \item {\bf \color{blue!80!black!80} Combined/Extended reasoning: }
   adaptation of the {\bf time-table disjunctive} reasoning (TTDR) and
   new {\bf time-table flow-based} satisfiability test (TTFB)
   \vfill
+\pause
   {\color{gray!80!black!80}{\it Idea: } TTDR $\rightarrow$ same as TT and DR
 
   TTBF $\rightarrow$ Flow-based LP with minimal consumption $\bmin$ in
@@ -240,6 +265,7 @@
   \begin{block}{Variables}
     \begin{itemize}
     \item  $t_e$ represents the event (start or end time)
+\pause
       \vspace{0.3cm}
     \item $x_{ie}=\left\{
         \begin{array}{ll}
@@ -248,6 +274,7 @@
         \end{array}
       \right.
       $
+\pause
       \vspace{0.3cm}
     \item $y_{ie}=\left\{
         \begin{array}{ll}
@@ -257,8 +284,10 @@
       \right.
       $
       \vspace{0.3cm}
+\pause
     \item $B_{ie}$: resource quantity consumed by $i$ in $\inter[t_e][t_{e+1}]$
       \vspace{0.3cm}
+\pause
     \item $W_{ie}$: energy brought to $i$ in $\inter[t_e][t_{e+1}]$   
     \end{itemize}
   \end{block}
@@ -272,6 +301,7 @@
   \begin{block}{Variables}
     \begin{itemize}
     \item  $t_e$ represents the event (start or end time)
+\pause
       \vspace{0.3cm}
     \item $z_{ie}=\left\{
         \begin{array}{ll}
@@ -280,6 +310,7 @@
         \end{array}
       \right.
       $
+\pause
       \vspace{0.3cm}
     \item $B_{ie}$: resource quantity consumed by $i$ in $\inter[t_e][t_{e+1}]$
       \vspace{0.3cm}
@@ -300,6 +331,7 @@
                                                   \forall i \in A \ ;\forall e \in {\cal E}\setminus\{2n\} \\
         &{\color{red!80!black!80}(\sum_{f=0}^{e} x_{if} - \sum_{f=0}^e y_{if})}M \ge B_{ie} & &
                                                                        \forall i \in A \ ;\forall e \in {\cal E}\setminus\{2n\}\\
+\pause
  & & & \\
         &W_{ie} \le a_iB_{ie}+c_i(t_{e+1}-t_e) & &
                                                    \forall i \in A \ ;\forall e \in {\cal E} \setminus\{2n\}\\
@@ -322,6 +354,7 @@
         &B_{ie} \le \bmax(t_{e+1}-t_e) & &\forall e \in {\cal E}\setminus \{2n\}\ ;\forall i \in A\\
         &{\color{red!80!black!80}z_{ie}}M\ge B_{ie} & & \forall e\in {\cal E}\setminus \{2n\}\
                            ;\forall i \in A\\
+\pause
         & & & \\  &W_{ie} \le a_iB_{ie}+c_i(t_{e+1}-t_{e}) & & \forall e \in {\cal E}\setminus \{2n\};\ \forall i \in A\\
     &W_{ie} \le W_i{\color{red!80!black!80}z_{ie}} & & \forall e \in {\cal E}\setminus \{2n\}\ ;\forall i \in A\\
     &\sum_{e \in {\cal E}\setminus \{2n\}} W_{ie} = W_i & & \forall i \in A    
@@ -336,12 +369,15 @@
   \item
     CECSP can have only non-integer solution
 
+\pause
   $\rightarrow$ Event based model allows continuous task start and end times
   \vfill
   
+\pause
 \item On/Off model has less variable than Start/End model
   \vfill
   
+\pause
 \item On/Off model has better performances than the Start/End one
 \end{itemize}
 \end{frame}
@@ -360,7 +396,7 @@
     \vfill
   \item Step 3: Create 2 nodes by separating the corresponding interval in 2 parts
     \vfill
-  \item Repeat Step 1--4 until each interval $\inter[est_i][lst_i]$ and $\inter[eet_i][let_i]$ has a size smaller than a given $\epsilon$ (DFS)
+  \item Repeat Steps 1--4 until each interval $\inter[est_i][lst_i]$ and $\inter[eet_i][let_i]$ has a size smaller than a given $\epsilon$ (DFS)
     \vfill
   \item MILP of the restricted problem
     \begin{itemize}
@@ -374,12 +410,17 @@
 
 \begin{frame}
   \frametitle{Computational results}
+\vfill
   \begin{block}{Instance generation}
     \begin{itemize}
     \item 5 instances 10, 60 tasks, 10 instances of 20, 25, 30 tasks. 
-    \item random  $a_i$ and $c_i,\ \forall i \in A$, in ${[}1,10{]}$ and $W_i$ in ${[}0,f_i(W_i){]}$
+    \item random  $a_i$ and $c_i,\ \forall i \in A$, in ${[}1,10{]}$
+      and $W_i$ in ${[}0,f_i(W_i){]}$
+    \item $\epsilon = \{5, 10, 15\}$ 
     \end{itemize}
   \end{block}
+\vfill
+\pause
   \begin{block}{Configuration}
     \begin{itemize}
     \item Intel Core i7-4770 processor with 4 cores and 8Go of RAM
@@ -389,8 +430,7 @@
     \item time limit: 7200 seconds
     \end{itemize}
   \end{block}
-  
-
+  \vfill
 \end{frame}
 
 

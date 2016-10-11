@@ -1,4 +1,5 @@
 \documentclass{beamer}
+\usepackage{colortbl}
 \usepackage{etex}
 \input{/home/mnattaf/Documents/input_latex/usepackage.tex}
 \usepackage[T1]{fontenc}
@@ -8,10 +9,10 @@
 \usepackage{blindtext}
 \usepackage[lang=en]{templateLAAS}
 
-%\addtobeamertemplate{footline}{\insertframenumber/\inserttotalframenumber}
+% \addtobeamertemplate{footline}{\insertframenumber/\inserttotalframenumber}
 
- \setbeamersize{text margin left=25pt}
-  \setbeamersize{text margin right=25pt}
+\setbeamersize{text margin left=25pt}
+\setbeamersize{text margin right=25pt}
 \input{/home/mnattaf/Documents/input_latex/newcommand.tex}
 
 
@@ -54,23 +55,36 @@
     \end{flushright}
   \end{frame}}
 
-\setcounter{tocdepth}{1}
-\begin{frame}{Contents}
- \tableofcontents
-\end{frame}
-
 \setcounter{framenumber}{0}
 
 \section{Introduction}
 
 \input{introduction.tex}
+
+% \setcounter{tocdepth}{1}
+% \begin{frame}
+%   \tableofcontents
+% \end{frame}
+% \addtocounter{framenumber}{-1}
+
 \setcounter{tocdepth}{2}
 \AtBeginSection[]
 {
-   \begin{frame}
-        \frametitle{Contents}
-        \tableofcontents[currentsection]
-   \end{frame}
+  \begin{frame}
+    \frametitle{Overview}
+    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/show/hide
+    ] 
+  \end{frame}
+  \addtocounter{framenumber}{-1}
+}
+\setcounter{tocdepth}{2}
+\AtBeginSubsection[]
+{
+  \begin{frame}
+    \frametitle{Overview}
+    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide ]
+  \end{frame}
+  \addtocounter{framenumber}{-1}
 }
 \section{Problem Properties}
 \input{properties.tex}
@@ -88,48 +102,81 @@
     time, Resource Consumption.
   \end{block}
   \vfill
+\pause
   \begin{itemize}
-  \item Constraints Programming Model
+  \item Constraint Programming Model
     \begin{itemize}
-    \item Several reasoning (TT, DR, ER...)
+    \item Several types of reasoning (TT, DR, ER...)
     \end{itemize}
     \vfill
+\pause
   \item Time-indexed Mixed Integer Linear Program
     \begin{itemize}
     \item valid inequalities deduced from Energetic Reasoning
     \end{itemize}
   \end{itemize}
-\vfill
+  \vfill
 \end{frame}
 \section{General Conclusions and Perspectives}
 
 \begin{frame}
-\frametitle{Conclusion}
-\vfill
-  \begin{block}{What we did}
+  \frametitle{Conclusion}
+  \vfill
+  \begin{itemize}
+  \item The CECSP is a difficult problem
+    \vfill
+\pause
+  \item Description of properties allowing us to define solution
+    methods:
     \begin{itemize}
-    \item MILP model and Hybrid branch-and-bound
-      \vspace{0.2cm}
-      \begin{itemize}
-      \item energetic reasoning checker
-      \item energetic reasoning filter
-      \end{itemize}
-    \item MILP model $\simeq<$ Hybrid branch-and-bound
+    \item MILP models
+    \item  Hybrid branch-and-bound 
+    \end{itemize}
+\pause
+    \vfill 
+  \item MILP model $\simeq<$ Hybrid branch-and-bound
+    \vfill 
+\pause
+  \item Improvement of the MILP:
+    \begin{itemize}
     \item 3 sets of valid inequalities
     \item Characterization of $Z$-polyhedron
     \item Improve MILP results for two problems of the literature 
     \end{itemize}
-  \end{block}
+  \end{itemize}
+\vfill
+\pause
+\end{frame}
+
+\begin{frame}
+  \frametitle{Perspectives}
   \vfill
-  \begin{block}{To Do}
     \begin{itemize}
-    \item Symmetry breaking inequalities 
-      \vspace{0.3cm}
-    \item Other heuristics for the Hybrid BB 
-      \vspace{0.3cm}
-    \item Consider more realistic power processing rate functions $f_i$
+    \item Improve MILP formulations
+\pause
+      \begin{itemize}
+      \item deduce inequalities from CP-reasoning
+      \item Strengthening of event-besed model
+      \end{itemize}
+      \vfill
+\pause
+    \item Study of the discrete version of the problem
+      \begin{itemize}
+\pause
+      \item solutions are obtained faster  
+      \item provide good approximation
+      \end{itemize}
+      \vfill
+\pause
+    \item Consider more realistic power processing rate functions
+      $f_i$
+      \begin{itemize}
+\pause
+      \item convex functions
+      \item concave/convex functions
+      \end{itemize}
+\pause
     \end{itemize}
-  \end{block}
   \vfill
 \end{frame}
 

@@ -5,10 +5,12 @@
     element of a set, of the  different phases of a fabrication.
   \end{block}
   \vfill
+\pause
   \begin{block}{Cambridge}
     {\bf  \color{bleuLAAS}  Scheduling: }the job or activity of planning the times at which particular tasks will be done or events will happen.
   \end{block}
   \vfill  
+\pause
   \begin{block}{Wikipedia}
     A {\bf  \color{bleuLAAS}  scheduling} problem consists in organizing the realization of
     tasks through time, given time constraints (setup time, precedence)
@@ -26,14 +28,17 @@
   \end{block}
   \vspace{0.6cm}
   \begin{description}
+\pause
   \item[activities :]  courses, landing/taking off, step in a
     construction project... 
     \vspace{0.2cm}
+\pause
   \item[constraints :]
     \begin{itemize}
     \item temporal $\rightarrow$ deadline, precedence, setup...
     \item resource $\rightarrow$ availability, nature... 
     \end{itemize}
+\pause
     \vspace{0.2cm}
   \item[objective :] resource consumption, total cost, makespan,
     tardiness... 
@@ -41,58 +46,64 @@
   \end{description}
 \end{frame}
 
-\begin{frame}{Application example: Timetable}
+% \begin{frame}{Application example: Timetable}
   
-  {\usebeamercolor[fg]{item} activities: } is a set of courses\\[0.2cm]
-          {\usebeamercolor[fg]{item} temporal constraints: } Precedence relationship: lecture before
-            exercise, Analysis 1 before Analysis 2...\\[0.2cm]
+%   {\usebeamercolor[fg]{item} activities: } set of courses\\[0.2cm]
 
-         {\usebeamercolor[fg]{item} resource constraints: }rooms, teachers, additional material...\\[0.2cm]
+% \onslide<2->{
+%           {\usebeamercolor[fg]{item} temporal constraints: } Precedence relationship: lecture before
+%             exercise, Analysis 1 before Analysis 2...\\[0.2cm]
+% }
 
-         \vfill
-      \begin{center}
-      \includegraphics[scale=0.25]{figures/timetable.png}
-    \end{center}
-\vspace{-0.5cm}    
-\end{frame}
+% \onslide<3->{
+%          {\usebeamercolor[fg]{item} resource constraints: }rooms, teachers, additional material...\\[0.2cm]}
+
+%          \vfill
+%       \begin{center}
+%       \includegraphics[scale=0.25]{figures/timetable.png}
+%     \end{center}
+% \vspace{-0.5cm}    
+% \end{frame}
 
 
-\begin{frame}{Resource and activity characteristics}
-    \begin{tikzpicture}\tikzstyle{every node} = [align=center]
-      \node at (0,0) {\bf \phantom{ain} activity types \phantom{ons}};
+% \begin{frame}{Resource and activity characteristics}
+%     \begin{tikzpicture}\tikzstyle{every node} = [align=center]
+%       \node at (0,0) {\bf \phantom{ain} activity types \phantom{ons}};
 
-      \draw[thick,->] (2.5,0) -- (3.3,0.3);
-      \draw[thick,->] (2.5,0) -- (3.3,-0.3);
+%       \draw[thick,->] (2.5,0) -- (3.3,0.3);
+%       \draw[thick,->] (2.5,0) -- (3.3,-0.3);
 
-      \node at (4.9,0.3)  {preemptive};
-      \node at (5.25,-0.3) {non-preemptive};
-    \end{tikzpicture}
-\vfill
-  \begin{tikzpicture}\tikzstyle{every node} = [align=center]
-    \node[text width=4cm] at (0,0) { \bf resource types };
+%       \node at (4.9,0.3)  {preemptive};
+%       \node at (5.25,-0.3) {non-preemptive};
+%     \end{tikzpicture}
+% \vfill
+% \pause
+%   \begin{tikzpicture}\tikzstyle{every node} = [align=center]
+%     \node[text width=4cm] at (0,0) { \bf resource types };
 
-    \draw[thick,->] (2.5,0) -- (3.3,0.5);
-    \draw[thick,->] (2.5,0) -- (3.3,-0.5);
+%     \draw[thick,->] (2.5,0) -- (3.3,0.5);
+%     \draw[thick,->] (2.5,0) -- (3.3,-0.5);
 
-    \draw[white] (0,0);
-    \node at (5.7,0.5)  {disjunctive/cumulative};
-    \node at (4.9,0)  {\footnotesize rooms/workers};
-    \node at (6,-0.5) {renewable/non-renewable};
-    \node at (5,-1)  {\footnotesize machines/money};
-  \end{tikzpicture}
-  \vfill
-  \begin{tikzpicture}\tikzstyle{every node} = [align=center]
-    \node at (0,0) {};
-    \node[text width=4cm] at (0,0) { \bf resource constraints };
+%     \draw[white] (0,0);
+%     \node at (5.7,0.5)  {disjunctive/cumulative};
+%     \node at (4.9,0)  {\footnotesize rooms/workers};
+%     \node at (6,-0.5) {renewable/non-renewable};
+%     \node at (5,-1)  {\footnotesize machines/money};
+%   \end{tikzpicture}
+%   \vfill
+% \pause
+%   \begin{tikzpicture}\tikzstyle{every node} = [align=center]
+%     \node at (0,0) {};
+%     \node[text width=4cm] at (0,0) { \bf resource constraints };
 
-    \draw[thick,->] (2.5,0) -- (3.3,0.3);
-    \draw[thick,->] (2.5,0) -- (3.3,-0.3);
+%     \draw[thick,->] (2.5,0) -- (3.3,0.3);
+%     \draw[thick,->] (2.5,0) -- (3.3,-0.3);
 
-    \node at (5.7,0.3)  {resource usage {\footnotesize (tasks)}};
-    \node at (6.3,-0.3) {resource availability {\footnotesize (resource)}};
-  \end{tikzpicture}
-  \vspace{-1cm}
-\end{frame}
+%     \node at (5.7,0.3)  {resource usage {\footnotesize (tasks)}};
+%     \node at (6.3,-0.3) {resource availability {\footnotesize (resource)}};
+%   \end{tikzpicture}
+%   \vspace{-1cm}
+% \end{frame}
 
 \begin{frame}
   \frametitle{The Cumulative Scheduling Problem} 
@@ -112,7 +123,7 @@
           \begin{itemize}
           \item<2-> \footnotesize  a processing time $p_i$
           \item<3-> \footnotesize a resource consumption $b_i$ 
-          \item<4-> \footnotesize a release date $est_i$ and a deadline $lst_i$ 
+          \item<4-> \footnotesize a release date $est_i$ and a deadline $let_i$ 
           \end{itemize}
         \end{column}
         \begin{column}{0.7\linewidth}
@@ -131,9 +142,9 @@
 \end{frame}
 
 
-% \begin{frame}{Solution methods for the CuSP}
+ \begin{frame}{ CuSP preemptive}
   
-% \end{frame}
+\end{frame}
 
 \begin{frame}
   \frametitle{Limitations}
@@ -245,15 +256,17 @@
     \begin{column}{0.5\linewidth}
       \begin{itemize}
       \item a set of melting jobs
+\pause
         \vspace{0.4cm}
       \item melting operation has variable duration\\
         {\small (depending of the power given + may vary over time)}
+\pause
          \vspace{0.4cm}
       \end{itemize}     
     \end{column}
     \hfill 
-    \begin{column}{0.4\linewidth}
-      \includegraphics[width=0.8\linewidth]{figures/induction.jpg}
+ \begin{column}{0.4\linewidth}
+       \onslide<1->{  \includegraphics[width=0.8\linewidth]{figures/induction.jpg}}
     \end{column}
   \end{columns}
   \vfill
@@ -261,6 +274,7 @@
   \item upper and lower bound on the power given \\
     {\small(operational and physical consideration)}
     \vspace{0.4cm}
+\pause
   \item electrical power limitation\\
     {\small(electrical overrun cost)}
   \end{itemize}
@@ -270,14 +284,19 @@
   \frametitle{Literature review}
   \begin{itemize}
     \vfill
-  \item {\bf Cumulative Scheduling Problem (CuSP)}, {\color{gray!50!black!50} \it [Erschler \& Lopez, 1990] },{\color{blue!80!black!80} fixed resource consumption}
+  \item {\bf Cumulative Scheduling Problem (CuSP)},
+    {\color{gray!50!black!50} \it [Erschler \& Lopez, 1990] }, {\color{blue!80!black!80} fixed resource consumption}
     \vfill
+\pause
   \item {\bf Fully elastic scheduling}, {\color{gray!50!black!50} \it [Baptiste et al., 1999]}, {\color{blue!80!black!80} no upper and lower bound on the consumption}
     \vfill
+\pause
   \item {\bf Variable Intensity}, {\color{gray!50!black!50} \it [Kis, 2005]}, {\color{blue!80!black!80} no lower bound on the consumption}
     \vfill  
+\pause
   \item {\bf Scheduling with continuous resource}, {\color{gray!50!black!50}\it [Blazewicz et al., 2006]}, {\color{blue!80!black!80}  no upper and lower bound}
     \vfill
+\pause
   \item {\bf Multimode RCPSP}, {\color{gray!50!black!50}\it [De Reyck
       et al., 1998]},
     {\color{blue!80!black!80} tasks have rectangular shape}
@@ -286,35 +305,38 @@
 \end{frame}
 
 
-\begin{frame}{The Continuous Energy Constrained Scheduling Problem }
+\begin{frame}{The CECSP : definition }
    Generalization of the CuSP
    \begin{itemize}
      \vfill
+\pause
    \item Duration $p_i$ $\leftrightarrow$ required energy amount $W_i$
      \vfill
+\pause
    \item Fixed resource consumption $b_i$ $\leftrightarrow$ variable resource consumption (within an interval)
      \vfill  
+\pause
    \item Task can take any shape bounded by:
      \begin{itemize}
-     \item<2-> its time-window
-     \item<3-> a maximal and minimal resource consumption
-     \item<4-> energy amount that has to be received by the task
+     \item<5-> its time-window
+     \item<6-> a maximal and minimal resource consumption
+     \item<7-> energy amount that has to be received by the task
      \end{itemize}
      \vfill
    \end{itemize}
    \begin{overlayarea}{\textwidth}{3cm}
-     \only<1-4> {
+     \only<1-7> {
        \vfill
        \begin{columns}
          \begin{column}{0.45\linewidth}
-           \input{/home/mnattaf/Documents/input_latex/form1}
+           \input{figures/form4}
          \end{column}
          \begin{column}{0.45\linewidth}
-           \input{/home/mnattaf/Documents/input_latex/form3}
+           \input{figures/form3}
          \end{column}
        \end{columns}
        \vfill}
-     \only<5>{
+     \only<8>{
        \vfill
        \begin{itemize}
        \item Modeled with a continuous resource
@@ -358,16 +380,22 @@
    \item Consider that the resource consumed by the task is proportional to
      the energy received by the task.
      \vfill
+     \pause
    \item Not always the case...
    \end{itemize}
    \vfill
+   \pause
    \begin{block}{Example in parallel architecture}
      \begin{itemize}
      \item a set of tasks has to be scheduled on parallel processors;
+       \pause
      \item resource : processors;
+       \pause
      \item energy : elementary operation;
+       \pause
      \item Typical power speed function:  $b^{\alpha} , \ 0 <
        \alpha \le 1$ (may be different for each task)
+       \pause
      \end{itemize}
    \end{block}
    \vfill
@@ -378,8 +406,10 @@
    \begin{itemize}
    \item   $\Rightarrow$ We need to model conversion functions $f_i$.
      \vfill
-   \item  We have consider the case where $f_i(b)$ is non-decreasing,
+\pause
+   \item  We have considered the case where $f_i(b)$ is non-decreasing,
      continuous and  
+\pause
      \begin{enumerate}
      \vspace{0.5cm}
      \item linear: $f_i(b)=a_i*b+c_i$ 
@@ -387,6 +417,7 @@
      \vspace{0.1cm}
        $\rightarrow$ the {\bf CECSP$_{lin}$}
      \vspace{0.5cm}
+\pause
      \item concave and piecewise linear: if $f$ has $P$ pieces,
        $f_i(b)=a_{ip}*b+c_{ip}  , p \in \{1,\dots,P\}$
 
@@ -394,17 +425,54 @@
        $\rightarrow$ {\bf the CECSP$_{cpwl}$} 
      \end{enumerate}
      \vfill
+\pause
    \item   \[W_i=\int_{st_i}^{ft_i}b_i(t)dt \rightarrow W_i=\int_{st_i}^{ft_i}f_i(b_i(t))dt\]
      \vfill
+\pause
    \item   linear and concave piecewise linear approximation of more
      general efficiency functions.
  \end{itemize}
    \vfill
  \end{frame}
  
- \begin{frame}{Example for the CECSP$_{lin}$}
-   \input{figures/exemple_CECSPlin.tex}
- \end{frame}
+\begin{frame}
+  \frametitle{Concave Efficiency Function}
+  $f_i$ are continuous, non-decreasing and {\bf concave} efficiency functions 
+  \vfill
+  \begin{columns}
+    \begin{column}{0.45\linewidth}
+      \begin{figure}
+        \centering
+        \begin{tikzpicture}
+          \node (O) at (0,0) {};
+          \draw (0,0) -- (4,0) node[midway,below] {$consumption$};
+          \draw (0,0) -- (0,3) node[midway,left] {\rotatebox{90}{$speed$}};
+          \draw[thick,blue] (0.94,0) to [bend left] (4,1.76);
+        \end{tikzpicture}
+        \caption{Speed vs. fuel consumption\footnotemark}
+      \end{figure}
+    \end{column}
+    \hfill
+    \begin{column}{0.45\linewidth}      
+      \vspace{0.2cm}
+      \begin{figure}
+        \centering    
+        \begin{tikzpicture}
+          \node (O) at (0,0) {};
+          \draw (0,0) -- (4,0) node[midway,below] {$work\ labour$};
+          \draw (0,0) -- (0,3) node[midway,left] {\rotatebox{90}{$production$}};
+          \draw[thick,blue] (0,0) to [bend left] (4,2.74);
+        \end{tikzpicture}      
+        \caption[\footnotesize]{ Work Labour vs. production rate\footnotemark}
+      \end{figure}
+    \end{column}
+    \hfill
+  \end{columns}
+  \footnotetext[1]{\tiny Algebra Symposium: Optimizing Fuel Consumption}
+  \footnotetext[2]{\tiny Non-convex agreggative technology
+    and optimal economic growth}
+\end{frame}
+
 
  \begin{frame}{Approximation of efficiency functions with the CECSP$_{lin}$}
    \begin{block}{}
@@ -415,6 +483,7 @@
      \end{tabularx} 
    \end{block}
  \vfill
+\pause
   \begin{columns}
      \begin{column}{0.5\linewidth}
        \begin{figure}[!htb]
@@ -443,6 +512,7 @@
          \caption{Approximation by a linear function}
        \end{figure}
      \end{column}
+\pause
      \hfill
      \begin{column}{0.5\linewidth}
        \begin{figure}[!htb]
@@ -481,6 +551,9 @@
 
  \end{frame}
 
+ \begin{frame}{Example for the CECSP$_{lin}$}
+   \input{figures/exemple_CECSPlin.tex}
+ \end{frame}
 
  \begin{frame}
    \frametitle{Solution methods}
@@ -492,6 +565,7 @@
          {\footnotesize Dominance rules, complexity analysis, polynomial cases...}
        \end{itemize}}
      \vfill
+\pause
    \item[CP] {\small
        \begin{itemize}
        \item satisfiability test (checker): {\footnotesize Energetic
@@ -501,6 +575,7 @@
        \item discrete model
        \end{itemize}}
      \vfill
+\pause
    \item[MILP] {\small
        \begin{itemize}
        \item MILP model: {\footnotesize time-indexed, event-based...}
@@ -508,6 +583,7 @@
        \item polyhedral results
        \end{itemize}}
      \vfill
+\pause
    \item[Hybrid] {\small
        \begin{itemize}
        \item ``CP-like branching'' + MILP 
