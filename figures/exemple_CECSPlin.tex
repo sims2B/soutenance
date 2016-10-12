@@ -5,10 +5,11 @@
     \begin{center}
       {\small \begin{tabular}{|M{0.4cm}|M{0.4cm}M{0.4cm}M{0.4cm}M{0.4cm}M{0.4cm}M{1.2cm}|}
         \hline
-        $i$ & $est_i$ & $let_i$ & $W_i$ & $\bmin$ & $\bmax$ & $f_i(b)$\\[1mm]
+        $i$ & $r_i$ & $d_i$ & $W_i$ & $\bmin$ & $\bmax$ & $f_i(b)$\\[1mm]
         \hline
         1 & 0 & 2 & 6 & 3 & 3 & $b$\\[1mm]
-        \color<3->{red!80!black!80}2 & \color<3->{red!80!black!80}1 & \color<3->{red!80!black!80}5 & \color<3->{red!80!black!80}22 & \color<3->{red!80!black!80}3 & \color<3->{red!80!black!80}4 & \color<3->{red!80!black!80}$\rightarrow$ \\[1mm]
+        \color<3->{red!80!black!80}2 & \color<3->{red!80!black!80}1 &
+                                                                      \color<3->{red!80!black!80}5 & \color<3->{red!80!black!80}21 & \color<3->{red!80!black!80}3 & \color<3->{red!80!black!80}4 & \color<3->{red!80!black!80}cf. fig. \\[1mm]
          3 & 0 &6 & 45 & 1 & 5 & $3b+1$\\[1mm]
         \hline
         \multicolumn{7}{c}{}
@@ -18,23 +19,23 @@
 \hfill
     \begin{column}{0.4\linewidth}
 \begin{tikzpicture}
-[xscale=0.8,yscale=0.45]
-\node (O) at (2,5) {};
-\draw[->] (2,4) -- (5.5,4) node[below] {$b$}; 
-\draw[dashed] (2,4) -- (2,5.5);
-\draw[->] (2,5.5) -- (2,10) node[left] {$f_2(b)$};
+[xscale=1,yscale=0.45]
+\node (O) at (2,4) {};
+\draw[->] (2,3) -- (4.5,3) node[below] {$b$}; 
+\draw[dashed] (2,3) -- (2,4.5);
+\draw[->] (2,4.5) -- (2,9) node[left] {$f_2(b)$};
 
 
-\path[draw] (3,6) -- (4,8) -- (5,9) ;
+\path[draw] (3,5) -- (3.5,7) -- (4,8) ;
 
-\draw[dotted] (3,4) node[below] {\footnotesize $3$} -- (3,10);
-\draw[dotted,color=gray!70] (4,4) node[below,color=black] {\footnotesize $4$}
--- (4,10);
-\draw[dotted] (5,4) node[below] {\footnotesize $5$} -- (5,10);
+\draw[dotted] (3,3) node[below] {\footnotesize $3$} -- (3,9);
+\draw[dotted] (3.5,3) node[below,color=black] {\footnotesize $3.5$}
+-- (3.5,9);
+\draw[dotted] (4,3) node[below] {\footnotesize $4$} -- (4,9);
 
-\draw (2,6) node[left] {\footnotesize $6$};
+\draw (2,5) node[left] {\footnotesize $5$};
+\draw (2,7) node[left] {\footnotesize $7$};
 \draw (2,8) node[left] {\footnotesize $8$};
-\draw (2,9) node[left] {\footnotesize $9$};
 \end{tikzpicture}
 \end{column}
 \end{columns}
@@ -49,12 +50,12 @@
        \begin{column}{0.45\linewidth}{
 \vspace{-0.1cm}       
        \small
-      \newbox\hautbox \setbox\hautbox\hbox{\vphantom{\rule[-0.4cm]{0cm}{0.8cm}}}
+      \newbox\hautbox \setbox\hautbox\hbox{\vphantom{\rule[-0.4cm]{0cm}{0.9cm}}}
       \begin{tabular}{@{\usebox{\hautbox}}l}
         \onslide<4->{$\int_2^{5} f_2(b_2(t))dt=?$} \\
         \onslide<5->{$\int_2^{3} f_2(3) dt$}\onslide<6->{$+\int_3^{5} f_2(4) dt$=}\\
-	    \onslide<7->{$\int_2^{3} 6 dt$}\onslide<8->{$+\int_3^{5} 8 dt$=}\\
-       \onslide<9->{$6$}\onslide<10->{$+16=$}\onslide<11->{$22$}\onslide<12->{$\
+	    \onslide<7->{$\int_2^{3} 5 dt$}\onslide<8->{$+\int_3^{5} 8 dt$=}\\
+       \onslide<9->{$5$}\onslide<10->{$+16=$}\onslide<11->{$21$}\onslide<12->{$\
         \neq
         \int_2^5 b_2(t)dt = 11 $}\\
               \end{tabular}}

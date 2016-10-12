@@ -1,0 +1,6 @@
+\pgfplotstableread[row sep=\\,col sep=&]{
+    \#tasks & Default & Int. & Time & Preem. & I+T+P \\
+    20    & 164.14 & 182.2 & 167.3 & 330.9 & 154  \\
+    25     & 635.4 & 727.3 & 629.5 & 822.4 & 389.9 \\
+    30    & 968  & 851 & 961.4 & 914.8 & 813.8\\
+    }\mydata

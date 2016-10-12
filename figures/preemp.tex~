@@ -14,8 +14,8 @@
   }
   
   \onslide<4>{
-    \draw (0.3,0) -- (0.3,-0.2) node[below] {$r_i$};
-    \draw (3.8,0) -- (3.8,-0.2) node[below] {$d_i$};
+    \draw (0.3,0) node[below] {$r_i$};
+    \draw (3.8,0) node[below] {$d_i$};
   }
   \onslide<5->{
 

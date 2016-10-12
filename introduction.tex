@@ -1,181 +1,170 @@
 \begin{frame}{What is {\it Scheduling}?}
-  \vfill
-  \begin{block}{Larousse}
-    {\bf \color{bleuLAAS} Scheduling: }organization, methodical arrangement of the different
-    element of a set, of the  different phases of a fabrication.
-  \end{block}
-  \vfill
-\pause
-  \begin{block}{Cambridge}
-    {\bf  \color{bleuLAAS}  Scheduling: }the job or activity of planning the times at which particular tasks will be done or events will happen.
-  \end{block}
-  \vfill  
-\pause
-  \begin{block}{Wikipedia}
-    A {\bf  \color{bleuLAAS}  scheduling} problem consists in organizing the realization of
-    tasks through time, given time constraints (setup time, precedence)
-    and constraints on the availability of required resources.
-  \end{block}
-  \vfill
-\end{frame}
-
-\begin{frame}{What is {\it Scheduling}?}
-\vspace{0.3cm}
-  \begin{block}{My thesis}
-    The {\bf  \color{bleuLAAS} scheduling} theory aims at computing {\bf activities execution
-      start/end times} subject to a certain number of {\bf
-      constraints} in order to optimize an {\bf objective}.    
+  \vspace{0.3cm}
+  \begin{block}{Definition {\small \it \color{blue!50!black!50}[Pinedo, 2008]}}
+    Scheduling deals with the allocation of resources to {\bf tasks} over
+    given time periods and its goal is to optimize one or more objectives.
   \end{block}
   \vspace{0.6cm}
-  \begin{description}
-\pause
-  \item[activities :]  courses, landing/taking off, step in a
+  \begin{description}[constraints :]
+    \pause
+  \item[tasks :]  courses, landing/taking off, step in a
     construction project... 
     \vspace{0.2cm}
-\pause
+    \pause
   \item[constraints :]
     \begin{itemize}
     \item temporal $\rightarrow$ deadline, precedence, setup...
     \item resource $\rightarrow$ availability, nature... 
     \end{itemize}
-\pause
+    \pause
     \vspace{0.2cm}
   \item[objective :] resource consumption, total cost, makespan,
     tardiness... 
     \vspace{0.2cm}
   \end{description}
+  \vfill
 \end{frame}
 
-% \begin{frame}{Application example: Timetable}
+\begin{frame}{Preemptive/Non-preemptive schedule}
+  In the right fig., execution of taks $k$ is paused at $t=3$ and
+  restart at $t=5$.
+  \vspace{-1.8cm}
+  \begin{columns}
+    \begin{column}{0.45\linewidth}
+      \vspace{0.4cm}
+      \begin{figure}[!htb]
+        \centering
+        \input{figures/nonPreemp.tex}
+        \caption{A non-preemtive schedule}
+      \end{figure}
+    \end{column}
+    \hfill
+    \begin{column}{0.45\linewidth}
+      \begin{figure}[!htb]
+        \centering
+        \input{figures/preemp.tex}
+        \caption{A preemtive schedule}
+      \end{figure}
+    \end{column}
+  \end{columns} 
+  \begin{block}{}
+    Here, the resource is cumulative and renewable. 
+  \end{block}
+\end{frame}
+
+\begin{frame}{Continuous/Discrete resource} 
+  \begin{description}
+  \item[Continuous resource:] ~
+  \end{description}
   
-%   {\usebeamercolor[fg]{item} activities: } set of courses\\[0.2cm]
+  \vspace{-0.3cm}
+  \begin{itemize}
+  \item {\small non-integer \textcolor{blue!80!black!80}{allocation}}
 
-% \onslide<2->{
-%           {\usebeamercolor[fg]{item} temporal constraints: } Precedence relationship: lecture before
-%             exercise, Analysis 1 before Analysis 2...\\[0.2cm]
-% }
+    {\footnotesize $\rightarrow$ task $i$ consumes \textcolor{blue!80!black!80}{$\mathbf{3.5}$} units of resource}
+  \item {\small non-integer \textcolor{red!80!black!80}{time } }
+    
+    {\footnotesize $\rightarrow$ task $i$ consumes $3$ units of resource in \textcolor{red!80!black!80}{$\mathbf{[1.5,2]}$}}
+  \end{itemize} 
 
-% \onslide<3->{
-%          {\usebeamercolor[fg]{item} resource constraints: }rooms, teachers, additional material...\\[0.2cm]}
+  \vspace{0.2cm} 
+  \begin{description}
+  \item[  Discrete resource:] ~
+  \end{description}
 
-%          \vfill
-%       \begin{center}
-%       \includegraphics[scale=0.25]{figures/timetable.png}
-%     \end{center}
-% \vspace{-0.5cm}    
-% \end{frame}
+  \vspace{-0.3cm}
+  \begin{itemize}
+  \item {\small integer \textcolor{blue!80!black!80}{allocation }}
 
+    {\footnotesize $\rightarrow$ task $i$ consumes \textcolor{blue!80!black!80}{$\mathbf{3}$} units of resource}
+  \item {\small integer \textcolor{red!80!black!80}{time }}
 
-% \begin{frame}{Resource and activity characteristics}
-%     \begin{tikzpicture}\tikzstyle{every node} = [align=center]
-%       \node at (0,0) {\bf \phantom{ain} activity types \phantom{ons}};
+    {\footnotesize $\rightarrow$ task $i$ consumes $3$ units of resource in \textcolor{red!80!black!80}{$\mathbf{[1,2]}$}}
+  \end{itemize}
 
-%       \draw[thick,->] (2.5,0) -- (3.3,0.3);
-%       \draw[thick,->] (2.5,0) -- (3.3,-0.3);
-
-%       \node at (4.9,0.3)  {preemptive};
-%       \node at (5.25,-0.3) {non-preemptive};
-%     \end{tikzpicture}
-% \vfill
-% \pause
-%   \begin{tikzpicture}\tikzstyle{every node} = [align=center]
-%     \node[text width=4cm] at (0,0) { \bf resource types };
-
-%     \draw[thick,->] (2.5,0) -- (3.3,0.5);
-%     \draw[thick,->] (2.5,0) -- (3.3,-0.5);
-
-%     \draw[white] (0,0);
-%     \node at (5.7,0.5)  {disjunctive/cumulative};
-%     \node at (4.9,0)  {\footnotesize rooms/workers};
-%     \node at (6,-0.5) {renewable/non-renewable};
-%     \node at (5,-1)  {\footnotesize machines/money};
-%   \end{tikzpicture}
-%   \vfill
-% \pause
-%   \begin{tikzpicture}\tikzstyle{every node} = [align=center]
-%     \node at (0,0) {};
-%     \node[text width=4cm] at (0,0) { \bf resource constraints };
-
-%     \draw[thick,->] (2.5,0) -- (3.3,0.3);
-%     \draw[thick,->] (2.5,0) -- (3.3,-0.3);
-
-%     \node at (5.7,0.3)  {resource usage {\footnotesize (tasks)}};
-%     \node at (6.3,-0.3) {resource availability {\footnotesize (resource)}};
-%   \end{tikzpicture}
-%   \vspace{-1cm}
-% \end{frame}
+  \vspace{0.2cm} 
+  \begin{center}
+    {\footnotesize
+      \begin{tabular}{|c|c|c|}
+        \hline
+        & Continuous Time & Discrete Time\\
+        \hline
+        Continuous allocation & \cellcolor{blue!80!black!80}&   \cellcolor{blue!50!black!20}\\
+        \hline
+        Discrete allocation & &  \cellcolor{blue!50!black!20}\\
+        \hline
+      \end{tabular}}
+  \end{center}
+\end{frame}
 
 \begin{frame}
   \frametitle{The Cumulative Scheduling Problem} 
-\vspace{0.1cm}
- \textbf{Inputs : }
-\vspace{0.15cm}
+  \vspace{0.1cm}
+  \textbf{Inputs : }
+  \vspace{0.15cm}
   \begin{itemize}
-  \item a set ${\cal A}=\{1,\dots ,n\}$ of non-preemptive tasks
-\vspace{0.15cm}
-    \item a cumulative and renewable resource available in quantity $B$
-\vspace{0.15cm}
-    \item<2-> for each task:
-      \vspace{-1cm}
-      \begin{columns}
-        \hfill
-        \begin{column}{0.36\linewidth}
-          \begin{itemize}
-          \item<2-> \footnotesize  a processing time $p_i$
-          \item<3-> \footnotesize a resource consumption $b_i$ 
-          \item<4-> \footnotesize a release date $est_i$ and a deadline $let_i$ 
-          \end{itemize}
-        \end{column}
-        \begin{column}{0.7\linewidth}
-          \centering
-          \input{figures/form1_CuSP.tex}
+  \item a set ${\cal A}=\{1,\dots ,n\}$ of {\bf non-preemptive} tasks
+    \vspace{0.15cm}
+  \item a {\bf cumulative} and {\bf renewable} resource available in quantity $B$
+    \vspace{0.15cm}
+  \item<2-> for each task:
+    \vspace{-1cm}
+    \begin{columns}
+      \hfill
+      \begin{column}{0.36\linewidth}
+        \begin{itemize}
+        \item<2-> \footnotesize  a processing time $p_i$
+        \item<3-> \footnotesize a resource consumption $b_i$ 
+        \item<4-> \footnotesize a release date $r_i$ and a deadline $d_i$ 
+        \end{itemize}
+      \end{column}
+      \begin{column}{0.7\linewidth}
+        \centering
+        \input{figures/form1_CuSP.tex}
       \end{column} 
     \end{columns}
   \end{itemize}
-\vspace{-0.5cm}
-\onslide<6->{
-\textbf{Application : }
-\vfill
-  \begin{itemize}
-  \item electricity consumption cannot exceed a certain level.
-  \end{itemize}}
-\end{frame}
-
-
- \begin{frame}{ CuSP preemptive}
-  
+  \vspace{-0.5cm}
+  \onslide<6->{
+    \textbf{Application : }
+    \vfill
+    \begin{itemize}
+    \item electricity consumption cannot exceed a certain level.
+    \end{itemize}}
 \end{frame}
 
 \begin{frame}
   \frametitle{Limitations}
- \vspace{0.5cm}
+  \vspace{0.5cm}
   \begin{itemize}
   \item {Limitation} : tasks have fixed duration and resource consumption
     \vfill
   \item<2-> But, in practice, it is not always the case\\
-   \end{itemize}
-  \vspace{1cm}
+  \end{itemize}
+  \vspace{0.6cm}
   \begin{columns}
-\hfill
+    \hfill
     \begin{column}{0.45\linewidth}
       \centering
       \begin{tikzpicture}
         [xscale=0.5,yscale=0.4]
         \node (O) at (0,0) {};
-          \draw[fill=red!80!black!80] (0,0) rectangle (6,2) node[midway] {$1$};
-          \draw[fill=blue!80!black!80] (0,2) rectangle (4,5) node[midway] {$2$};
-          \draw[fill=orange!80!black!80] (4,5) rectangle (6,2) node[midway] {$3$};
-          \draw[->](-0.2,-0.2) -- (-0.2,5.5) node[midway,below,rotate=-90] {\footnotesize resource};
+        \draw[fill=red!80!black!80] (0,0) rectangle (6,2) node[midway] {$1$};
+        \draw[->](-0.2,-0.2) -- (-0.2,5.5)
+        node[midway,below,rotate=-90] {\footnotesize resource};
+        
         
         \draw[->] (-0.2,-0.2) -- (6.5,-0.2) node[midway,below]
         {\footnotesize duration};
         \foreach \i in {1,...,5}{
           \draw (-0.3,\i) -- (-0.2,\i);
           \draw (\i, -0.3) -- (\i,-0.2);
-}
-\onslide<3->{
+        }
+        \onslide<3->{
           \draw (-0.3,5) -- (-0.2,5) node[left] {\scriptsize  $5$};
-          \draw (6, -0.3) -- (6,-0.2) node[below] {\scriptsize  $6$};}
+          \draw (6, -0.3) -- (6,-0.2) node[below] {\scriptsize  $6$};
+          \draw[dashed] (0,0) grid (6,2);
+        }
       \end{tikzpicture}
     \end{column}
     \hfill
@@ -185,88 +174,89 @@
         [xscale=0.5,yscale=0.4]
         \node (O) at (0,0) {};
         \onslide<3->{
-         \onslide<4->{ 
-           \path[draw,fill=blue!80!black!80] (3,2) -- (2,2) -- (2,5) -- (4,5) -- (4,2) -- (6,2) --
-           (6,0) --(3,0); 
-           \path[draw] (0,0) -- (0,5) -- (2,5) -- (2,2) -- (3,2)
-           node[above=0.2cm] {$2$} -- (3,0)-- cycle; 
-            \draw[fill=orange!80!black!80] (4,2) rectangle (6,5) node[midway] {$3$};}
+          
           \draw[->] (-0.2,-0.2) -- (6.5,-0.2) node[midway,below] {\footnotesize duration};
 
           \path[draw,fill=red!80!black!80] (0,0) node[above=1cm,right=0.3cm] {$1$}-- (0,5) -- (2,5) -- (2,2) -- (3,2) -- (3,0)-- cycle;
           \draw[->](-0.2,-0.2) -- (-0.2,5.5)
           node[midway,below,rotate=-90] {\footnotesize resource};
-        \foreach \i in {1,...,5}{
-          \draw (-0.3,\i) -- (-0.2,\i);
-          \draw (\i, -0.3) -- (\i,-0.2);}
+          \foreach \i in {1,...,5}{
+            \draw (-0.3,\i) -- (-0.2,\i);
+            \draw (\i, -0.3) -- (\i,-0.2);}
 
           \draw (-0.3,5) -- (-0.2,5) node[left] {\scriptsize $5$};
-          \draw (6, -0.3) -- (6,-0.2) node[below] {\scriptsize  $6$};}
+          \draw (6, -0.3) -- (6,-0.2) node[below] {\scriptsize  $6$};
+          \draw[dashed] (0,0) grid (2,5);
+          \draw[dashed] (2,0) grid (3,2);}
       \end{tikzpicture}
     \end{column}
-\hfill
+    \hfill
   \end{columns}
+
+  \vspace{0.3cm}
+  A required energy quantity ( [resource $\times$ time]) is associated to a task.
+
 \end{frame}
 
 
-\begin{frame}{Motivating Problem
- {\small \it \color{gray!50!black!50} [Artigues et al., 2013]}} 
-  \vfill
-\begin{block}{}
-  \begin{center}
-    {\bf \large   pipe-manufacturing plant}
-    
-    \vspace{0.2cm}
-    \includegraphics[scale=0.1]{pipe.jpg}
-
-  \begin{tikzpicture}[yscale=.6]
-    \node (O) at (0,0) {};
-    \draw[-latex,ultra thick, bleuLAAS!100!black!50] (O.center) -- (-3,-1.5);
-    \draw[-latex,ultra thick, bleuLAAS!100!black!50] (O.center) -- (0,-1.5);
-    \draw[-latex,ultra thick, bleuLAAS!100!black!50] (O.center) -- (3,-1.5);
-
- \node[draw] at (-3.4,-2.1) {drawing mill}; 
-    \node[draw] at (3.5,-2.1) {pipe-tubing};
-
-    \node[draw] at (0,-2.1) {\textbf<4>{foundry}};
-  \end{tikzpicture}
-  \end{center}
-\end{block}
-\vfill
-\pause
-  \begin{itemize}
-  \item melting and heating use a {\bf HUGE} quantity of energy
-\vfill
-\pause
-  \item $\Rightarrow$ high electricity cost:
-    \begin{itemize}
-    \item total energy consumed
-    \item penalty for power overrun
-    \end{itemize}
-  \end{itemize}
-\end{frame}
+% \begin{frame}{Motivating Problem
+%   {\small \it \color{gray!50!black!50} [Artigues et al., 2013]}} 
+%   \vfill
+%   \begin{block}{}
+%     \begin{center}
 
 
+%       \vspace{0.2cm}
+%       \includegraphics[scale=0.1]{pipe.jpg}
+
+%       \begin{tikzpicture}[yscale=.6]
+%         \node (O) at (0,0) {};
+%         \draw[-latex,ultra thick, bleuLAAS!100!black!50] (O.center) -- (-3,-1.5);
+%         \draw[-latex,ultra thick, bleuLAAS!100!black!50] (O.center) -- (0,-1.5);
+%         \draw[-latex,ultra thick, bleuLAAS!100!black!50] (O.center) -- (3,-1.5);
+
+%         \node[draw] at (-3.4,-2.1) {drawing mill}; 
+%         \node[draw] at (3.5,-2.1) {pipe-tubing};
+
+%         \node[draw] at (0,-2.1) {\textbf<4>{foundry}};
+%       \end{tikzpicture}
+%     \end{center}
+%   \end{block}
+%   \vfill
+%   \pause
+%   \begin{itemize}
+%   \item melting and heating use a {\bf HUGE} quantity of energy
+%     \vfill
+%     \pause
+%   \item $\Rightarrow$ high electricity cost:
+%     \begin{itemize}
+%     \item total energy consumed
+%     \item penalty for power overrun
+%     \end{itemize}
+%   \end{itemize}
+% \end{frame}
 
 \begin{frame}
   \frametitle{Motivating Problem 
- {\small \it \color{gray!50!black!50} [Artigues et al., 2013]}}
+    {\small \it \color{gray!50!black!50} [Artigues et al., 2013]}}
+  \vfill 
+  \begin{block}{\bf \large  pipe-manufacturing plant} 
+    melting and heating use a {\bf HUGE} quantity of energy
+  \end{block}
   \vfill
   \begin{columns}
     \begin{column}{0.5\linewidth}
       \begin{itemize}
       \item a set of melting jobs
-\pause
         \vspace{0.4cm}
       \item melting operation has variable duration\\
         {\small (depending of the power given + may vary over time)}
-\pause
-         \vspace{0.4cm}
+        \vspace{0.4cm}
       \end{itemize}     
     \end{column}
     \hfill 
- \begin{column}{0.4\linewidth}
-       \onslide<1->{  \includegraphics[width=0.8\linewidth]{figures/induction.jpg}}
+    \begin{column}{0.4\linewidth}
+      \onslide<1->{  \includegraphics[width=0.8\linewidth]{figures/induction.jpg}}
     \end{column}
   \end{columns}
   \vfill
@@ -274,7 +264,6 @@
   \item upper and lower bound on the power given \\
     {\small(operational and physical consideration)}
     \vspace{0.4cm}
-\pause
   \item electrical power limitation\\
     {\small(electrical overrun cost)}
   \end{itemize}
@@ -287,17 +276,17 @@
   \item {\bf Cumulative Scheduling Problem (CuSP)},
     {\color{gray!50!black!50} \it [Erschler \& Lopez, 1990] }, {\color{blue!80!black!80} fixed resource consumption}
     \vfill
-\pause
+    \pause
   \item {\bf Fully elastic scheduling}, {\color{gray!50!black!50} \it [Baptiste et al., 1999]}, {\color{blue!80!black!80} no upper and lower bound on the consumption}
     \vfill
-\pause
+    \pause
   \item {\bf Variable Intensity}, {\color{gray!50!black!50} \it [Kis, 2005]}, {\color{blue!80!black!80} no lower bound on the consumption}
     \vfill  
-\pause
+    \pause
   \item {\bf Scheduling with continuous resource}, {\color{gray!50!black!50}\it [Blazewicz et al., 2006]}, {\color{blue!80!black!80}  no upper and lower bound}
     \vfill
-\pause
-  \item {\bf Multimode RCPSP}, {\color{gray!50!black!50}\it [De Reyck
+    \pause
+  \item {\bf Multimode activities}, {\color{gray!50!black!50}\it [De Reyck
       et al., 1998]},
     {\color{blue!80!black!80} tasks have rectangular shape}
   \end{itemize}
@@ -306,135 +295,135 @@
 
 
 \begin{frame}{The CECSP : definition }
-   Generalization of the CuSP
-   \begin{itemize}
-     \vfill
-\pause
-   \item Duration $p_i$ $\leftrightarrow$ required energy amount $W_i$
-     \vfill
-\pause
-   \item Fixed resource consumption $b_i$ $\leftrightarrow$ variable resource consumption (within an interval)
-     \vfill  
-\pause
-   \item Task can take any shape bounded by:
-     \begin{itemize}
-     \item<5-> its time-window
-     \item<6-> a maximal and minimal resource consumption
-     \item<7-> energy amount that has to be received by the task
-     \end{itemize}
-     \vfill
-   \end{itemize}
-   \begin{overlayarea}{\textwidth}{3cm}
-     \only<1-7> {
-       \vfill
-       \begin{columns}
-         \begin{column}{0.45\linewidth}
-           \input{figures/form4}
-         \end{column}
-         \begin{column}{0.45\linewidth}
-           \input{figures/form3}
-         \end{column}
-       \end{columns}
-       \vfill}
-     \only<8>{
-       \vfill
-       \begin{itemize}
-       \item Modeled with a continuous resource
-       \end{itemize}
-       \vfill 
-       $\Rightarrow$ \textbf{Continuous Energy-Constrained Scheduling Problem (CECSP) {\scriptsize \color{gray!50!black!50} \it [Artigues \& Lopez, JoS, 2015]}}
-       \vfill}
-   \end{overlayarea}
- \end{frame}
- 
- \begin{frame}
-   \frametitle{Problem statements}
-   \vfill
-   Input:\\
-   \begin{itemize}
-   \item $A=\{1,\hdots,n\}$ a set of non-preemptive tasks
-   \item a continuous, cumulative and renewable resource of capacity  $B$
-   \end{itemize}
-   \vfill
-   \onslide<2->{
-     Output: A scheduling, i.e. a start time $st_i$, an end time $ft_i$ and a resource allocation function $b_i(t)$, such that:
-   }
-   \begin{overlayarea}{\linewidth}{1cm}
-     \only<3>{\[est_i\le st_i\le ft_i \le lst_i\]}
-     \only<4>{\[\bmin \le b_i(t) \le \bmax \quad \forall t \in \inter[st_i][ft_i]\]}
-     \only<5>{\[b_i(t)=0\quad \forall t \not\in \inter[st_i][ft_i]\]}
-     \only<6>{\[\int_{st_i}^{ft_i}b_i(t)dt=W_i\]}
-     \only<7>{\[\sum_{i\in A}b_i(t) \le B\]} 
-   \end{overlayarea}
-   \onslide<2->{
-     \begin{center}
-       \input{/home/mnattaf/Documents/input_latex/form2_bi.tex}
-     \end{center}}
- \end{frame}
- 
- \input{figures/exemple_CECSPid.tex}
- 
- \begin{frame}{The CECSP : limitations}
-   \vfill
-   \begin{itemize}
-   \item Consider that the resource consumed by the task is proportional to
-     the energy received by the task.
-     \vfill
-     \pause
-   \item Not always the case...
-   \end{itemize}
-   \vfill
-   \pause
-   \begin{block}{Example in parallel architecture}
-     \begin{itemize}
-     \item a set of tasks has to be scheduled on parallel processors;
-       \pause
-     \item resource : processors;
-       \pause
-     \item energy : elementary operation;
-       \pause
-     \item Typical power speed function:  $b^{\alpha} , \ 0 <
-       \alpha \le 1$ (may be different for each task)
-       \pause
-     \end{itemize}
-   \end{block}
-   \vfill
+  Generalization of the CuSP
+  \begin{itemize}
+    \vfill
+  \item duration $p_i$ $\leftrightarrow$ required energy  $W_i$
+    \vfill
+  \item fixed resource consumption $b_i$ $\leftrightarrow$ variable
+    resource consumption $b_i(t)$ 
+    \vfill  
+  \item<2-> Task can take any shape bounded by:
+    \begin{itemize}
+    \item<2-> its time-window
+    \item<3-> a maximal and minimal resource consumption
+    \item<4-> energy amount that has to be received by the task
+    \end{itemize}
+    \vfill
+  \end{itemize}
+  \begin{overlayarea}{\textwidth}{3cm}
+    \only<2-4> {
+      \vfill
+      \begin{columns}
+        \begin{column}{0.45\linewidth}
+          \input{figures/form4}
+        \end{column}
+        \begin{column}{0.45\linewidth}
+          \input{figures/form3}
+        \end{column}
+      \end{columns}
+      \vfill}
+    \only<5>{
+      \vfill
+      \begin{itemize}
+      \item Modeled with a continuous resource
+      \end{itemize}
+      \vfill 
+      $\Rightarrow$ \textbf{Continuous Energy-Constrained Scheduling Problem (CECSP) {\scriptsize \color{gray!50!black!50} \it [Artigues \& Lopez, JoS, 2015]}}
+      \vfill}
+  \end{overlayarea}
+\end{frame}
 
- \end{frame}
- 
- \begin{frame}{The CECSP : limitations}
-   \begin{itemize}
-   \item   $\Rightarrow$ We need to model conversion functions $f_i$.
-     \vfill
-\pause
-   \item  We have considered the case where $f_i(b)$ is non-decreasing,
-     continuous and  
-\pause
-     \begin{enumerate}
-     \vspace{0.5cm}
-     \item linear: $f_i(b)=a_i*b+c_i$ 
+\begin{frame}
+  \frametitle{Problem statement}
+  \vfill
+  Input:\\
+  \begin{itemize}
+  \item $A=\{1,\hdots,n\}$ a set of non-preemptive tasks
+  \item a continuous, cumulative and renewable resource of capacity  $B$
+  \end{itemize}
+  \vfill
+  \onslide<2->{
+    Output: A scheduling, i.e. a start time $st_i$, an end time $et_i$ and a resource allocation function $b_i(t)$, such that:
+  }
+  \begin{overlayarea}{\linewidth}{1cm}
+    \only<3>{\[{\color{red!80!black!80}r_i}\le st_i\le et_i \le {\color{red!80!black!80}d_i}\]}
+    \only<4>{\[{\color{red!80!black!80}\bmin} \le b_i(t) \le {\color{red!80!black!80}\bmax} \quad \forall t \in \inter[st_i][et_i]\]}
+    \only<5>{\[b_i(t)={\color{red!80!black!80}0}\quad \forall t \not\in \inter[st_i][et_i]\]}
+    \only<6>{\[\int_{st_i}^{et_i}b_i(t)dt=W_i\]}
+    \only<7>{\[\sum_{i\in A}b_i(t) \le {\color{red!80!black!80}B}\]} 
+  \end{overlayarea}
+  \onslide<2->{
+    \begin{center}
+      \input{figures/form2_bi.tex}
+    \end{center}}
+\end{frame}
 
-     \vspace{0.1cm}
-       $\rightarrow$ the {\bf CECSP$_{lin}$}
-     \vspace{0.5cm}
-\pause
-     \item concave and piecewise linear: if $f$ has $P$ pieces,
-       $f_i(b)=a_{ip}*b+c_{ip}  , p \in \{1,\dots,P\}$
+\input{figures/exemple_CECSPid.tex}
 
-     \vspace{0.1cm}
-       $\rightarrow$ {\bf the CECSP$_{cpwl}$} 
-     \end{enumerate}
-     \vfill
-\pause
-   \item   \[W_i=\int_{st_i}^{ft_i}b_i(t)dt \rightarrow W_i=\int_{st_i}^{ft_i}f_i(b_i(t))dt\]
-     \vfill
-\pause
-   \item   linear and concave piecewise linear approximation of more
-     general efficiency functions.
- \end{itemize}
-   \vfill
- \end{frame}
- 
+\begin{frame}{The CECSP : limitations}
+  \vfill
+  \begin{itemize}
+  \item Consider that the resource consumed by the task is proportional to
+    the energy received by the task.
+    \vfill
+    \pause
+  \item Not always the case...
+  \end{itemize}
+  \vfill
+  \pause
+  \begin{block}{Example in parallel architecture}
+    \begin{itemize}
+    \item a set of tasks has to be scheduled on parallel processors;
+      \pause
+    \item resource : processors;
+      \pause
+    \item energy : elementary operation;
+      \pause
+    \item Typical power speed function:  $b^{\alpha} , \ 0 <
+      \alpha \le 1$ (may be different for each task)
+      \pause
+    \end{itemize}
+  \end{block}
+  \vfill
+
+\end{frame}
+
+\begin{frame}{The CECSP : limitations}
+  \begin{itemize}
+  \item   $\Rightarrow$ We need to model conversion functions $f_i$.
+    \vfill
+    \pause
+  \item  We have considered the case where $f_i(b)$ is non-decreasing,
+    continuous and  
+    \pause
+    \begin{enumerate}
+      \vspace{0.5cm}
+    \item linear: $f_i(b)=a_i*b+c_i$ 
+
+      \vspace{0.1cm}
+      $\rightarrow$ the {\bf CECSP$_{lin}$}
+      \vspace{0.5cm}
+      \pause
+    \item concave and piecewise linear: if $f$ has $P$ pieces,
+      $f_i(b)=a_{ip}*b+c_{ip}  , p \in \{1,\dots,P\}$
+
+      \vspace{0.1cm}
+      $\rightarrow$ {\bf the CECSP$_{cpwl}$} 
+    \end{enumerate}
+    \vfill
+    \pause
+  \item   \[W_i=\int_{st_i}^{et_i}b_i(t)dt \rightarrow
+      W_i=\int_{st_i}^{et_i}{\color{red!80!black!80}\mathbf{f_i}(}b_i(t)
+      {\color{red!80!black!80})}dt\]   
+    \vfill
+    \pause
+  \item   linear and concave piecewise linear approximation of more
+    general efficiency functions.
+  \end{itemize}
+  \vfill
+\end{frame}
+
 \begin{frame}
   \frametitle{Concave Efficiency Function}
   $f_i$ are continuous, non-decreasing and {\bf concave} efficiency functions 
@@ -474,125 +463,129 @@
 \end{frame}
 
 
- \begin{frame}{Approximation of efficiency functions with the CECSP$_{lin}$}
-   \begin{block}{}
-     \begin{tabularx}{\textwidth}{XXX}
-       $b_i^{min}=0.25$&
-       $b_i^{max}=1$&
-       $f_i(b)=\sqrt{b}$
-     \end{tabularx} 
-   \end{block}
- \vfill
-\pause
+\begin{frame}{Approximation by below of efficiency functions}
+  \vfill
   \begin{columns}
-     \begin{column}{0.5\linewidth}
-       \begin{figure}[!htb]
-         \centering
-         \begin{tikzpicture}
-           [xscale=3,yscale=2.5]
-           \node (O) at (0,0) {};
+    \begin{column}{0.5\linewidth}
+      \begin{figure}[!htb]
+\captionsetup{justification=centering}
+        \centering
+        \begin{tikzpicture}
+          [xscale=0.55,yscale=0.35]
+          \node (O) at (0,0) {};
+          
+          \draw[dotted] (7,0) node[below] {$\bmax$} -- (7,7);
+          \draw[dotted] (1,0) node[below] {$\bmin$} -- (1,7);
+          \draw[->] (O.center) -- (8,0) node [below] {$b$};
+          \draw[->] (O.center) -- (0,7) node [left] {$f(b)$};
+          \draw[gray!80] (0,0.01) parabola bend (0.5,0.01) (3.6,3.4);
+          \draw[gray!80] (3.6,3.4) parabola bend (6.5,6) (7.5,6);
 
-           \draw[->] (0,0) -- (1.28,0) node[below] {\footnotesize $b$};
-           \draw[->] (0,0) -- (0,1.3) node[left] {\footnotesize $f_i(b)$};
+          \draw[densely dashed] (1.25,0) -- (7,6);
+        \end{tikzpicture}
+        \caption{Approximation by a linear function}
+      \end{figure}
+    \end{column}
+    \pause
+    \begin{column}{0.5\linewidth}
+      \begin{figure}[!htb]
+        \centering
+\captionsetup{justification=centering}
+        \begin{tikzpicture}
+          [xscale=0.55,yscale=0.35]
+          \node (O) at (0,0) {};
+          
+          \draw[dotted] (7,0) node[below] {$\bmax$} -- (7,7);
+          \draw[dotted] (1,0) node[below] {$\bmin$} -- (1,7);
+          \draw[->] (O.center) -- (8,0) node [below] {$b$};
+          \draw[->] (O.center) -- (0,7) node [left] {$f(b)$};
+          \draw[gray!80] (0,0.01) parabola bend (0.5,0.01) (3.6,3.4);
+          \draw[gray!80] (3.6,3.4) parabola bend (6.5,6) (7.5,6);
 
-           \draw (0,1) -- (-0.02,1) node[left] {\footnotesize $1$};
-           \draw (0,0.5) -- (-0.02,0.5) node[left] {\footnotesize $\sqrt{0.25}$};
+          \draw[densely dashed]  (6,5.9) -- (7,6);
+          \draw[densely dashed]  (6,5.9) -- (5,5.3);
+          \draw[densely dashed] (4,4.05) -- (5,5.3);
+          \draw[densely dashed]  (3,2.1) -- (4,4.05);
+          \draw[densely dashed] (1.5,0) -- (3,2.1);
+        \end{tikzpicture}
+        \caption{Approximation by a concave piecewise linear function}
+      \end{figure}
+    \end{column}
+  \end{columns}
 
-           \draw (1,0) -- (1,-0.02) node[below] {\footnotesize $1$};
-           \draw (0.25,0) -- (0.25,-0.02) node[below] {\footnotesize $0.25$};
+\end{frame}
 
-           \draw[color=gray,domain=0:1.28,samples=50] plot ({\x},{sqrt(\x)});
-           \draw[dashed,thick,domain=0.25:1,samples=50] plot
-           ({\x},{\x/(2*sqrt(0.625))+sqrt(0.625)/2});
+\begin{frame}{Example for the CECSP$_{lin}$}
+  \input{figures/exemple_CECSPlin.tex}
+\end{frame}
 
 
-           \draw[dotted] (0.25,0)-- (0.25,1.3);
-           \draw[dotted] (1,0) -- (1,1.3);
-         \end{tikzpicture}
-         \caption{Approximation by a linear function}
-       \end{figure}
-     \end{column}
-\pause
-     \hfill
-     \begin{column}{0.5\linewidth}
-       \begin{figure}[!htb]
-         \centering
-         \begin{tikzpicture}
-           [xscale=3,yscale=2.5]
-           \node (O) at (0,0) {};
+\begin{frame}
+  \frametitle{Problem statement}
+  \vfill
+ {\small  {\bf Input: } 
+  \begin{itemize}
+  \item $A=\{1,\hdots,n\}$ a set of non-preemptive tasks
+  \item a continuous, cumulative and renewable resource of capacity  $B$
+  \end{itemize}
+  \vspace{0.5cm}
+  {\bf Output:} a start/end time $st_i/et_i$ and a res. allocation function
+  $b_i(t)$ s.t.:
+  {\footnotesize
+    \begin{align}
+    r_i\le st_i\le
+   et_i \le d_i & & \tag{{\it \scriptsize
+                                                     time-window}}\\
+    \bmin \le b_i(t) \le \bmax & & \forall t
+                                                                 \in \inter[st_i][et_i] \tag{{\it \scriptsize min/max consump.}}\\
+    b_i(t)=0 & &
+                                               \forall t \not\in \inter[st_i][et_i] \tag{{\it \scriptsize no
+                                               consump.}}\\ 
+    \int_{st_i}^{et_i}f_i(b_i(t))dt=W_i
+                                                 & &\tag{{\it \scriptsize energy}} \\
+    \sum_{i\in A}b_i(t) \le B & & \tag{{\it
+                                                                \scriptsize cumulative}}
+  \end{align}
+}
 
-           \draw[->] (0,0) -- (1.28,0) node[below] {\footnotesize $b$};
-           \draw[->] (0,0) -- (0,1.3) node[left] {\footnotesize $f_i(b)$};
+  \vspace{0.5cm}
+{\bf Possible objectif:} $\qquad $ minimize  $\sum_{i\in A}
+\int_{st_i}^{et_i} b_i(t)dt $}
+\end{frame}
 
-           \draw (0,1) -- (-0.02,1) node[left] {\footnotesize $1$};
-           \draw (0,0.5) -- (-0.02,0.5) node[left] {\footnotesize $\sqrt{0.25}$};
-
-           \draw (1,0) -- (1,-0.02) node[below] {\footnotesize $1$};
-           \draw (0.25,0) -- (0.25,-0.02) node[below] {\footnotesize $0.25$};
-
-           \draw[color=gray,domain=0:1.28,samples=50] plot ({\x},{sqrt(\x)});
-           
-           \draw[ dashed,thick,domain=0.25:0.5,samples=50] plot
-           ({\x},{\x/(2*sqrt(0.375))+sqrt(0.375)/2});
-           \draw[dashed, thick,domain=0.5:0.75,samples=50] plot
-           ({\x},{\x/(2*sqrt(0.625))+sqrt(0.625)/2});
-           \draw[dashed, thick,domain=0.75:1,samples=50] plot
-           ({\x},{\x/(2*sqrt(0.875))+sqrt(0.875)/2});
-
-           \draw[dotted] (0.5,0)-- (0.5,1.3);
-           \draw[dotted] (0.25,0) -- (0.25,1.3);
-           \draw[dotted] (0.75,0) -- (0.75,1.3);
-           \draw[dotted] (1,0) -- (1,1.3);
-         \end{tikzpicture}
-         \caption{Approximation by a concave piecewise linear function}
-       \end{figure}
-     \end{column}
-   \end{columns}
-
- \end{frame}
-
- \begin{frame}{Example for the CECSP$_{lin}$}
-   \input{figures/exemple_CECSPlin.tex}
- \end{frame}
-
- \begin{frame}
-   \frametitle{Solution methods}
-   \vfill
-   \begin{description}[Properties]
-   \item[Properties] {\small
-       \begin{itemize}
-       \item study of the structural properties of the problem:
-         {\footnotesize Dominance rules, complexity analysis, polynomial cases...}
-       \end{itemize}}
-     \vfill
-\pause
-   \item[CP] {\small
-       \begin{itemize}
-       \item satisfiability test (checker): {\footnotesize Energetic
-           reasoning, Flow based checker...}
-       \item filtering algorithm: {\footnotesize Energetic reasoning, time-table
-           disjunctive reasoning...}
-       \item discrete model
-       \end{itemize}}
-     \vfill
-\pause
-   \item[MILP] {\small
-       \begin{itemize}
-       \item MILP model: {\footnotesize time-indexed, event-based...}
-       \item valid inequalities
-       \item polyhedral results
-       \end{itemize}}
-     \vfill
-\pause
-   \item[Hybrid] {\small
-       \begin{itemize}
-       \item ``CP-like branching'' + MILP 
-       \item valid inequalities deduced from ER
-       \end{itemize}}
-   \end{description}
- \end{frame}
-
- \setcounter{tocdepth}{20}
- \begin{frame}{Overview}
-   \tableofcontents[hideothersubsections,subsubsectionstyle={show/show/show/show}]
- \end{frame}
+\begin{frame}
+  \frametitle{Solution methods}
+  \vfill
+  \begin{description}[Properties]
+  \item[Properties] {\small
+      \begin{itemize}
+      \item study of the structural properties of the problem:
+        {\footnotesize Dominance rules, complexity analysis, polynomial cases...}
+      \end{itemize}}
+    \vfill
+    \pause
+  \item[CP] {\small
+      \begin{itemize}
+      \item satisfiability test (checker): {\footnotesize Energetic
+          reasoning, Flow based checker...}
+      \item filtering algorithm: {\footnotesize Energetic reasoning, time-table
+          disjunctive reasoning...}
+      \item discrete model
+      \end{itemize}}
+    \vfill
+    \pause
+  \item[MILP] {\small
+      \begin{itemize}
+      \item MILP model: {\footnotesize time-indexed, event-based...}
+      \item valid inequalities
+      \item polyhedral results
+      \end{itemize}}
+    \vfill
+    \pause
+  \item[Hybrid] {\small
+      \begin{itemize}
+      \item ``CP-like branching'' + MILP 
+      \item valid inequalities deduced from ER
+      \end{itemize}}
+  \end{description}
+\end{frame}

@@ -7,8 +7,10 @@
 \usepackage[english]{babel}
 \usepackage{pgfpages}
 \usepackage{blindtext}
+\usepackage{pgfplots}
 \usepackage[lang=en]{templateLAAS}
 
+\newtheorem{prop}{Proposition}
 % \addtobeamertemplate{footline}{\insertframenumber/\inserttotalframenumber}
 
 \setbeamersize{text margin left=25pt}
@@ -57,6 +59,12 @@
 
 \setcounter{framenumber}{0}
 
+
+ \setcounter{tocdepth}{20}
+ \begin{frame}{Overview}
+   \tableofcontents[hideothersubsections,subsubsectionstyle={show/show/show/show}]
+ \end{frame}
+
 \section{Introduction}
 
 \input{introduction.tex}
@@ -72,51 +80,21 @@
 {
   \begin{frame}
     \frametitle{Overview}
-    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/show/hide
+    \thispagestyle{empty}  
+  \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/show/hide
     ] 
-  \end{frame}
-  \addtocounter{framenumber}{-1}
-}
-\setcounter{tocdepth}{2}
-\AtBeginSubsection[]
-{
-  \begin{frame}
-    \frametitle{Overview}
-    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide ]
   \end{frame}
   \addtocounter{framenumber}{-1}
 }
 \section{Problem Properties}
 \input{properties.tex}
-\section{Hybrid Branch-and-Bound}
+\section{Hybrid Solution Method}
 \input{hybridBB.tex}
 
-\section{Improvement of the On/Off MILP}
+\section{Improvement of the Formulation}
 \input{improvement.tex}
 
-\section{The Discrete Case}
-\begin{frame}{Discrete case}
-  \vfill
-  \begin{block}{DECSP}
-    Integer data and solution: Start/End time, Resource reallocation
-    time, Resource Consumption.
-  \end{block}
-  \vfill
-\pause
-  \begin{itemize}
-  \item Constraint Programming Model
-    \begin{itemize}
-    \item Several types of reasoning (TT, DR, ER...)
-    \end{itemize}
-    \vfill
-\pause
-  \item Time-indexed Mixed Integer Linear Program
-    \begin{itemize}
-    \item valid inequalities deduced from Energetic Reasoning
-    \end{itemize}
-  \end{itemize}
-  \vfill
-\end{frame}
+
 \section{General Conclusions and Perspectives}
 
 \begin{frame}
