@@ -100,7 +100,7 @@
                                        \forall e, i }\\[2mm]
       \textcolor<3>{blue!80!black!80}{t_e \le
       d_i(z_{ie-1}-z_{ie})+(1-(z_{ie-1}-z_{ie}))D_{max}}&
-                                                            \textcolor<3>{blue!80!black!80}{\forall e, i }\\[2mm]
+                                                          \textcolor<3>{blue!80!black!80}{\forall e, i }\\[2mm]
       \pause
       \textcolor<4>{blue!80!black!80}{ \sum_{e \in {\cal E}}
       z_{ie} \ge 1}& \textcolor<4>{blue!80!black!80}{\forall i
@@ -119,217 +119,216 @@
 \subsection{Valid inequalities}
 \begin{frame}
   \frametitle{Maximum separation between events}
+  % \begin{itemize}
+  % \item {\bf Goal: } upper bound on the value of $t_{e+1}-t_{e}$
+  %   \vspace{0.3cm}
+  % \item<2-> Time window of each task start and/or end time
+  %   \vspace{0.3cm}
+  % \item<6-> An event must occur in each of these time windows
+  %   \vspace{0.3cm}
+  % \item<11-> two consecutive events in the union of two consecutive time windows
+  % \end{itemize}
   \begin{itemize}
   \item {\bf Goal: } upper bound on the value of $t_{e+1}-t_{e}$
-    \vspace{0.3cm}
-  \item<2-> Time window of each task start and/or end time
-    \vspace{0.3cm}
-  \item<6-> An event must occur in each of these time windows
-    \vspace{0.3cm}
-  \item<11-> two consecutive events in the union of two consecutive time windows
-  \end{itemize}
+    \vfill
+  \item Consider the following example with 2 tasks:  
   \vfill
-  \onslide<3->{
-    \begin{center} 
-      \begin{tikzpicture}
-        [decoration={brace},scale=0.4]
-        \node (O) at (0,0) {}; 
-        \draw[->] (0,0) -- (19,0);
+  \begin{center} 
+    \begin{tikzpicture}
+      [decoration={brace},scale=0.4]
+      \node (O) at (0,0) {}; 
+      \draw[->] (-2,0) -- (18,0);
 
-        \onslide<4-5>{
-          \path (1,0) node[color=red!80!black!50] {\LARGE [} --
-          +(0:5cm)node[color=red!80!black!50] {\LARGE ]};
-          \path[green!80!black!50](4,0) node {\LARGE [} -- +(0:4cm)
-          node {\LARGE ]};
-          \path[green!80!black!50] (8.05,0) node {\LARGE [}  --
-          +(0:6cm) node {\LARGE ]}  ;
-          \path (12,0) node[color=red!80!black!50] {\LARGE [} --
-          +(0:6cm) node[color=red!80!black!50] {\LARGE ]} ; 
-        }
-        
-        \onslide<4>{
-          \draw [decorate,color=red!80!black!50] (1,1) -- +(0:5cm)
-          node[midway,above]{$start_i$}; 
-          \draw [decorate,color=red!80!black!50] (18,-1) -- +(0:-6cm)
-          node[midway,below] {$end_i$};
-        }
-        
-        \onslide<5>{
-          \draw [decorate,green!80!black!50] (8,-1) -- +(0:-4cm)
-          node[midway,below] {$start_j$};
-          \draw [decorate,green!80!black!50] (8,1) -- +(0:6cm)
-          node[midway,above] {$end_j$};
-        }
-        
-        \onslide<6-9>{
-          \path (1,0) node {\LARGE [} --
-          +(0:5cm)node {\LARGE ]};
-          \path(4,0) node {\LARGE [} -- +(0:4cm)
-          node {\LARGE ]};
-          \path (8.05,0) node {\LARGE [}  --
-          +(0:6cm) node {\LARGE ]}  ;
-          \path (12,0) node {\LARGE [} --
-          +(0:6cm) node {\LARGE ]} ; 
-        }
+      \foreach \i in {0,...,16}{
+        \draw (\i,-0.15) -- (\i,0);
+      }
+      \onslide<1-3,6>{  \path (0,0) node[color=red!80!black!80,above=-0.12cm] {\LARGE [} --
+        +(0:7cm)node[color=red!80!black!80,above=-0.12cm] {\LARGE ]};}
+      \onslide<1,4-6>{\path[green!80!black!80](3,0) node[above=-0.12cm] {\LARGE [} -- +(0:6cm)
+        node[above=-0.12cm]  {\LARGE ]};}
+      \onslide<1>{ \path[green!80!black!80] (10,0) node[above=-0.12cm]  {\LARGE [}  --
+        +(0:3cm) node[above=-0.12cm]  {\LARGE ]}  ;
+        \path (12,0) node[color=red!80!black!80,above=-0.12cm] {\LARGE [} --
+        +(0:4cm) node[color=red!80!black!80,above=-0.12cm] {\LARGE ]} ; }
+      
+      \path (0,0) node[below=-0.05cm] {\tiny 0} --
+      +(0:7cm) node[below=-0.05cm]{\tiny 7};
+      \path (3,0) node[below=-0.05cm]{\tiny 3} -- +(0:6cm)
+      node[below=-0.05cm]{\tiny 9};
+      \path (10,0) node[below=-0.05cm]{\tiny 10}  --
+      +(0:3cm) node[below=-0.05cm]{\tiny 13}  ;
+      \path (12,0) node[below=-0.05cm]{\tiny 12} --
+      +(0:4cm) node[below=-0.05cm]{\tiny 16} ; 
+      
 
-        \onslide<6>{
-          \path[blue!80!black!50,draw] (1,0) node {\LARGE [} -- +(0:5cm)node
-          {\LARGE ]} node[midway,above=0.8cm] {$t_0$};
-        }
-        \onslide<7>  {
-          \path[blue!80!black!50,draw](4,0) node {\LARGE [} --
-          +(0:4cm) node {\LARGE ]} node[midway,above=0.8cm] {$t_1$}; 
-        }
-        
-        \onslide<8>{   
-          \path[blue!80!black!50,draw] (8.05,0) node {\LARGE [}  --
-          +(0:6cm) node {\LARGE ]}  node[midway,above=0.8cm] {$t_2$};
-        }
-        
-        \onslide<9>{
-          \path[blue!80!black!50,draw] (12,0) node {\LARGE [} --
-          +(0:6cm) node {\LARGE ]} node[midway,above=0.8cm] {$t_3$};
-        }
-        
-        \onslide<10>{
-          \path (12,0) node {\LARGE [}  --
-          +(0:6cm) node {\LARGE ]}  ;
-          \path (8.05,0) node {\LARGE [}  --
-          +(0:6cm) node {\LARGE ]}  ;
-        }
-        \onslide<11>{
-          \path (12,0) --
-          +(0:6cm) node {\LARGE ]}  ;
-          \path (8.05,0) node {\LARGE [}  --
-          +(0:6cm)  ;
-        }
-        
-        \onslide<12>{
-          \path (8,0) node {\LARGE [} --
-          +(0:10cm) node {\LARGE ]}  ;
-          \draw [decorate] (18,-1) -- +(0:-10cm)
-          node[midway,below] {$\ni \{t_3,t_{4}\}$};
-        }
-      \end{tikzpicture}
-    \end{center}
-  }
+      \onslide<1-3,6>{\draw [decorate,color=red!80!black!80] (0,1.7) -- +(0:7cm)
+        node[midway,above]{$st_1$}; }
+      \onslide<1>{ \draw [decorate,color=red!80!black!80] (12,1.7) -- +(0:4cm)
+        node[midway,above] {$et_1$};}
+
+      \onslide<1,4-6>{ \draw [decorate,green!80!black!80] (9,-0.8) -- +(0:-6cm)
+        node[midway,below] {$st_2$};}
+      \onslide<1>{   \draw [decorate,green!80!black!80] (13,-0.8) -- +(0:-3cm)
+        node[midway,below] {$et_2$};}  
+      \onslide<7->{  \draw (0,0)
+        node[color=red!80!black!80,above=-0.12cm] {\LARGE [} ;
+        \draw[green!80!black!80](9,0) node[above=-0.12cm] {\LARGE ]} ;}
+      
+    \end{tikzpicture}
+  \end{center}
+  {\color{gray!60!black!70} \small $2$ tasks $\Rightarrow 4$ events:
+    $t_1,\ t_2,\ t_3$ and $t_4$}
+  \begin{overlayarea}{\textwidth}{0.5cm}
+    \only<2-3>{
+    \item What do we know about $t_1$ ? \onslide<3>{$t_1 \in [0,7]$}
+    }\only<4->{
+    \item What do we know about $t_2$ ? \onslide<5->{ $t_2 \in [3,9]$}
+    }\end{overlayarea}
+  \vfill
+  \onslide<6->{
+    \item What deduction about $t_2 - t_1$ ? \onslide<7->{$t_1,t_2
+        \in [0,9]$}\onslide<8->{$\Rightarrow t_2-t_1 \le 9-0=9$ }}
+\end{itemize}
+
 \end{frame}
 
-\begin{frame}
-  \frametitle{Maximum separation between events}
-  \begin{itemize}
-  \item Order the time-window intervals according to:
-    \[ [a,b] \le [c,d]
-      \Leftrightarrow a < c \lor \left( a=c \land b \le d\right)\]
+
+\begin{frame}{Maximum separation between events}
+ \vfill
+ \begin{itemize}
+  \item Can be generalized to any pair of events
     \vfill
-    \pause
-  \item Then we have:
-    \[t_{e+1}-t_e  \le   |tw_e \cup tw_{e+1}|    \]
-    \pause
-    \begin{flushright}
-      \textcolor{black!70}{\scriptsize in fact: $t_{e+1}-t_e  \le
-        \overline{tw_e \cup tw_{e+1}} - \underline{tw_e \cup tw_{e+1}}
-        $}
-    \end{flushright}
-    \pause
-    \vfill
-  \item We can use it as:
+  \item Can be used as:
     \begin{itemize}
       \vspace{0.2cm}
     \item additional constraints of the model
-    \item an upper bound on $t_{e+1}-t_e$ in any constraints using a worst one
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Maximum time for an event}
-  \begin{itemize}
-  \item {\bf Goal: } upper bound on the value of $t_{e}$
-    \vspace{0.4cm}
-  \item<2-> upper bound of each task start and/or end time
-    \vspace{0.4cm}
-  \item<5-> an event must occur before each of these upper bounds
-    \vspace{0.4cm}
-  \end{itemize}
-  \vfill
-  \onslide<3->{
-    \begin{center} 
-      \begin{tikzpicture}
-        [decoration={brace},scale=0.4]
-        \node (O) at (0,0) {}; 
-        
-        \draw[->] (0,0) -- (19,0);
-        \onslide<3>{
-          \draw (1,0) node {\LARGE [} -- +(0:5cm)node {\LARGE ]}; 
-          
-          \draw(4,0) node {\LARGE [} -- +(0:4cm) node {\LARGE ]} ;
-          
-          \draw (8.05,0) node {\LARGE [}  --
-          +(0:6cm) node {\LARGE ]}  ;
-          \draw (12,0) node {\LARGE [} --
-          +(0:6cm) node {\LARGE ]}  ;}
-        \onslide<4>{
-          
-          \draw (1,0) node {} -- +(0:5cm)node {\LARGE ]}; 
-          
-          \draw(4,0) node {} -- +(0:4cm) node {\LARGE ]} ;
-          
-          \draw (8.05,0) node {}  --
-          +(0:6cm) node {\LARGE ]}  ;
-          \draw (12,0) node {} --
-          +(0:6cm) node {\LARGE ]}  ;}
-        \onslide<5>{
-          \draw[color=blue!80!black!50] (0,0) node {} -- +(0:6cm)node {\LARGE ]}
-          node[left,above=0.8cm] {$t_0$}; 
-          \draw (8,0) node {\LARGE ]} ;
-          \draw (8.05,0) node {}  -- +(0:6cm) node {\LARGE ]}  ;
-          \draw (12,0) node {} -- +(0:6cm) node {\LARGE ]}  ;}
-        
-        \onslide<6>{
-          \draw (6,0) node  {\LARGE ]}; 
-          \draw[color=blue!80!black!50](0,0) -- (8,0) node {\LARGE ]} node[left,above=0.8cm] {$t_1$};
-          \draw (8.05,0) node {}  --  +(0:6cm) node {\LARGE ]}  ;
-          \draw (12,0) node {} --  +(0:6cm) node {\LARGE ]}  ;}
-        
-        \onslide<7>{
-          \draw (6,0) node {\LARGE ]}; 
-          \draw (8,0) node {\LARGE ]} ;
-          \draw[color=blue!80!black!50] (0,0) node {}  -- (14,0) node {\LARGE ]} node[left,above=0.8cm] {$t_2$} ;
-          \draw (18,0)node {\LARGE ]}  ;}
-        
-        \onslide<8>{
-          \draw (6,0) node {\LARGE ]}; 
-          \draw(8,0) node {\LARGE ]} ;
-          \draw (14,0) node {\LARGE ]}  ;
-          \draw[color=blue!80!black!50] (0,0) node {} -- (18,0) node {\LARGE ]}
-          node[left,above=0.8cm] {$t_3$};} 
-        
-      \end{tikzpicture}
-    \end{center}
-  }
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Maximum time for an event}
-  \begin{itemize}
-  \item Order the time-window interval upper bounds ${\cal UP}$ in
-    increasing order 
+    \item instead of $M$ in min consump. constraint
+    \end{itemize}  
     \vfill
-    \pause
-  \item Then we have:
-    \[t_e \le  {\cal UP}_e\]
+  \item Same reasoning can be used to deduce bound on $t_e$
+
+    {\small \color{gray!60!black!70} {\bf Idea} consider upper bound
+      of $[est-i,lst_i]/[eet_i,let_i]$ instead of the whole interval}
     \vfill
-    \pause
-  \item We can use it as:
-    \begin{itemize}
-      \vspace{0.2cm}
-    \item additional constraints of the model
-    \item an upper bound on $t_{e+1}-t_e$ in any constraints using a worst one
-    \end{itemize}
   \end{itemize}
 \end{frame}
+
+
+% \begin{frame}
+%   \frametitle{Maximum separation between events}
+%   \begin{itemize}
+%   \item Order the time-window intervals according to:
+%     \[ [a,b] \le [c,d]
+%       \Leftrightarrow a < c \lor \left( a=c \land b \le d\right)\]
+%     \vfill
+%     \pause
+%   \item Then we have:
+%     \[t_{e+1}-t_e  \le   |tw_e \cup tw_{e+1}|    \]
+%     \pause
+%     \begin{flushright}
+%       \textcolor{black!70}{\scriptsize in fact: $t_{e+1}-t_e  \le
+%         \overline{tw_e \cup tw_{e+1}} - \underline{tw_e \cup tw_{e+1}}
+%         $}
+%     \end{flushright}
+%     \pause
+%     \vfill
+%   \item We can use it as:
+%     \begin{itemize}
+%       \vspace{0.2cm}
+%     \item additional constraints of the model
+%     \item an upper bound on $t_{e+1}-t_e$ in any constraints using a worst one
+%     \end{itemize}
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Maximum time for an event}
+%   \begin{itemize}
+%   \item {\bf Goal: } upper bound on the value of $t_{e}$
+%     \vspace{0.4cm}
+%   \item<2-> upper bound of each task start and/or end time
+%     \vspace{0.4cm}
+%   \item<5-> an event must occur before each of these upper bounds
+%     \vspace{0.4cm}
+%   \end{itemize}
+%   \vfill
+%   \onslide<3->{
+%     \begin{center} 
+%       \begin{tikzpicture}
+%         [decoration={brace},scale=0.4]
+%         \node (O) at (0,0) {}; 
+        
+%         \draw[->] (0,0) -- (19,0);
+%         \onslide<3>{
+%           \draw (1,0) node {\LARGE [} -- +(0:5cm)node {\LARGE ]}; 
+          
+%           \draw(4,0) node {\LARGE [} -- +(0:4cm) node {\LARGE ]} ;
+          
+%           \draw (8.05,0) node {\LARGE [}  --
+%           +(0:6cm) node {\LARGE ]}  ;
+%           \draw (12,0) node {\LARGE [} --
+%           +(0:6cm) node {\LARGE ]}  ;}
+%         \onslide<4>{
+          
+%           \draw (1,0) node {} -- +(0:5cm)node {\LARGE ]}; 
+          
+%           \draw(4,0) node {} -- +(0:4cm) node {\LARGE ]} ;
+          
+%           \draw (8.05,0) node {}  --
+%           +(0:6cm) node {\LARGE ]}  ;
+%           \draw (12,0) node {} --
+%           +(0:6cm) node {\LARGE ]}  ;}
+%         \onslide<5>{
+%           \draw[color=blue!80!black!50] (0,0) node {} -- +(0:6cm)node {\LARGE ]}
+%           node[left,above=0.8cm] {$t_0$}; 
+%           \draw (8,0) node {\LARGE ]} ;
+%           \draw (8.05,0) node {}  -- +(0:6cm) node {\LARGE ]}  ;
+%           \draw (12,0) node {} -- +(0:6cm) node {\LARGE ]}  ;}
+        
+%         \onslide<6>{
+%           \draw (6,0) node  {\LARGE ]}; 
+%           \draw[color=blue!80!black!50](0,0) -- (8,0) node {\LARGE ]} node[left,above=0.8cm] {$t_1$};
+%           \draw (8.05,0) node {}  --  +(0:6cm) node {\LARGE ]}  ;
+%           \draw (12,0) node {} --  +(0:6cm) node {\LARGE ]}  ;}
+        
+%         \onslide<7>{
+%           \draw (6,0) node {\LARGE ]}; 
+%           \draw (8,0) node {\LARGE ]} ;
+%           \draw[color=blue!80!black!50] (0,0) node {}  -- (14,0) node {\LARGE ]} node[left,above=0.8cm] {$t_2$} ;
+%           \draw (18,0)node {\LARGE ]}  ;}
+        
+%         \onslide<8>{
+%           \draw (6,0) node {\LARGE ]}; 
+%           \draw(8,0) node {\LARGE ]} ;
+%           \draw (14,0) node {\LARGE ]}  ;
+%           \draw[color=blue!80!black!50] (0,0) node {} -- (18,0) node {\LARGE ]}
+%           node[left,above=0.8cm] {$t_3$};} 
+        
+%       \end{tikzpicture}
+%     \end{center}
+%   }
+% \end{frame}
+
+
+% \begin{frame}
+%   \frametitle{Maximum time for an event}
+%   \begin{itemize}
+%   \item Order the time-window interval upper bounds ${\cal UP}$ in
+%     increasing order 
+%     \vfill
+%     \pause
+%   \item Then we have:
+%     \[t_e \le  {\cal UP}_e\]
+%     \vfill
+%     \pause
+%   \item We can use it as:
+%     \begin{itemize}
+%       \vspace{0.2cm}
+%     \item additional constraints of the model
+%     \item an upper bound on $t_{e+1}-t_e$ in any constraints using a worst one
+%     \end{itemize}
+%   \end{itemize}
+% \end{frame}
 
 \subsection{Polyhedral results}
 
@@ -493,16 +492,16 @@
   tasks & Default & Int. &  Preem. & I+P \\
   30    & 34.8 & 30.3& 30.3& 33.1\\
 }\mydat
-  \begin{frame}
-    \frametitle{Time comparison for the RCPSP}
-    \begin{itemize}
-    \item Instances of {\color{gray!50!black!70} \it [Koné et al., 2011]}
-    \item 480 instances of 30 tasks
-    \end{itemize}
+\begin{frame}
+  \frametitle{Time comparison for the RCPSP}
+  \begin{itemize}
+  \item Instances of {\color{gray!50!black!70} \it [Koné et al., 2011]}
+  \item 480 instances of 30 tasks
+  \end{itemize}
 
-    \vspace{0.3cm}
-    \begin{center}
-      \begin{tikzpicture}
+  \vspace{0.3cm}
+  \begin{center}
+    \begin{tikzpicture}
       \begin{axis}[ enlarge x limits=0.25,
         ybar,
         bar width=.8cm,  
@@ -522,5 +521,5 @@
         \legend{Default ,Int. , Time , Preem. ,I+T+P}
       \end{axis}
     \end{tikzpicture}
-    \end{center}
-  \end{frame}
+  \end{center}
+\end{frame}

@@ -429,12 +429,12 @@
     \vfill
     \begin{block}{Instance generation}
       \begin{itemize}
-      \item 10 instances 10, 20 instances of 20, 25, 30 tasks. 
+      \item 20 instances of 20, 25, 30 tasks. 
       \item half :random  $a_i$ and $c_i,\ \forall i \in A$, in ${[}1,10{]}$
         and $W_i$ in ${[}0,f_i(W_i){]}$
 
-        o. half: $f_i(b_i(t))= b_i(t)$
-      \item $\epsilon = \{5, 10, 15\}$ 
+        half: $f_i(b_i(t))= b_i(t)$
+      \item $\epsilon = 2.5$ 
       \end{itemize}
     \end{block}
     \vfill
@@ -450,44 +450,72 @@
     \end{block}
     \vfill
   \end{frame}
-
-
+%\draw[color=blue!80!black!80,very thick] (1,0.015) node {$\bullet$}-- (2,0.7)node {$\bullet$}
+    %     -- (2.5,5.415) node {$\bullet$}-- (3,9.485)node {$\bullet$};
+    %     \draw[color=red!80!black!80,very thick] (1,0.026) node {$\bullet$}-- (2,2)node {$\bullet$}
+    %     -- (2.5,21.95) node {$\bullet$}-- (3.0,210.86)node {$\bullet$};
+\pgfplotstableread[row sep=\\,col sep=&]{
+  act.  & tps(s) & solv. & tps & solved\\ 
+    20 & 20 &100&7.0&100 \\ 
+      25 & 219.5&100&54.15 &100  \\ 
+      30 & 2108.6&75&94.85&100 \\ 
+}\mydat
   \begin{frame}
-    \frametitle{Computational results}
-    \begin{figure}[!htb]
-      \centering
-      \begin{tikzpicture}
-        [yscale=0.015,xscale=3.5]
-        \node (O) at (1,0) {};
+    \frametitle{Computational results} 
+\begin{center}
+\begin{tikzpicture}
+      \begin{axis}[ enlarge x limits=0.25,
+        ybar,
+        bar width=.4cm,  
+        legend style={at={(0.5,1)},
+          anchor=north,legend columns=-1},
+        width=\textwidth,
+        height=.6\textwidth,
+        symbolic x coords={10,20,25,30},
+        xtick=data,
+        ymin=0,ymax=2500,
+        ylabel={\small $times (s)$},
+        xlabel={\small $\#tasks$}]
+        \addplot table[x=act.,y=tps(s)]{\mydat};
+        \addplot table[x=act.,y=tps]{\mydat};
+        \legend{On/Off model, Hybrid BB}
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+    % \begin{figure}[!htb]
+    %   \centering
+    %   \begin{tikzpicture}
+    %     [yscale=0.015,xscale=3.5]
+    %     \node (O) at (1,0) {};
         
-        \draw[->] (O.center) -- (1,250);
-        \node at (0.7,125) {\rotatebox{90}{time (s)}};
-        \draw[->] (O.center) -- (3.2,0);
-        \node at (2,-30) {\#tasks};
+    %     \draw[->] (O.center) -- (1,250);
+    %     \node at (0.7,125) {\rotatebox{90}{time (s)}};
+    %     \draw[->] (O.center) -- (3.2,0);
+    %     \node at (2,-30) {\#tasks};
         
-        \foreach \i in {100,200}{
-          \pgfmathsetmacro\result{\i * 10}
-          \draw[dashed] (1,\i) node[left] {\scriptsize \pgfmathprintnumber{\result}} -- (3.2,\i);
-        } 
-        \foreach \i in {1,...,3}{
-          \pgfmathsetmacro\result{\i * 10}
-          \draw (\i,0) node[below] {\scriptsize \pgfmathprintnumber{\result}};
-        }
-        \draw (2.5,0) node[below] {\scriptsize $25$};
+    %     \foreach \i in {100,200}{
+    %       \pgfmathsetmacro\result{\i * 10}
+    %       \draw[dashed] (1,\i) node[left] {\scriptsize \pgfmathprintnumber{\result}} -- (3.2,\i);
+    %     } 
+    %     \foreach \i in {1,...,3}{
+    %       \pgfmathsetmacro\result{\i * 10}
+    %       \draw (\i,0) node[below] {\scriptsize \pgfmathprintnumber{\result}};
+    %     }
+    %     \draw (2.5,0) node[below] {\scriptsize $25$};
 
-        \draw[color=blue!80!black!80,very thick] (1,0.015) node {$\bullet$}-- (2,0.7)node {$\bullet$}
-        -- (2.5,5.415) node {$\bullet$}-- (3,9.485)node {$\bullet$};
-        \draw[color=red!80!black!80,very thick] (1,0.026) node {$\bullet$}-- (2,2)node {$\bullet$}
-        -- (2.5,21.95) node {$\bullet$}-- (3.0,210.86)node {$\bullet$};
+    %     \draw[color=blue!80!black!80,very thick] (1,0.015) node {$\bullet$}-- (2,0.7)node {$\bullet$}
+    %     -- (2.5,5.415) node {$\bullet$}-- (3,9.485)node {$\bullet$};
+    %     \draw[color=red!80!black!80,very thick] (1,0.026) node {$\bullet$}-- (2,2)node {$\bullet$}
+    %     -- (2.5,21.95) node {$\bullet$}-- (3.0,210.86)node {$\bullet$};
 
-        \draw[color=blue!80!black!80,very thick] (3.5,115) node[right]
-        {$MILP$} -- (3.3,115);
-        \draw[color=red!80!black!80,very thick] (3.5,135) node[right]
-        {$\epsilon=2.5$} -- (3.3,135);
-      \end{tikzpicture}
-      \caption{\small Results of experiments for MILP model and hybrid branch-and-bound 
-        with $\epsilon=2.5$ (CPU time in sec.)}
-    \end{figure}
+    %     \draw[color=blue!80!black!80,very thick] (3.5,115) node[right]
+    %     {$MILP$} -- (3.3,115);
+    %     \draw[color=red!80!black!80,very thick] (3.5,135) node[right]
+    %     {$\epsilon=2.5$} -- (3.3,135);
+    %   \end{tikzpicture}
+    %   \caption{\small Results of experiments for MILP model and hybrid branch-and-bound 
+    %     with $\epsilon=2.5$ (CPU time in sec.)}
+    % \end{figure}
     {\small All instances solved except $30$-task instances $\rightarrow$ MILP only solved $75\%$}
   \end{frame}
 

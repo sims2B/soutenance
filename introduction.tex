@@ -1,56 +1,71 @@
 \begin{frame}{What is {\it Scheduling}?}
   \vspace{0.3cm}
   \begin{block}{Definition {\small \it \color{blue!50!black!50}[Pinedo, 2008]}}
-    Scheduling deals with the allocation of resources to {\bf tasks} over
-    given time periods and its goal is to optimize one or more objectives.
+    Scheduling deals with the allocation of {\bf resources} to {\bf tasks} over
+    given \textbf{time} periods and its goal is to optimize one or more \textbf{objectives}.
   \end{block}
-  \vspace{0.6cm}
-  \begin{description}[constraints :]
+\pause
+  \vspace{0.3cm}
+  {\bf Goal:} Decide when execute the tasks, i.e. when allocate resources
+  to the tasks.
+\pause
+  \vspace{0.3cm}
+  Sometimes also how much resources give to the tasks.
+  \vspace{0.5cm}
+ {\small  \begin{description}[constraints :]
     \pause
-  \item[tasks :]  courses, landing/taking off, step in a
-    construction project... 
-    \vspace{0.2cm}
+  \item[tasks :]  courses, landing/taking off, step in project... 
     \pause
   \item[constraints :]
     \begin{itemize}
     \item temporal $\rightarrow$ deadline, precedence, setup...
+      \pause 
     \item resource $\rightarrow$ availability, nature... 
     \end{itemize}
     \pause
-    \vspace{0.2cm}
-  \item[objective :] resource consumption, total cost, makespan,
-    tardiness... 
-    \vspace{0.2cm}
-  \end{description}
+  \item[objective :] resource consumption, total cost, makespan...
+  \end{description}}
   \vfill
 \end{frame}
 
-\begin{frame}{Preemptive/Non-preemptive schedule}
-  In the right fig., execution of task $k$ is paused at $t=3$ and
-  restart at $t=5$.
-  \vspace{-1.8cm}
-  \begin{columns}
-    \begin{column}{0.45\linewidth}
-      \vspace{0.4cm}
-      \begin{figure}[!htb]
+
+\begin{frame}
+  \frametitle{The Cumulative Scheduling Problem} 
+  \vspace{0.1cm}
+  \textbf{Inputs : }
+  \vspace{0.15cm}
+  \begin{itemize}
+  \item a set ${\cal A}=\{1,\dots ,n\}$ of {\bf non-preemptive} tasks
+    \vspace{0.15cm}
+  \item a {\bf cumulative} and {\bf renewable} resource available in quantity $B$
+    \vspace{0.15cm}
+  \item<2-> for each task:
+    \vspace{-1cm}
+    \begin{columns}
+      \hfill
+      \begin{column}{0.36\linewidth}
+        \begin{itemize}
+        \item<2-> \footnotesize  a processing time $p_i$
+        \item<3-> \footnotesize a resource consumption $b_i$ 
+        \item<4-> \footnotesize a release date $r_i$ and a deadline $d_i$ 
+        \end{itemize}
+      \end{column}
+      \begin{column}{0.7\linewidth}
         \centering
-        \input{figures/nonPreemp.tex}
-        \caption{A non-preemtive schedule}
-      \end{figure}
-    \end{column}
-    \hfill
-    \begin{column}{0.45\linewidth}
-      \begin{figure}[!htb]
-        \centering
-        \input{figures/preemp.tex}
-        \caption{A preemtive schedule}
-      \end{figure}
-    \end{column}
-  \end{columns} 
-  \begin{block}{}
-    Here, the resource is cumulative and renewable. 
-  \end{block}
+        \input{figures/form1_CuSP.tex}
+      \end{column} 
+    \end{columns}
+  \end{itemize}
+  \vspace{-0.5cm}
+  \onslide<5->{
+    \textbf{Application : }
+    \vfill
+    \begin{itemize}
+    \item electricity consumption cannot exceed a certain level.
+    \end{itemize}}
 \end{frame}
+
+
 
 \begin{frame}{Continuous/Discrete resource} 
   \begin{description}
@@ -97,41 +112,6 @@
   \end{center}
 \end{frame}
 
-\begin{frame}
-  \frametitle{The Cumulative Scheduling Problem} 
-  \vspace{0.1cm}
-  \textbf{Inputs : }
-  \vspace{0.15cm}
-  \begin{itemize}
-  \item a set ${\cal A}=\{1,\dots ,n\}$ of {\bf non-preemptive} tasks
-    \vspace{0.15cm}
-  \item a {\bf cumulative} and {\bf renewable} resource available in quantity $B$
-    \vspace{0.15cm}
-  \item<2-> for each task:
-    \vspace{-1cm}
-    \begin{columns}
-      \hfill
-      \begin{column}{0.36\linewidth}
-        \begin{itemize}
-        \item<2-> \footnotesize  a processing time $p_i$
-        \item<3-> \footnotesize a resource consumption $b_i$ 
-        \item<4-> \footnotesize a release date $r_i$ and a deadline $d_i$ 
-        \end{itemize}
-      \end{column}
-      \begin{column}{0.7\linewidth}
-        \centering
-        \input{figures/form1_CuSP.tex}
-      \end{column} 
-    \end{columns}
-  \end{itemize}
-  \vspace{-0.5cm}
-  \onslide<5->{
-    \textbf{Application : }
-    \vfill
-    \begin{itemize}
-    \item electricity consumption cannot exceed a certain level.
-    \end{itemize}}
-\end{frame}
 
 \begin{frame}
   \frametitle{Limitations}
@@ -194,8 +174,9 @@
   \end{columns}
 
   \vspace{0.3cm}
-  A required energy quantity ( [resource $\times$ time]) is associated to a task.
-
+  \onslide<4->{
+    A required energy quantity ([resource $\times$ time], e.g. MW/h , pers./day) is associated to a task.
+  }
 \end{frame}
 
 
