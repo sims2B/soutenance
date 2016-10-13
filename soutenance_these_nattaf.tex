@@ -60,10 +60,10 @@
 \setcounter{framenumber}{0}
 
 
- \setcounter{tocdepth}{20}
- \begin{frame}{Overview}
-   \tableofcontents[hideothersubsections,subsubsectionstyle={show/show/show/show}]
- \end{frame}
+\setcounter{tocdepth}{1}
+\begin{frame}{Overview}
+  \tableofcontents[hideothersubsections,subsubsectionstyle={show/show/show/show}]
+\end{frame}
 
 \section{Introduction}
 
@@ -81,7 +81,7 @@
   \begin{frame}
     \frametitle{Overview}
     \thispagestyle{empty}  
-  \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/show/hide
+    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/show/hide
     ] 
   \end{frame}
   \addtocounter{framenumber}{-1}
@@ -101,62 +101,74 @@
   \frametitle{Conclusion}
   \vfill
   \begin{itemize}
-  \item The CECSP is a difficult problem
+  \item The general CECSP is a difficult problem
     \vfill
-\pause
+    \pause
   \item Description of properties allowing us to define solution
     methods:
-    \begin{itemize}
-    \item MILP models
-    \item  Hybrid branch-and-bound 
-    \end{itemize}
-\pause
-    \vfill 
-  \item MILP model $\simeq<$ Hybrid branch-and-bound
-    \vfill 
-\pause
-  \item Improvement of the MILP:
-    \begin{itemize}
-    \item 3 sets of valid inequalities
-    \item Characterization of $Z$-polyhedron
-    \item Improve MILP results for two problems of the literature 
-    \end{itemize}
+
+      \vspace{0.2cm}
+    \begin{description}["Hybrid" :]
+      \pause
+    \item[MILP : ]
+      \begin{itemize}
+      \item 3 models : Time-Indexed, Start/End, On/Off
+      \item Improvement of the formulation: ER inequalities (TI),
+        polyhedral study and valid inequalities (EB) 
+      \end{itemize}
+      
+      \vspace{0.2cm}
+      \pause
+    \item[CP :] 
+      \begin{itemize}
+      \item TT, DR, TTDR
+      \item ER : checker + filter + full caracterization of relevant
+        interval
+      \item TTFB: new checker (using LP!)
+      \end{itemize}
+      
+      \vspace{0.2cm}
+      \pause
+    \item["Hybrid" :]
+      \begin{itemize}
+      \item Hybrid Branch-and-bound
+      \item ER inequalities
+      \item TTFB...
+      \end{itemize}
+    \end{description}
   \end{itemize}
-\vfill
-\pause
 \end{frame}
 
-\begin{frame}
-  \frametitle{Perspectives}
-  \vfill
+  \begin{frame}
+    \frametitle{Perspectives}
+    \vfill
     \begin{itemize}
     \item Improve MILP formulations
-\pause
+      \pause
       \begin{itemize}
       \item deduce inequalities from CP-reasoning
       \item Strengthening of event-besed model
       \end{itemize}
       \vfill
-\pause
+      \pause
     \item Study of the discrete version of the problem
       \begin{itemize}
-\pause
+        \pause
       \item solutions are obtained faster  
       \item provide good approximation
       \end{itemize}
       \vfill
-\pause
+      \pause
     \item Consider more realistic power processing rate functions
       $f_i$
       \begin{itemize}
-\pause
+        \pause
       \item convex functions
       \item concave/convex functions
       \end{itemize}
-\pause
     \end{itemize}
-  \vfill
-\end{frame}
+    \vfill
+  \end{frame}
 
 \end{document}
 
