@@ -9,23 +9,24 @@
   {\bf Goal:} Decide when execute the tasks, i.e. when allocate resources
   to the tasks.
 \pause
-  \vspace{0.3cm}
+\vspace{0.3cm}
+
   Sometimes also how much resources give to the tasks.
   \vspace{0.5cm}
  {\small  \begin{description}[constraints :]
     \pause
-  \item[tasks :]  courses, landing/taking off, step in project... 
+  \item[tasks :]  courses, landing/taking off, step in project,
+    production operation... 
     \pause
   \item[constraints :]
     \begin{itemize}
     \item temporal $\rightarrow$ deadline, precedence, setup...
-      \pause 
     \item resource $\rightarrow$ availability, nature... 
     \end{itemize}
     \pause
   \item[objective :] resource consumption, total cost, makespan...
   \end{description}}
-  \vfill
+\vfill
 \end{frame}
 
 
@@ -39,15 +40,15 @@
     \vspace{0.15cm}
   \item a {\bf cumulative} and {\bf renewable} resource available in quantity $B$
     \vspace{0.15cm}
-  \item<2-> for each task:
+  \item for each task:
     \vspace{-1cm}
     \begin{columns}
       \hfill
       \begin{column}{0.36\linewidth}
         \begin{itemize}
-        \item<2-> \footnotesize  a processing time $p_i$
-        \item<3-> \footnotesize a resource consumption $b_i$ 
-        \item<4-> \footnotesize a release date $r_i$ and a deadline $d_i$ 
+        \item \footnotesize  a processing time $p_i$
+        \item \footnotesize a resource consumption $b_i$ 
+        \item \footnotesize a release date $r_i$ and a deadline $d_i$ 
         \end{itemize}
       \end{column}
       \begin{column}{0.7\linewidth}
@@ -57,15 +58,12 @@
     \end{columns}
   \end{itemize}
   \vspace{-0.5cm}
-  \onslide<5->{
-    \textbf{Application : }
-    \vfill
-    \begin{itemize}
-    \item electricity consumption cannot exceed a certain level.
-    \end{itemize}}
+  \textbf{Application : }
+  \vfill
+  \begin{itemize}
+  \item electricity consumption cannot exceed a certain level.
+  \end{itemize}
 \end{frame}
-
-
 
 \begin{frame}{Continuous/Discrete resource} 
   \begin{description}
@@ -114,7 +112,7 @@
 
 
 \begin{frame}
-  \frametitle{Limitations}
+  \frametitle{Limitations of the CuSP}
   \vspace{0.5cm}
   \begin{itemize}
   \item {Limitation} : tasks have fixed duration and resource consumption
@@ -175,7 +173,7 @@
 
   \vspace{0.3cm}
   \onslide<4->{
-    A required energy quantity ([resource $\times$ time], e.g. MW/h , pers./day) is associated to a task.
+    A required {\bf energy} quantity ({\bf [resource $\times$ time]}, e.g. MW/h , pers./day) is associated to a task.
   }
 \end{frame}
 
@@ -242,7 +240,7 @@
   \end{columns}
   \vfill
   \begin{itemize}
-  \item upper and lower bound on the power given \\
+  \item upper and lower bound on the instantaneous power given \\
     {\small(operational and physical consideration)}
     \vspace{0.4cm}
   \item electrical power limitation\\
@@ -284,16 +282,16 @@
   \item fixed resource consumption $b_i$ $\leftrightarrow$ variable
     resource consumption $b_i(t)$ 
     \vfill  
-  \item<2-> Task can take any shape bounded by:
+  \item Task can take any shape bounded by:
     \begin{itemize}
-    \item<2-> its time-window
-    \item<3-> a maximal and minimal resource consumption
-    \item<4-> energy amount that has to be received by the task
+    \item its \textcolor<1>{blue!80!black!80!}{time-window}
+    \item a \textcolor<1>{green!60!black!80}{maximal and minimal resource consumption}
+    \item \textcolor<1>{red!80!black!80}{energy amount} that has to be received by the task
     \end{itemize}
     \vfill
   \end{itemize}
   \begin{overlayarea}{\textwidth}{3cm}
-    \only<2-4> {
+    \only<1> {
       \vfill
       \begin{columns}
         \begin{column}{0.45\linewidth}
@@ -304,7 +302,7 @@
         \end{column}
       \end{columns}
       \vfill}
-    \only<5>{
+    \only<2>{
       \vfill
       \begin{itemize}
       \item Modeled with a continuous resource
@@ -321,7 +319,7 @@
   Input:\\
   \begin{itemize}
   \item $A=\{1,\hdots,n\}$ a set of non-preemptive tasks
-  \item a continuous, cumulative and renewable resource of capacity  $B$
+  \item a {\bf continuous}, {\bf cumulative} and {\bf renewable} resource of capacity  $B$
   \end{itemize}
   \vfill
   \onslide<2->{
@@ -378,7 +376,7 @@
 
 \begin{frame}{The CECSP : limitations}
   \begin{itemize}
-  \item   $\Rightarrow$ We need to model conversion functions $f_i$.
+  \item   $\Rightarrow$ We need to model {\bf conversion functions} $f_i$.
     \vfill
     \pause
   \item  We have considered the case where $f_i(b)$ is non-decreasing,
@@ -386,14 +384,14 @@
     \pause
     \begin{enumerate}
       \vspace{0.5cm}
-    \item linear: $f_i(b)=a_i*b+c_i$ 
+    \item linear: $f_i(b)=a_i*b+c_i(1-\delta_{b0})$ 
 
       \vspace{0.1cm}
       $\rightarrow$ the {\bf CECSP$_{lin}$}
       \vspace{0.5cm}
       \pause
     \item concave and piecewise linear: if $f$ has $P$ pieces,
-      $f_i(b)=a_{ip}*b+c_{ip}  , p \in \{1,\dots,P\}$
+      $f_i(b)=a_{ip}*b+c_{ip}(1-\delta_{b0}) , p \in \{1,\dots,P\}$
 
       \vspace{0.1cm}
       $\rightarrow$ {\bf the CECSP$_{cpwl}$} 
@@ -536,7 +534,7 @@
 }
 
   \vspace{0.5cm}
-{\bf Possible objectif:} $\qquad $ minimize  $\sum_{i\in A}
+{\bf Possible objective:} $\qquad $ minimize  $\sum_{i\in A}
 \int_{st_i}^{et_i} b_i(t)dt $}
 \end{frame}
 

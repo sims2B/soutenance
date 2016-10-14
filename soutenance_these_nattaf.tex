@@ -69,12 +69,6 @@
 
 \input{introduction.tex}
 
-% \setcounter{tocdepth}{1}
-% \begin{frame}
-%   \tableofcontents
-% \end{frame}
-% \addtocounter{framenumber}{-1}
-
 \setcounter{tocdepth}{2}
 \AtBeginSection[]
 {
@@ -89,7 +83,8 @@
 \section{Problem Properties}
 \input{properties.tex}
 \section{Hybrid Solution Method}
-\input{hybridBB.tex}
+% TODO : resultats expe
+ \input{hybridBB.tex}
 
 \section{Improvement of the Formulation}
 \input{improvement.tex}
@@ -147,7 +142,7 @@
       \pause
       \begin{itemize}
       \item deduce inequalities from CP-reasoning
-      \item Strengthening of event-besed model
+      \item Strengthening of event-based model
       \end{itemize}
       \vfill
       \pause
@@ -169,6 +164,81 @@
     \end{itemize}
     \vfill
   \end{frame}
+
+
+
+
+
+
+
+
+
+  \begin{frame}{Energy/Resource model}
+    \vfill
+    \begin{block}{On/Off model}
+      {\footnotesize
+        \begin{align*}
+          &\sum_{i\in A} B_{ie} \le B(t_{e+1}-t_e)
+          &\forall e & \tag{\it \scriptsize
+                                                    cumulative}\\
+        &  B_{ie} \ge \bmin(t_{e+1}-t_e) -
+M{\color{blue!80!black!80}(1-z_{ie})} & \forall e;\ \forall i & \tag{\it \scriptsize
+                                       min consump.}\\ 
+          &B_{ie} \le \bmax(t_{e+1}-t_e) &\forall e ;\ \forall i& \tag{\it \scriptsize
+                                       max consump.}\\
+          &{\color{red!80!black!80}z_{ie}}M\ge B_{ie} &\forall
+e;\ \forall i  &\tag{\it \scriptsize
+                 no consump.}\\
+& & &\\
+          &W_{ie} \le a_iB_{ie}+c_i(t_{e+1}-t_{e}) &
+\forall e;\ \forall i \in A& \tag{\it
+                                                          \scriptsize conv res. / nrj}\\
+         & W_{ie} \le
+W_i{\color{red!80!black!80}z_{ie}} &\forall e ;\ \forall i& \tag{\it
+                                                             \scriptsize
+                                                             no 
+                                                             nrj}\\
+          &\sum_{e \in 
+{\cal E}\setminus \{2n\}} W_{ie} = W_i &\forall i &\tag{\it
+\scriptsize required nrj}
+        \end{align*}
+      }
+    \end{block}
+    \vfill
+  \end{frame}
+
+\addtocounter{framenumber}{-1}
+  
+\begin{frame}
+  \frametitle{Non-preemptive inequalities}
+
+  \begin{itemize}
+  \item $ z_{ie}-z_{if}+z_{ig} \le 1$ enforces
+    $z_{if}$ to be $1$ for all $e<f<g$ s.t. $z_{ie}=z_{ig}=1$ 
+  \end{itemize}
+  \pause
+  \vspace{0.4cm}
+  \begin{block}{Non-preemptive inequalities }
+    Generalization of constraints $ z_{ie}-z_{if}+z_{ig} \le 1$ to
+    every subset of events of odd cardinality (GNP).
+  \end{block}
+  \pause
+  \vspace{0.4cm}
+  \[ZP_i=\{ z_i \in [0,1]^{\cal E} | z_i\text{ satisfies
+      GNP inequalities and } \eqref{eq1}\}\] 
+  \begin{equation}
+    \text{ with }  \sum_{e \in \cal E} z_{ie} \ge 1 \quad \forall i \in \cal A  
+    \label{eq1}  
+  \end{equation}
+  \pause
+  \vspace{0.4cm}
+  \begin{block}{Theorem}
+    \[ZP_i=Z_i\]
+  \end{block}
+  \vspace{0.5cm}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
 
 \end{document}
 
