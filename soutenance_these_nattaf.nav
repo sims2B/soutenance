@@ -26,116 +26,118 @@
 \headcommand {\beamer@framepages {30}{33}}
 \headcommand {\slideentry {1}{0}{10}{34/36}{}{0}}
 \headcommand {\beamer@framepages {34}{36}}
-\headcommand {\slideentry {1}{0}{11}{37/42}{}{0}}
-\headcommand {\beamer@framepages {37}{42}}
-\headcommand {\slideentry {1}{0}{12}{43/43}{}{0}}
-\headcommand {\beamer@framepages {43}{43}}
-\headcommand {\slideentry {1}{0}{13}{44/45}{}{0}}
-\headcommand {\beamer@framepages {44}{45}}
-\headcommand {\slideentry {1}{0}{14}{46/57}{}{0}}
-\headcommand {\beamer@framepages {46}{57}}
-\headcommand {\slideentry {1}{0}{15}{58/58}{}{0}}
-\headcommand {\beamer@framepages {58}{58}}
-\headcommand {\slideentry {1}{0}{16}{59/62}{}{0}}
-\headcommand {\beamer@framepages {59}{62}}
-\headcommand {\sectionentry {2}{Problem Properties}{63}{Problem Properties}{0}}
-\headcommand {\beamer@sectionpages {3}{62}}
-\headcommand {\beamer@subsectionpages {3}{62}}
-\headcommand {\slideentry {2}{0}{1}{63/63}{}{0}}
-\headcommand {\beamer@framepages {63}{63}}
-\headcommand {\beamer@subsectionentry {0}{2}{1}{64}{Simple Properties}}\headcommand {\beamer@subsectionpages {63}{63}}
-\headcommand {\slideentry {2}{1}{1}{64/67}{Simple Properties}{0}}
-\headcommand {\beamer@framepages {64}{67}}
-\headcommand {\beamer@subsectionentry {0}{2}{2}{68}{Non-integer solution}}\headcommand {\beamer@subsectionpages {64}{67}}
-\headcommand {\slideentry {2}{2}{1}{68/70}{Non-integer solution}{0}}
-\headcommand {\beamer@framepages {68}{70}}
-\headcommand {\beamer@subsectionentry {0}{2}{3}{71}{Piecewise Constant Resource Allocation}}\headcommand {\beamer@subsectionpages {68}{70}}
-\headcommand {\slideentry {2}{3}{1}{71/78}{Piecewise Constant Resource Allocation}{0}}
-\headcommand {\beamer@framepages {71}{78}}
-\headcommand {\beamer@subsectionentry {0}{2}{4}{79}{Polynomial cases}}\headcommand {\beamer@subsectionpages {71}{78}}
-\headcommand {\slideentry {2}{4}{1}{79/80}{Polynomial cases}{0}}
-\headcommand {\beamer@framepages {79}{80}}
-\headcommand {\sectionentry {3}{Hybrid Solution Method}{81}{Hybrid Solution Method}{0}}
-\headcommand {\beamer@sectionpages {63}{80}}
-\headcommand {\beamer@subsectionpages {79}{80}}
-\headcommand {\slideentry {3}{0}{1}{81/81}{}{0}}
-\headcommand {\beamer@framepages {81}{81}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{82}{Branching scheme}}\headcommand {\beamer@subsectionpages {81}{81}}
-\headcommand {\slideentry {3}{1}{1}{82/86}{Branching scheme}{0}}
-\headcommand {\beamer@framepages {82}{86}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{87}{Filtering algorithms}}\headcommand {\beamer@subsectionpages {82}{86}}
-\headcommand {\slideentry {3}{2}{1}{87/89}{Filtering algorithms}{0}}
-\headcommand {\beamer@framepages {87}{89}}
-\headcommand {\slideentry {3}{2}{2}{90/90}{Filtering algorithms}{0}}
-\headcommand {\beamer@framepages {90}{90}}
-\headcommand {\slideentry {3}{2}{3}{91/96}{Filtering algorithms}{0}}
-\headcommand {\beamer@framepages {91}{96}}
-\headcommand {\slideentry {3}{2}{4}{97/99}{Filtering algorithms}{0}}
-\headcommand {\beamer@framepages {97}{99}}
-\headcommand {\slideentry {3}{2}{5}{100/101}{Filtering algorithms}{0}}
-\headcommand {\beamer@framepages {100}{101}}
-\headcommand {\slideentry {3}{2}{6}{102/104}{Filtering algorithms}{0}}
-\headcommand {\beamer@framepages {102}{104}}
-\headcommand {\slideentry {3}{2}{7}{105/107}{Filtering algorithms}{0}}
-\headcommand {\beamer@framepages {105}{107}}
-\headcommand {\slideentry {3}{2}{8}{108/112}{Filtering algorithms}{0}}
-\headcommand {\beamer@framepages {108}{112}}
-\headcommand {\beamer@subsubsectionentry {0}{3}{2}{1}{113}{Energetic reasoning filter}}
-\headcommand {\slideentry {3}{2}{9}{113/117}{Filtering algorithms}{0}}
-\headcommand {\beamer@framepages {113}{117}}
-\headcommand {\beamer@subsubsectionentry {0}{3}{2}{2}{118}{Other filtering algorithms}}
-\headcommand {\slideentry {3}{2}{10}{118/119}{Filtering algorithms}{0}}
-\headcommand {\beamer@framepages {118}{119}}
-\headcommand {\beamer@subsectionentry {0}{3}{3}{120}{Computational results}}\headcommand {\beamer@subsectionpages {87}{119}}
-\headcommand {\slideentry {3}{3}{1}{120/120}{Computational results}{0}}
-\headcommand {\beamer@framepages {120}{120}}
-\headcommand {\slideentry {3}{3}{2}{121/122}{Computational results}{0}}
-\headcommand {\beamer@framepages {121}{122}}
-\headcommand {\slideentry {3}{3}{3}{123/123}{Computational results}{0}}
-\headcommand {\beamer@framepages {123}{123}}
-\headcommand {\sectionentry {4}{Improvement of the Formulation}{124}{Improvement of the Formulation}{0}}
-\headcommand {\beamer@sectionpages {81}{123}}
-\headcommand {\beamer@subsectionpages {120}{123}}
-\headcommand {\slideentry {4}{0}{1}{124/124}{}{0}}
-\headcommand {\beamer@framepages {124}{124}}
-\headcommand {\slideentry {4}{0}{2}{125/128}{}{0}}
-\headcommand {\beamer@framepages {125}{128}}
-\headcommand {\beamer@subsectionentry {0}{4}{1}{129}{Mixed Integer Linear Program}}\headcommand {\beamer@subsectionpages {124}{128}}
-\headcommand {\slideentry {4}{1}{1}{129/134}{Mixed Integer Linear Program}{0}}
-\headcommand {\beamer@framepages {129}{134}}
-\headcommand {\slideentry {4}{1}{2}{135/138}{Mixed Integer Linear Program}{0}}
-\headcommand {\beamer@framepages {135}{138}}
-\headcommand {\beamer@subsectionentry {0}{4}{2}{139}{Valid inequalities}}\headcommand {\beamer@subsectionpages {129}{138}}
-\headcommand {\slideentry {4}{2}{1}{139/146}{Valid inequalities}{0}}
-\headcommand {\beamer@framepages {139}{146}}
-\headcommand {\slideentry {4}{2}{2}{147/147}{Valid inequalities}{0}}
-\headcommand {\beamer@framepages {147}{147}}
-\headcommand {\beamer@subsectionentry {0}{4}{3}{148}{Polyhedral results}}\headcommand {\beamer@subsectionpages {139}{147}}
-\headcommand {\slideentry {4}{3}{1}{148/152}{Polyhedral results}{0}}
-\headcommand {\beamer@framepages {148}{152}}
-\headcommand {\slideentry {4}{3}{2}{153/153}{Polyhedral results}{0}}
-\headcommand {\beamer@framepages {153}{153}}
-\headcommand {\slideentry {4}{3}{3}{154/154}{Polyhedral results}{0}}
-\headcommand {\beamer@framepages {154}{154}}
-\headcommand {\slideentry {4}{3}{4}{155/155}{Polyhedral results}{0}}
-\headcommand {\beamer@framepages {155}{155}}
-\headcommand {\slideentry {4}{3}{5}{156/156}{Polyhedral results}{0}}
-\headcommand {\beamer@framepages {156}{156}}
-\headcommand {\sectionentry {5}{General Conclusions and Perspectives}{157}{General Conclusions and Perspectives}{0}}
-\headcommand {\beamer@sectionpages {124}{156}}
-\headcommand {\beamer@subsectionpages {148}{156}}
-\headcommand {\slideentry {5}{0}{1}{157/157}{}{0}}
-\headcommand {\beamer@framepages {157}{157}}
-\headcommand {\slideentry {5}{0}{2}{158/162}{}{0}}
-\headcommand {\beamer@framepages {158}{162}}
-\headcommand {\slideentry {5}{0}{3}{163/168}{}{0}}
-\headcommand {\beamer@framepages {163}{168}}
-\headcommand {\slideentry {5}{0}{4}{169/169}{}{0}}
-\headcommand {\beamer@framepages {169}{169}}
-\headcommand {\slideentry {5}{0}{5}{170/173}{}{0}}
-\headcommand {\beamer@framepages {170}{173}}
-\headcommand {\beamer@partpages {1}{173}}
-\headcommand {\beamer@subsectionpages {157}{173}}
-\headcommand {\beamer@sectionpages {157}{173}}
-\headcommand {\beamer@documentpages {173}}
-\headcommand {\def \inserttotalframenumber {47}}
+\headcommand {\slideentry {1}{0}{11}{37/41}{}{0}}
+\headcommand {\beamer@framepages {37}{41}}
+\headcommand {\slideentry {1}{0}{12}{42/42}{}{0}}
+\headcommand {\beamer@framepages {42}{42}}
+\headcommand {\slideentry {1}{0}{13}{43/44}{}{0}}
+\headcommand {\beamer@framepages {43}{44}}
+\headcommand {\slideentry {1}{0}{14}{45/56}{}{0}}
+\headcommand {\beamer@framepages {45}{56}}
+\headcommand {\slideentry {1}{0}{15}{57/57}{}{0}}
+\headcommand {\beamer@framepages {57}{57}}
+\headcommand {\slideentry {1}{0}{16}{58/61}{}{0}}
+\headcommand {\beamer@framepages {58}{61}}
+\headcommand {\sectionentry {2}{Problem Properties}{62}{Problem Properties}{0}}
+\headcommand {\beamer@sectionpages {3}{61}}
+\headcommand {\beamer@subsectionpages {3}{61}}
+\headcommand {\slideentry {2}{0}{1}{62/62}{}{0}}
+\headcommand {\beamer@framepages {62}{62}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{63}{Simple Properties}}\headcommand {\beamer@subsectionpages {62}{62}}
+\headcommand {\slideentry {2}{1}{1}{63/65}{Simple Properties}{0}}
+\headcommand {\beamer@framepages {63}{65}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{66}{Non-integer solution}}\headcommand {\beamer@subsectionpages {63}{65}}
+\headcommand {\slideentry {2}{2}{1}{66/68}{Non-integer solution}{0}}
+\headcommand {\beamer@framepages {66}{68}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{69}{Piecewise Constant Resource Allocation}}\headcommand {\beamer@subsectionpages {66}{68}}
+\headcommand {\slideentry {2}{3}{1}{69/76}{Piecewise Constant Resource Allocation}{0}}
+\headcommand {\beamer@framepages {69}{76}}
+\headcommand {\beamer@subsectionentry {0}{2}{4}{77}{Polynomial cases}}\headcommand {\beamer@subsectionpages {69}{76}}
+\headcommand {\slideentry {2}{4}{1}{77/78}{Polynomial cases}{0}}
+\headcommand {\beamer@framepages {77}{78}}
+\headcommand {\sectionentry {3}{Mixed Integer Linear Progamming}{79}{Mixed Integer Linear Progamming}{0}}
+\headcommand {\beamer@sectionpages {62}{78}}
+\headcommand {\beamer@subsectionpages {77}{78}}
+\headcommand {\slideentry {3}{0}{1}{79/79}{}{0}}
+\headcommand {\beamer@framepages {79}{79}}
+\headcommand {\slideentry {3}{0}{2}{80/84}{}{0}}
+\headcommand {\beamer@framepages {80}{84}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{85}{Event-based formulations}}\headcommand {\beamer@subsectionpages {79}{84}}
+\headcommand {\slideentry {3}{1}{1}{85/90}{Event-based formulations}{0}}
+\headcommand {\beamer@framepages {85}{90}}
+\headcommand {\slideentry {3}{1}{2}{91/94}{Event-based formulations}{0}}
+\headcommand {\beamer@framepages {91}{94}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{95}{Valid inequalities}}\headcommand {\beamer@subsectionpages {85}{94}}
+\headcommand {\slideentry {3}{2}{1}{95/98}{Valid inequalities}{0}}
+\headcommand {\beamer@framepages {95}{98}}
+\headcommand {\slideentry {3}{2}{2}{99/99}{Valid inequalities}{0}}
+\headcommand {\beamer@framepages {99}{99}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{100}{Polyhedral results}}\headcommand {\beamer@subsectionpages {95}{99}}
+\headcommand {\slideentry {3}{3}{1}{100/104}{Polyhedral results}{0}}
+\headcommand {\beamer@framepages {100}{104}}
+\headcommand {\slideentry {3}{3}{2}{105/105}{Polyhedral results}{0}}
+\headcommand {\beamer@framepages {105}{105}}
+\headcommand {\slideentry {3}{3}{3}{106/106}{Polyhedral results}{0}}
+\headcommand {\beamer@framepages {106}{106}}
+\headcommand {\slideentry {3}{3}{4}{107/107}{Polyhedral results}{0}}
+\headcommand {\beamer@framepages {107}{107}}
+\headcommand {\sectionentry {4}{Hybrid Solution Method}{108}{Hybrid Solution Method}{0}}
+\headcommand {\beamer@sectionpages {79}{107}}
+\headcommand {\beamer@subsectionpages {100}{107}}
+\headcommand {\slideentry {4}{0}{1}{108/108}{}{0}}
+\headcommand {\beamer@framepages {108}{108}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{109}{Branching scheme}}\headcommand {\beamer@subsectionpages {108}{108}}
+\headcommand {\slideentry {4}{1}{1}{109/113}{Branching scheme}{0}}
+\headcommand {\beamer@framepages {109}{113}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{114}{Filtering algorithms}}\headcommand {\beamer@subsectionpages {109}{113}}
+\headcommand {\slideentry {4}{2}{1}{114/116}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {114}{116}}
+\headcommand {\slideentry {4}{2}{2}{117/117}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {117}{117}}
+\headcommand {\slideentry {4}{2}{3}{118/123}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {118}{123}}
+\headcommand {\slideentry {4}{2}{4}{124/126}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {124}{126}}
+\headcommand {\slideentry {4}{2}{5}{127/128}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {127}{128}}
+\headcommand {\slideentry {4}{2}{6}{129/131}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {129}{131}}
+\headcommand {\slideentry {4}{2}{7}{132/134}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {132}{134}}
+\headcommand {\slideentry {4}{2}{8}{135/136}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {135}{136}}
+\headcommand {\beamer@subsubsectionentry {0}{4}{2}{1}{137}{Energetic reasoning filter}}
+\headcommand {\slideentry {4}{2}{9}{137/141}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {137}{141}}
+\headcommand {\beamer@subsubsectionentry {0}{4}{2}{2}{142}{Other filtering algorithms}}
+\headcommand {\slideentry {4}{2}{10}{142/143}{Filtering algorithms}{0}}
+\headcommand {\beamer@framepages {142}{143}}
+\headcommand {\beamer@subsectionentry {0}{4}{3}{144}{Computational results}}\headcommand {\beamer@subsectionpages {114}{143}}
+\headcommand {\slideentry {4}{3}{1}{144/144}{Computational results}{0}}
+\headcommand {\beamer@framepages {144}{144}}
+\headcommand {\slideentry {4}{3}{2}{145/146}{Computational results}{0}}
+\headcommand {\beamer@framepages {145}{146}}
+\headcommand {\slideentry {4}{3}{3}{147/148}{Computational results}{0}}
+\headcommand {\beamer@framepages {147}{148}}
+\headcommand {\sectionentry {5}{General Conclusions and Perspectives}{149}{General Conclusions and Perspectives}{0}}
+\headcommand {\beamer@sectionpages {108}{148}}
+\headcommand {\beamer@subsectionpages {144}{148}}
+\headcommand {\slideentry {5}{0}{1}{149/149}{}{0}}
+\headcommand {\beamer@framepages {149}{149}}
+\headcommand {\slideentry {5}{0}{2}{150/154}{}{0}}
+\headcommand {\beamer@framepages {150}{154}}
+\headcommand {\slideentry {5}{0}{3}{155/162}{}{0}}
+\headcommand {\beamer@framepages {155}{162}}
+\headcommand {\slideentry {5}{0}{4}{163/163}{}{0}}
+\headcommand {\beamer@framepages {163}{163}}
+\headcommand {\slideentry {5}{0}{5}{164/167}{}{0}}
+\headcommand {\beamer@framepages {164}{167}}
+\headcommand {\slideentry {5}{0}{6}{168/171}{}{0}}
+\headcommand {\beamer@framepages {168}{171}}
+\headcommand {\slideentry {5}{0}{7}{172/172}{}{0}}
+\headcommand {\beamer@framepages {172}{172}}
+\headcommand {\beamer@partpages {1}{172}}
+\headcommand {\beamer@subsectionpages {149}{172}}
+\headcommand {\beamer@sectionpages {149}{172}}
+\headcommand {\beamer@documentpages {172}}
+\headcommand {\def \inserttotalframenumber {46}}

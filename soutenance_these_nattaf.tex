@@ -82,13 +82,15 @@
 }
 \section{Problem Properties}
 \input{properties.tex}
+
+
+\section{Mixed Integer Linear Progamming}
+\input{improvement.tex}
+
+
 \section{Hybrid Solution Method}
 % TODO : resultats expe
  \input{hybridBB.tex}
-
-\section{Improvement of the Formulation}
-\input{improvement.tex}
-
 
 \section{General Conclusions and Perspectives}
 
@@ -161,6 +163,16 @@
       \item convex functions
       \item concave/convex functions
       \end{itemize}
+      \vfill
+      \pause
+    \item Improve filtering algorithms
+      \begin{itemize}
+        \pause
+      \item dedicated filtering algorithms
+      \item improve ER : adaptation of $O(n^2 log n)$ algorithm
+        {\small \it \color{gray!50!black!50} [Bonifas, 2016], [Tesch,
+          2016]}  
+      \end{itemize}
     \end{itemize}
     \vfill
   \end{frame}
@@ -209,6 +221,42 @@ W_i{\color{red!80!black!80}z_{ie}} &\forall e ;\ \forall i& \tag{\it
 
 \addtocounter{framenumber}{-1}
   
+  \begin{frame}{Event-based model}
+  \vfill 
+  {\bf On/Off Model}
+  {\footnotesize
+    \begin{eqnarray*}
+      \textcolor<1>{blue!80!black!80}{t_e \le t_{e+1} }&
+                                                         \textcolor<1>{blue!80!black!80}{ \forall e}\\[2mm]
+      \pause
+      \textcolor<2>{blue!80!black!80}{r_iz_{ie}\le t_e
+      } & \textcolor<2>{blue!80!black!80}{\forall e, i
+          }\\[2mm] 
+      \textcolor<2>{blue!80!black!80}{t_e \le
+      lst_i(z_{ie}-z_{ie-1})+(1-(z_{ie}-z_{ie-1}))D_{max} }&
+                                                             \textcolor<2>{blue!80!black!80}{ \forall e,i}\\[2mm]
+      \pause
+      \textcolor<3>{blue!80!black!80}{ 
+      eet_i(z_{ie-1}-z_{ie})\le t_e} & \textcolor<3>{blue!80!black!80}{
+                                       \forall e, i }\\[2mm]
+      \textcolor<3>{blue!80!black!80}{t_e \le
+      d_i(z_{ie-1}-z_{ie})+(1-(z_{ie-1}-z_{ie}))D_{max}}&
+                                                          \textcolor<3>{blue!80!black!80}{\forall e, i }\\[2mm]
+      \pause
+      \textcolor<4>{blue!80!black!80}{ \sum_{e \in {\cal E}}
+      z_{ie} \ge 1}& \textcolor<4>{blue!80!black!80}{\forall i
+                     } \\[2mm]
+      \textcolor<4>{blue!80!black!80}{\sum_{e'=1}^{e}
+      z_{ie'} \le e(1-(z_{ie}-z_{ie-1})) }& \textcolor<4>{blue!80!black!80}{
+                                            \forall e,i}\\[2mm]
+      \textcolor<4>{blue!80!black!80}{\sum_{e'=e}^{2n}
+      z_{ie'} \le (2n-e)(1+(z_{ie}-z_{ie-1})) }&
+                                                 \textcolor<4>{blue!80!black!80}{\forall e,i}
+    \end{eqnarray*}}
+  \vfill
+\end{frame}
+\addtocounter{framenumber}{-1}
+  
 \begin{frame}
   \frametitle{Non-preemptive inequalities}
 
@@ -240,6 +288,44 @@ W_i{\color{red!80!black!80}z_{ie}} &\forall e ;\ \forall i& \tag{\it
 
 \addtocounter{framenumber}{-1}
 
+
+\pgfplotstableread[row sep=\\,col sep=&]{
+  tasks & Default & Int. &  Preem. & I+P \\
+  30    & 34.8 & 30.3& 30.3& 33.1\\
+}\mydat
+\begin{frame}
+  \frametitle{Time comparison for the RCPSP}
+  \begin{itemize}
+  \item Instances of {\color{gray!50!black!70} \it [Koné et al., 2011]}
+  \item 480 instances of 30 tasks
+  \end{itemize}
+
+  \vspace{0.3cm}
+  \begin{center}
+    \begin{tikzpicture}
+      \begin{axis}[ enlarge x limits=0.25,
+        ybar,
+        bar width=.8cm,  
+        legend style={at={(0.5,1)},
+          anchor=north,legend columns=-1},
+        width=0.8\textwidth,
+        height=.55\textwidth,
+        symbolic x coords={30},
+        xtick=data,
+        ymin=0,ymax=50,
+        ylabel={\small $time (s)$},
+        xlabel={\small $\#tasks$}]
+        \addplot table[x=tasks,y=Default]{\mydat};
+        \addplot table[x=tasks,y=Int.]{\mydat};
+        \addplot table[x=tasks,y=Preem.]{\mydat};
+        \addplot table[x=tasks,y=I+P]{\mydat};
+        \legend{Default ,Int. , Time , Preem. ,I+T+P}
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\addtocounter{framenumber}{-1}
 \end{document}
 
 
