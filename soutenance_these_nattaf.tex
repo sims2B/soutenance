@@ -177,14 +177,6 @@
     \vfill
   \end{frame}
 
-
-
-
-
-
-
-
-
   \begin{frame}{Energy/Resource model}
     \vfill
     \begin{block}{On/Off model}
@@ -257,36 +249,7 @@ W_i{\color{red!80!black!80}z_{ie}} &\forall e ;\ \forall i& \tag{\it
 \end{frame}
 \addtocounter{framenumber}{-1}
   
-\begin{frame}
-  \frametitle{Non-preemptive inequalities}
 
-  \begin{itemize}
-  \item $ z_{ie}-z_{if}+z_{ig} \le 1$ enforces
-    $z_{if}$ to be $1$ for all $e<f<g$ s.t. $z_{ie}=z_{ig}=1$ 
-  \end{itemize}
-  \pause
-  \vspace{0.4cm}
-  \begin{block}{Non-preemptive inequalities }
-    Generalization of constraints $ z_{ie}-z_{if}+z_{ig} \le 1$ to
-    every subset of events of odd cardinality (GNP).
-  \end{block}
-  \pause
-  \vspace{0.4cm}
-  \[ZP_i=\{ z_i \in [0,1]^{\cal E} | z_i\text{ satisfies
-      GNP inequalities and } \eqref{eq1}\}\] 
-  \begin{equation}
-    \text{ with }  \sum_{e \in \cal E} z_{ie} \ge 1 \quad \forall i \in \cal A  
-    \label{eq1}  
-  \end{equation}
-  \pause
-  \vspace{0.4cm}
-  \begin{block}{Theorem}
-    \[ZP_i=Z_i\]
-  \end{block}
-  \vspace{0.5cm}
-\end{frame}
-
-\addtocounter{framenumber}{-1}
 
 
 \pgfplotstableread[row sep=\\,col sep=&]{

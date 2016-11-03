@@ -37,12 +37,12 @@
     \vfill
     \pause
   \item Start/End model have stronger relaxations than the On/Off
-    model ( $\mathbf{var(OO) = func\, (var (SE))}$)
+    model ( $\mathbf{var(OO) = linearFunction\, (var (SE)\, )\  }$)
     \pause
     \vfill
-  \item But: On/Off model has less variables than Start/End model
+  \item But: Start/End model has more variables than On/Off model
     \pause
-    and  better performances  
+    and worst performances  
     \vfill
     \pause
   \item Study of the On/Off formulation
@@ -309,17 +309,16 @@
       {\scriptsize (${\cal E}=$event set)}}
     \vspace{0.4cm}
 
-    \onslide<4->{$\Rightarrow$ vector with consecutive-one property  and at least
+    \onslide<3->{$\Rightarrow$ vector with consecutive-one property  and at least
       one $1$
       \begin{center}
         {\small e.g. $(0,0,1,1,1,0),\ (1,1,1,0,0,0),\ \dots$}
-      \end{center}}
-    \onslide<5->{     
+      \end{center}     
       \[Z_i= conv\{z_i \in \{0,1\}^{|{\cal E}|} | z_i \text{ of the
           form } (0^*\, 1\, 1^*\, 0^*)\} \] }
     \vspace{-0.2cm}
   \end{block}
-  \onslide<3->{\textcolor{black!70}{ \small\[z_{ie}=\left\{
+  \onslide<2->{\textcolor{black!70}{ \small\[z_{ie}=\left\{
           \begin{array}{ll}
             1 & \text{if task $i$ is in process between $t_e$ and $t_{e+1}$}\\
             0 & \text{otherwise}
@@ -328,6 +327,27 @@
       \]}}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Non-preemptive inequalities}
+  \begin{block}{Non-preemptive inequalities}
+    \[\sum_{e_k \in S} (-1)^kz _{ie_k} \leq 1\]
+    {\footnotesize where $S = \{e_0,e_1,\ldots,e_{2\ell}\}$ is a subset of 
+      events of odd cardinality.}
+  \end{block}
+  \[ZP_i=\{ z_i \in [0,1]^{\cal E} | z_i\text{ satisfies
+      non-preemptive inequalities and~\eqref{eq1}}\}\] 
+  \begin{equation}
+    \text{ with }  \sum_{e \in \cal E} z_{ie} \ge 1 \quad \forall i \in \cal A  \label{eq1}
+  \end{equation}
+  \begin{block}{Theorem}
+    \[ZP_i=Z_i\]
+    \vspace{-0.2cm}
+    \textcolor{black!70}{\footnotesize \[Z_i= conv\{z_i \in
+        \{0,1\}^{|{\cal E}|} | z_i \text{ of the form } (0^*\, 1\,
+        1^*\, 0^*)\}\]}   
+    \vspace{-0.2cm}
+  \end{block}
+ \end{frame}
 
 \begin{frame}
   \frametitle{Computational experience}
@@ -340,7 +360,7 @@
   \item MILP resolution: CPLEX 12.6 with 1 thread  
     \vfill
   \item Special separation procedure for non-preemptive cuts ($O(n^2)$)
-    for node with depth less than 10 (Preem.)
+    for node with depth less than 10
     \vfill
   \item time limit: 1000 seconds
     \vfill
@@ -362,14 +382,15 @@
   \end{itemize}
 
   \vspace{0.2cm}
-  \begin{center}\begin{tikzpicture}
+  \begin{center}
+    \begin{tikzpicture}[yscale=0.9,xscale=0.9]
       \begin{axis}[ enlarge x limits=0.25,
         ybar,
         bar width=.4cm,  
         legend style={at={(0.5,1)},
           anchor=north,legend columns=-1},
         width=\textwidth,
-        height=.6\textwidth,
+        height=.65\textwidth,
         symbolic x coords={20,25,30},
         xtick=data,
         ymin=0,ymax=1100,
@@ -400,7 +421,8 @@
   \end{itemize}
 
   \vspace{0.2cm}
-  \begin{center}\begin{tikzpicture}
+  \begin{center}
+    \begin{tikzpicture}[yscale=0.9,xscale=0.9]
       \begin{axis}[ enlarge x limits=0.25,
         ybar,
         bar width=.4cm,  
